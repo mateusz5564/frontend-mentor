@@ -12,7 +12,6 @@ body {
 }
 
 header {
-  width: 500px;
   margin: 0 auto;
   text-align: center;
   margin-top: 50px;
@@ -20,7 +19,7 @@ header {
 
 h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 6.5vw;
   font-weight: 200;
   color: hsl(234, 12%, 34%);
 }
@@ -40,25 +39,14 @@ header p {
   margin: 0 auto;
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(auto, 340px));
   gap: 30px;
-  align-items: center;
+  justify-items: center;
   justify-content: center;
 }
 
-.card:first-child,
-.card:last-child {
-  grid-row: span 2;
-}
-
-.card:nth-child(2) {
-  order: 1;
-}
-
-
 .card {
-  width: 340px;
+  max-width: 340px;
   padding: 20px;
   box-shadow: 4px 10px 20px hsla(229, 6%, 66%, 0.507);
   border-radius: 10px;
@@ -95,39 +83,43 @@ header p {
 }
 
 .bg_red::before {
-  border-top: 4px solid hsl(0, 100%, 40%);
+  border-top: 4px solid hsl(0, 78%, 62%);
 }
 
 .bg_orange::before {
-  border-top: 4px solid hsl(39, 100%, 45%);
+  border-top: 4px solid hsl(34, 97%, 64%);
 }
 
 .bg_blue::before {
-  border-top: 4px solid hsl(202, 100%, 40%);
+  border-top: 4px solid hsl(212, 86%, 64%);
 }
 
-@media (max-width: 1200px) {
-  .card {
-    margin: 20px auto;
+
+@media (min-width: 620px) {
+  header {
+    width: 500px;
   }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1136px) {
 
   .container {
-    display: block;
+    grid-template-areas: 
+      "supervisor team-builder calculator"
+      "supervisor karma calculator";
+    align-items: center;
+  }
+
+  .card:first-child {
+    grid-area: supervisor;
+  }
+
+  .card:last-child {
+    grid-area: calculator;
   }
 }
 
-@media (max-width: 580px) {
-  h1 {
-    font-size: 7vw;
-  }
-
-  header {
-    width: 100%;
-  }
-
-  .card {
-    width: 100%;
-    min-width: 250px;
-  }
-
-}
