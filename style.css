@@ -1,48 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
-/* - Mobile: 375px
-- Desktop: 1440px
-
-
-Very Dark Magenta: hsl(300, 43%, 22%)
-Soft Pink: hsl(333, 80%, 67%)
-
-Dark Grayish Magenta: hsl(303, 10%, 53%)
-Light Grayish Magenta: hsl(300, 24%, 96%)
-White: hsl(0, 0%, 100%)
-
-
-- Family: [Spartan](https://fonts.google.com/specimen/Spartan)
-- Weights: 400, 500, 700
- */
 
 body {
   font-size: 15px;
   font-family: 'Spartan', sans-serif;
   padding: 20px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+header {
+  text-align: center;
 }
 
 h1 {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 50px;
   font-size: 2rem;
-  font-weight: 700;
   color: hsl(300, 43%, 22%);
-  text-align: center;
+  font-weight: 700;
+  margin-top: 50px;
 }
 
 h2 {
-  text-align: center;
-  color: hsl(303, 10%, 53%);
   font-size: 1.1rem;
-  margin: 30px 0;
+  color: hsl(303, 10%, 53%);
   font-weight: 500;
+  margin: 30px 0;
 }
+
+/* RATES */
 
 .rates {
   margin: 50px 0;
@@ -50,20 +42,22 @@ h2 {
 
 .rate {
   background: hsl(300, 24%, 96%);
+  color: hsl(300, 43%, 22%);
+  font-weight: 700;
   text-align: center;
   margin: 20px 0;
-  font-weight: 700;
-  color: hsl(300, 43%, 22%);
   padding: 20px;
   border-radius: 10px;
 }
+
+/* REVIEWS */
 
 .review {
   background: hsl(300, 43%, 22%);
   border-radius: 10px;
   color: hsl(300, 24%, 96%);
   padding: 30px;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 .review__customer {
@@ -78,7 +72,7 @@ h2 {
   justify-content: center;
 }
 
-.review__person > p {
+.review__person>p {
   margin: 0;
   font-size: 1.1rem;
 }
@@ -101,4 +95,88 @@ h2 {
 .review__opinion {
   line-height: 1.5;
   font-weight: 500;
+}
+
+/* DESKTOP 1440px */
+
+@media (min-width: 1440px) {
+
+  body {
+    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 100px;
+  }
+
+  header {
+    flex: 1 1 50%;
+    padding-right: 110px;
+    text-align: start;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    margin: 20px 0;
+  }
+
+
+  /* RATES */
+  .rates {
+    flex: 1 1 50%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rate {
+    width: 100%;
+    max-width: 450px;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .rate__stars {
+    margin: 0 20px;
+  }
+
+  .rate:first-child {
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .rate:last-child {
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+
+  /* REVIEWS */
+  .reviews {
+    display: flex;
+    height: 365px;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .review {
+    margin: 0;
+    flex: 1;
+  }
+
+  .review:first-child {
+    align-self: flex-start;
+    margin-right: 30px;
+  }
+
+  .review:last-child {
+    align-self: flex-end;
+    margin-left: 30px;
+  }
 }
