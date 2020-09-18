@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+/*
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+- Very Dark Grayish Blue: hsl(217, 19%, 35%)
+- Desaturated Dark Blue: hsl(214, 17%, 51%)
+- Grayish Blue: hsl(212, 23%, 69%)
+- Light Grayish Blue: hsl(210, 46%, 95%)
+
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: hsl(210, 46%, 95%);
+  font-size: 15px;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.component {
+  background: white;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 2px 2px 10px hsl(212, 23%, 69%);
+  position: relative;
+}
+
+.component__image {
+  background: center / cover url("images/drawers.jpg");
+  height: 300px;
+}
+
+.component__content {
+  padding: 30px;
+  padding-bottom: 20px;
+}
+
+.component__title {
+  color: hsl(217, 19%, 35%);
+}
+
+.component__description {
+  color: hsl(214, 17%, 51%);
+}
+
+.component__avatar {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.component__author {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.component__fullname {
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+  margin: 0;
+}
+
+.component__date {
+  color: hsl(214, 17%, 51%);
+  margin: 0;
+}
+
+.component__footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component__sharebtn {
+  margin: 0;
+  padding: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: hsl(210, 46%, 95%);
+  z-index: 2;
+}
+
+.component__share {
+  background: hsl(217, 19%, 35%);
+  position: absolute;
+  bottom: 0;
+  padding: 32px 20px;
+  width: 100%;
+  display: flex;
+  /* display: none; */
+}
+
+.component__share-text {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: hsl(212, 23%, 69%);
+}
+
+.component__share > img {
+  margin: 0 15px;
+}
+
+
+@media (min-width: 1000px) {
+ .component {
+   display: flex;
+   max-width: 800px;
+ }
+
+ .component__image {
+   flex: 1 1 40%;
+   height: auto;
+ }
+
+ .component__content {
+   flex: 1 1 60%;
+ }
+
+ .component__share {
+   position: absolute;
+   width: auto;
+   padding: 20px;
+   right: -70px;
+   bottom: 90px;
+   border-radius: 10px;
+ }
+
+ .component__share::after {
+   content: "";
+   background: hsl(217, 19%, 35%);
+   position: absolute;
+   padding: 10px;
+   left: 50%;
+   rotate: 45deg;
+   bottom: -10px;
+ }
+}
