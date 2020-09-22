@@ -10,13 +10,15 @@ body {
   font-size: 15px;
   padding: 10px;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .component {
   background: white;
   border-radius: 10px;
   max-width: 400px;
-  margin: 0 auto;
   box-shadow: 2px 2px 10px hsl(212, 23%, 69%);
   position: relative;
 }
