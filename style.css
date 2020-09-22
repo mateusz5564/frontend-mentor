@@ -135,19 +135,19 @@ body {
 
  .component__share::after {
    content: "";
+   display: inline-block;
    background: hsl(217, 19%, 35%);
    position: absolute;
    padding: 10px;
    left: 50%;
-   rotate: 45deg;
    bottom: -10px;
-   transform: scale(0);
+   transform: rotate(45deg) scale(0);
    opacity: 0;
    transition: all .4s;
  }
 
  .component__share.open::after {
-   transform: scale(1);
+   transform: rotate(45deg) scale(1);
    opacity: 1;
  }
 }
