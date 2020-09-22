@@ -88,7 +88,7 @@ body {
   transform: scale(0);
   opacity: 0;
   transform-origin: right;
-  transition: all .2s ease-in-out;
+  transition: all .2s ease-in;
 }
 
 .component__share-text {
@@ -99,6 +99,13 @@ body {
 
 .component__share > img {
   margin: 0 15px;
+}
+
+.component__sharebtn.openbtn {
+  background: hsl(214, 17%, 51%);
+}
+.component__sharebtn.openbtn svg path {
+  fill:  hsl(210, 46%, 95%);
 }
 
 .open {
@@ -149,5 +156,12 @@ body {
  .component__share.open::after {
    transform: rotate(45deg) scale(1);
    opacity: 1;
+ }
+
+ .component__sharebtn.openbtn {
+   background: hsl(217, 19%, 35%);
+ }
+ .component__sharebtn.openbtn svg path {
+   fill:  hsl(210, 46%, 95%);
  }
 }
