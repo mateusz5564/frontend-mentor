@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background: center / cover no-repeat url("images/bg-mobile.png");
+  color: hsl(229, 7%, 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background: hsl(228, 56%, 26%);
+  width: 100%;
+  padding: 40px;
+  border-radius: 5px 70px 5px 5px;
+}
+
+.header__logo {
+  margin-bottom: 20px;
+  width: 110px;
+}
+
+.header__icons {
+  display: flex;
+}
+
+.header__icon {
+  margin-right: 10px;
+  background: hsl(229, 57%, 11%);
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.storage {
+  position: relative;
+  background: hsl(228, 56%, 26%);
+  width: 100%;
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.storage__bar {
+  background: hsl(229, 57%, 11%);
+  border-radius: 50px;
+  width: 100%;
+}
+
+.storage__fill {
+  position: relative;
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  border-radius: 50px;
+  height: 15px;
+  width: 82%;
+}
+
+.storage__fill::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 12px;
+  width: 12px;
+  background: white;
+  border-radius: 50px;
+}
+
+.storage__space {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.storage__left {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: hsl(243, 100%, 93%);
+  padding: 10px;
+  width: 50%;
+  max-width: 160px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-bold {
+  color: hsl(243, 100%, 93%);
+  font-weight: 700;
+}
+
+.text-big {
+  font-size: 2.2rem;
+  color: hsl(229, 57%, 11%);
+  margin: 0 10px;
+}
