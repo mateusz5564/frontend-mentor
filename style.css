@@ -118,7 +118,7 @@ body {
     background-image: url("images/bg-desktop.png");
     max-width: 800px;
     background-size: contain;
-    background-position: bottom center
+    background-position: bottom center;
   }
 
   .wrapper {
@@ -142,19 +142,17 @@ body {
     left: auto;
     bottom: auto;
     transform: translateY(0);
-    overflow-x: clip;
     border-bottom-right-radius: 0;
   }
 
   .storage__left::after {
     content: "";
+    display: block;
     position: absolute;
-    background: hsl(243, 100%, 93%);
-    width: 30px;
-    height: 30px;
-    right: -15px;
-    bottom: -15px;
-    transform: rotate(45deg);
+    right: 0;
+    bottom: -20px;
+    border-top: 20px solid  hsl(243, 100%, 93%);
+    border-left: 20px solid transparent;
   }
 
   .text-big {
