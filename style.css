@@ -7,20 +7,21 @@
 }
 
 body {
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
+  margin: 0 auto;
   padding: 20px;
-  background: center / cover no-repeat url("images/bg-mobile.png");
+  background: center / cover no-repeat url("images/bg-mobile.png"), hsl(229, 57%, 11%);
   color: hsl(229, 7%, 55%);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.wrapper {
+  width: 100%;
 }
 
 .header {
   background: hsl(228, 56%, 26%);
-  width: 100%;
   padding: 40px;
   border-radius: 5px 70px 5px 5px;
 }
@@ -46,9 +47,8 @@ body {
 .storage {
   position: relative;
   background: hsl(228, 56%, 26%);
-  width: 100%;
   margin-top: 15px;
-  padding: 20px;
+  padding: 20px 20px 30px 20px;
   border-radius: 5px;
   text-align: center;
 }
@@ -56,7 +56,6 @@ body {
 .storage__bar {
   background: hsl(229, 57%, 11%);
   border-radius: 50px;
-  width: 100%;
 }
 
 .storage__fill {
@@ -64,12 +63,11 @@ body {
   background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
   border-radius: 50px;
   height: 15px;
-  width: 82%;
+  width: 81.5%;
 }
 
 .storage__fill::after {
   content: "";
-  display: inline-block;
   position: absolute;
   right: 1px;
   top: 50%;
@@ -87,16 +85,17 @@ body {
 }
 
 .storage__left {
+  background: hsl(243, 100%, 93%);
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: 50%;
+  max-width: 150px;
+  padding: 10px;
   position: absolute;
   left: 50%;
+  bottom: -28px;
   transform: translateX(-50%);
-  background: hsl(243, 100%, 93%);
-  padding: 10px;
-  width: 50%;
-  max-width: 160px;
   border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: 700;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -112,4 +111,53 @@ body {
   font-size: 2.2rem;
   color: hsl(229, 57%, 11%);
   margin: 0 10px;
+}
+
+@media (min-width: 600px) {
+  body {
+    background-image: url("images/bg-desktop.png");
+    max-width: 800px;
+    background-size: contain;
+    background-position: bottom center
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .header {
+    flex: 0 1 40%;
+    margin-right: 20px;
+  }
+
+  .storage {
+    flex: 1 1 60%;
+    text-align: left;
+  }
+
+  .storage__left {
+    top: -28px;
+    right: 20px;
+    left: auto;
+    bottom: auto;
+    transform: translateY(0);
+    overflow-x: clip;
+    border-bottom-right-radius: 0;
+  }
+
+  .storage__left::after {
+    content: "";
+    position: absolute;
+    background: hsl(243, 100%, 93%);
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    bottom: -15px;
+    transform: rotate(45deg);
+  }
+
+  .text-big {
+    font-size: 2rem;
+  }
 }
