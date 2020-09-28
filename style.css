@@ -28,13 +28,13 @@ body {
 .swipe-left {
   transform: translateX(-100%);
   opacity: 0;
-  transition: all .3s ease-in;
+  transition: all .3s ease-out;
 }
 
 .swipe-right {
   transform: translateX(100%);
   opacity: 0;
-  transition: all .3s ease-in;
+  transition: all .3s ease-out;
 }
 
 /* TESTIMONIALS */

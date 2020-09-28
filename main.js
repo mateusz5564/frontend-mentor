@@ -19,14 +19,15 @@ function resetElements() {
   testimonials.forEach(tsm => tsm.classList.remove("swipe-left", "swipe-right"))
 }
 
-function handlePrev() {
+function handlePrev(e) {
   if(!previous) return;
   current.classList.add("swipe-right");
   current.classList.remove("active");
   previous.classList.add("active");
   current = previous;
   setPositions();
-  resetElements();
+  // resetElements();
+  current.addEventListener('transitionend', (e) => resetElements());
 }
 
 function handleNext() {
@@ -36,7 +37,8 @@ function handleNext() {
   next.classList.add("active");
   current = next;
   setPositions();
-  resetElements();
+  // resetElements();
+  current.addEventListener('transitionend', (e) => resetElements());
 }
 
 prevBtn.addEventListener('click', handlePrev);
