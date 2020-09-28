@@ -5,6 +5,7 @@ const nextBtn = document.querySelector('#next');
 let previous, current, next;
 current = testimonials[0];
 next = testimonials[1];
+previous = testimonials[testimonials.length - 1];
 
 function setPositions() {
   let currIndex = testimonials.indexOf(current);
