@@ -9,8 +9,8 @@ next = testimonials[1];
 function setPositions() {
   let currIndex = testimonials.indexOf(current);
   console.log({currIndex});
-  currIndex <= 0 ? previous = null : previous = testimonials[currIndex - 1];
-  currIndex >= testimonials.length - 1 ? next = null : next = testimonials[currIndex + 1];
+  currIndex <= 0 ? previous = testimonials[testimonials.length - 1] : previous = testimonials[currIndex - 1];
+  currIndex >= testimonials.length - 1 ? next = testimonials[0] : next = testimonials[currIndex + 1];
   console.log({previous, current, next});
 }
 
