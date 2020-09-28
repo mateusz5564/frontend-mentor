@@ -95,7 +95,7 @@ body {
   background: white;
   height: 40px;
   width: 80px;
-  top: 245px;
+  top: 240px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50px;
@@ -173,6 +173,6 @@ body {
     top: auto;
     left: auto;
     right: 240px;
-    bottom: 30px;
+    bottom: 12px;
   }
 }
