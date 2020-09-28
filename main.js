@@ -14,20 +14,28 @@ function setPositions() {
   console.log({previous, current, next});
 }
 
+function resetElements() {
+  testimonials.forEach(tsm => tsm.classList.remove("swipe-left", "swipe-right"))
+}
+
 function handlePrev() {
   if(!previous) return;
-  current.classList.add("hide");
-  previous.classList.remove("hide");
+  current.classList.add("swipe-right");
+  current.classList.remove("active");
+  previous.classList.add("active");
   current = previous;
   setPositions();
+  resetElements();
 }
 
 function handleNext() {
   if(!next) return;
-  current.classList.add("hide");
-  next.classList.remove("hide");
+  current.classList.add("swipe-left");
+  current.classList.remove("active");
+  next.classList.add("active");
   current = next;
   setPositions();
+  resetElements();
 }
 
 prevBtn.addEventListener('click', handlePrev);
