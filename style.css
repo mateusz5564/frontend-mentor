@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+/* # Front-end Style Guide
+
+
+
+- Desaturated Red: hsl(0, 36%, 70%)
+- Soft Red: hsl(0, 93%, 68%)
+
+### Neutral
+
+- Dark Grayish Red: hsl(0, 6%, 24%)
+
+### Gradients
+
+- Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+
+
+
+- Family: [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans)
+- Weights: 300, 400, 600 */
+
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  text-align: left;
+}
+
+header img {
+  width: 100px;
+}
+
+.hero img {
+  max-width: 100%;
+}
+
+.content {
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+h1 span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+
+h1 .text-gold {
+  color: hsl(0, 36%, 70%);
+  font-weight: 300;
+}
+
+.description {
+  color: hsl(0, 36%, 70%);
+  margin-bottom: 30px;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid hsla(0, 6%, 14%, 0.253);
+  margin-bottom: 33px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input {
+  height: 100%;
+  margin-left: 20px;
+  margin-right: 10px;
+  border: none;
+  color: hsla(0, 6%, 14%, 0.705);
+  min-width: 20px;
+  flex-grow: 1;
+}
+
+.form__button {
+  position: relative;
+  cursor: pointer;
+  top: -1px;
+  right: -1px;
+  height: 50px;
+  width: 70px;
+  background: linear-gradient(to right, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 15px hsl(0, 36%, 70%);
+  flex-shrink: 0;
+}
+
+.form__error {
+  /* display: none; */
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  font-size: 0.8rem;
+  color: hsl(0, 93%, 68%);
+}
+
+.form__error-icon {
+  /* display: none; */
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
