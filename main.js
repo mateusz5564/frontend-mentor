@@ -11,10 +11,14 @@ function sendForm(e) {
   if(isEmailValid) {
     formError.classList.remove('show');
     formErrorIcn.classList.remove('show');
+    form.classList.remove('red-border');
+    emailIn.value = "";
   } else {
     formError.classList.add('show');
     formErrorIcn.classList.add('show');
+    form.classList.add('red-border');
   }
+
 }
 
 function validateEmail(email) {
