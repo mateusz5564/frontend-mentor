@@ -126,11 +126,15 @@ h1 .text-gold {
   }
 
   header {
-    padding: 30px;
+    padding: 60px 30px;
     max-width: 440px;
     width: 100%;
     margin: 0 auto;
     text-align: start;
+  }
+
+  header img {
+    width: 160px;
   }
 
   h1 {
