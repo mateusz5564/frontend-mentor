@@ -127,7 +127,7 @@ h1 .text-gold {
 
   header {
     padding: 50px 30px;
-    max-width: 440px;
+    max-width: 550px;
     width: 100%;
     margin: 0 auto;
     text-align: start;
@@ -158,6 +158,7 @@ h1 .text-gold {
 
   .content {
     align-self: center;
+    max-width: 550px;
   }
 
   .description {
