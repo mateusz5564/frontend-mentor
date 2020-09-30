@@ -156,4 +156,7 @@ h1 .text-gold {
     align-self: center;
   }
 
+  .description {
+    line-height: 1.5;
+  }
 }
