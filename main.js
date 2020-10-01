@@ -1,37 +1,34 @@
 const form = document.querySelector('.form');
-
-const firstNameIn = document.querySelector('#first-name');
-const lastNameIn = document.querySelector('#last-name');
-const emailIn = document.querySelector('#email');
-const passwordIn = document.querySelector('#password');
-
-const firstNameErr = document.querySelector("#first-name-error");
-const lastNameErr = document.querySelector("#last-name-error");
-const emailErr = document.querySelector("#email-error");
-const passwordErr = document.querySelector("#password-error");
+const inputs = [...document.querySelectorAll('.form input')];
 
 form.addEventListener('submit', sendForm);
+inputs.forEach(input => input.addEventListener('input', () => validateInputs(input)))
 
 function sendForm(e) {
   e.preventDefault();
-  firstNameIn.value == "" ? addState(firstNameIn, firstNameErr) : removeState(firstNameIn, firstNameErr);
-  lastNameIn.value == "" ? addState(lastNameIn, lastNameErr) : removeState(lastNameIn, lastNameErr);
-  validateEmail(emailIn.value) != true ? addState(emailIn, emailErr) : removeState(emailIn, emailErr);
-  passwordIn.value == "" ? addState(passwordIn, passwordErr) : removeState(passwordIn, passwordErr);
+  inputs.forEach(input => validateInputs(input))
 }
 
-function addState(input, errorMsg) {
-  errorMsg.classList.add('show');
+function validateInputs(input) {
+  if (input.id == "email") {
+    validateEmail(input.value) != true ? addState(input) : removeState(input);
+  } else {
+    input.value == "" ? addState(input) : removeState(input);
+  }
+}
+
+function addState(input) {
+  input.parentElement.parentElement.querySelector(".form__error-msg").classList.add('show');
   input.nextElementSibling.classList.add('show'); //error icon
   input.parentElement.classList.add('error');
-  input.id == "email" ? emailIn.classList.add('error') : null;
+  input.id == "email" ? input.classList.add('error') : null;
 }
 
-function removeState(input, errorMsg) {
-  errorMsg.classList.remove('show');
+function removeState(input) {
+  input.parentElement.parentElement.querySelector(".form__error-msg").classList.remove('show');
   input.nextElementSibling.classList.remove('show'); //error icon
   input.parentElement.classList.remove('error');
-  input.id == "email" ? emailIn.classList.remove('error') : null;
+  input.id == "email" ? input.classList.remove('error') : null;
 }
 
 function validateEmail(email) {

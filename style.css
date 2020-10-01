@@ -1,24 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-/* # Front-end Style Guide
-
-### Primary
-
-- Red: hsl(0, 100%, 74%) 
-- Green: hsl(154, 59%, 51%)
-
-### Accent
-
-- Blue: hsl(248, 32%, 49%)
-
-### Neutral
-
-- Dark Blue: hsl(249, 10%, 26%) 
-- Grayish Blue: hsl(246, 25%, 77%)
-
-
-- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
-- Weights: 400, 500, 600, 700 */
-
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -51,7 +31,6 @@ body {
 .form__input-container.error {
   border-color: hsl(0, 100%, 74%);
 }
-
 
 header {
   max-width: 450px;
@@ -93,7 +72,7 @@ header {
 }
 
 .form__field {
-  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .form__input-container {
@@ -104,6 +83,7 @@ header {
 }
 
 .form input {
+  outline: none;
   padding: 15px;
   margin-left: 2px;
   font-family: 'Poppins', sans-serif;
@@ -132,12 +112,12 @@ header {
 
 .form__button {
   background: hsl(154, 59%, 51%);
+  color: white;
   cursor: pointer;
   width: 100%;
   padding: 20px;
-  margin: 15px 0;
+  margin-bottom: 15px;
   text-transform: uppercase;
-  color: white;
   font-weight: 700;
   font-size: 1em;
   border: none;
