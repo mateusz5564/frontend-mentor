@@ -120,6 +120,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 0 0 20px 5px rgba(93, 100, 100, 0.075)
   }
 
   .join-us > * {
