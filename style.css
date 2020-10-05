@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+/*
+- Cyan: hsl(179, 62%, 43%)
+- Briht Yellow: hsl(71, 73%, 54%)
+### Neutral
+- Light Gray: hsl(204, 43%, 93%)
+- Grayish Blue: hsl(218, 22%, 67%)
+ */
+
+ *, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  background: hsla(179, 62%, 43%, 0.116);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.join-us {
+  max-width: 450px;
+  background: white;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.text-gray {
+  color: hsl(204, 43%, 93%);
+}
+
+/* ABOUT */
+
+.about {
+  padding: 30px;
+}
+
+.about__header {
+  color: hsl(179, 62%, 43%);
+  font-size: 1.6em;
+}
+
+.about__money-back {
+  font-size: 1.1em;
+  color: hsl(71, 73%, 54%);
+  font-weight: 700;
+  margin: 30px 0 20px 0;
+}
+
+.about__description {
+  color: hsl(218, 22%, 67%);
+  line-height: 1.8;
+}
+
+/* PRICE */
+
+.subscription {
+  background: hsl(179, 62%, 43%);
+  padding: 30px;
+}
+
+.subscription__header {
+  margin-bottom: 30px;
+}
+
+.subscription__price > * {
+  vertical-align: middle
+}
+
+.subscription__price-value {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.subscription_pday {
+  padding: 8px 0;
+}
+
+.subscription__signup {
+  background: hsl(71, 73%, 54%);
+  color: hsl(204, 43%, 93%);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.199);
+  margin-top: 30px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* BENEFITS */
+
+.benefits {
+  background: hsl(179, 49%, 50%);
+  padding: 30px;
+}
+
+.benefits__list {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.benefits__list-item {
+  line-height: 1.5;
+  color: hsl(204, 43%, 93%);
+}
+
+
+@media (min-width: 600px) {
+  .join-us {
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .join-us > * {
+    padding: 50px;
+  }
+
+  .about {
+    flex-basis: 100%;
+  }
+
+  .subscription {
+    flex: 1;
+  }
+
+  .benefits {
+    flex: 1;
+  }
+}
