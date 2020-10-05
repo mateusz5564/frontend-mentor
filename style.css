@@ -29,6 +29,7 @@ body {
   background: white;
   margin: 20px;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .text-gray {
