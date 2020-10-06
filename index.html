@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+</head>
+<body>
+
+ <div class="wrapper">
+    <div class="logo">
+      <img src="images/logo.svg" alt="PING logo">
+    </div>
+  
+    <h1 class="heading"><span class="text-gray">We are launching</span> soon!</h1>
+  
+    <h2 class="subheading">Subscribe and get notified</h2>
+  
+    <form class="form" novalidate>
+      <div class="form__email">
+        <label class="sr-only" for="email">Your email address</label>
+        <input class="form__input" type="email" id="email" placeholder="Your email address..." required aria-invalid="false">
+        <span class="form__input-error">Please provide a valid email address</span>
+      </div>
+      <button class="form__send">Notify Me</button>
+    </form>
+  
+    <img class="illustration" src="images/illustration-dashboard.png" alt="">
+  
+    <section class="socials">
+      <a class="socials__link" href="" aria-label="Check out our facebook profile"><i class="socials__icon fab fa-facebook-f" aria-hidden="true"></i></a>
+      <a class="socials__link" href="" aria-label="Check out our twitter profile"><i class="socials__icon fab fa-twitter" aria-hidden="true"></i></a>
+      <a class="socials__link" href="" aria-label="Check out our instagram"><i class="socials__icon fab fa-instagram" aria-hidden="true"></i></a>
+    </section>
+  
+    <footer class="footer">&copy; Copyright Ping. All rights reserved.</footer>
+ </div>
+
+ <script src="main.js"></script>
+</body>
+</html>

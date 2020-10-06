@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+/* 
+
+- Blue: hsl(223, 87%, 63%)
+
+### Secondary
+
+- Pale Blue: hsl(223, 100%, 88%)
+- Light Red: hsl(354, 100%, 66%)
+
+### Neutral
+
+- Gray: hsl(0, 0%, 59%)
+- Very Dark Blue: hsl(209, 33%, 12%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 20px
+
+### Fonts
+
+- Family: [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin)
+- Weights: 300, 600, 700
+
+## Icons
+
+For the social icons, you can use a font icon library. Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com) */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 20px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.text-gray {
+  color: hsl(0, 0%, 59%);
+  font-weight: 300;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.logo {
+  margin: 80px 0 50px 0;
+}
+
+.heading {
+  margin: 20px 0;
+  font-size: 1.4em;
+}
+
+.subheading {
+  font-size: .8em;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.form {
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__email {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input,
+.form__send {
+  border-radius: 50px;
+  padding: 15px;
+  border: 1px solid hsl(223, 100%, 88%);
+}
+
+.form__input {
+  padding-left: 20px;
+}
+
+.form__input::placeholder {
+  color: hsl(223, 100%, 88%);
+}
+.form__input--invalid {
+  border-color: red;
+}
+
+.form__input-error {
+  color: red;
+  font-size: .6em;
+  font-style: italic;
+  margin-top: 5px;
+  display: none;
+}
+
+.form__input-error.open {
+  display: block;
+}
+
+.form__send {
+  cursor: pointer;
+  margin: 10px 0;
+  background: hsl(223, 87%, 63%);
+  color: white;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: .8em;
+}
+
+.illustration {
+  display: block;
+  max-width: 100%;
+}
+
+.socials {
+  margin-top: 80px;
+}
+
+.socials__link {
+  display: inline-block;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid hsl(223, 100%, 88%);
+  border-radius: 50px;
+}
+
+.socials__link:hover {
+  background: hsl(223, 87%, 63%);
+}
+
+.socials__icon {
+  color: hsl(223, 87%, 63%);
+  margin-top: 10px;
+}
+
+.socials__link:hover .socials__icon {
+  color: white;
+}
+
+.footer {
+  color: hsl(0, 0%, 59%);
+  font-size: .7em;
+  padding: 30px 0;
+}
+
+
+@media (min-width: 550px) {
+  .form {
+    flex-direction: row;
+    align-items: flex-start;
+    height: 150px;
+  }
+
+  .form__email {
+    flex: 2;
+    text-align: start;
+  }
+
+  .form__send {
+    margin: 0 0 0 10px;
+    flex: 1;
+  }
+
+  .form__input-error {
+    padding-left: 20px;
+  }
+}
