@@ -1,36 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
-/* 
-
-- Blue: hsl(223, 87%, 63%)
-
-### Secondary
-
-- Pale Blue: hsl(223, 100%, 88%)
-- Light Red: hsl(354, 100%, 66%)
-
-### Neutral
-
-- Gray: hsl(0, 0%, 59%)
-- Very Dark Blue: hsl(209, 33%, 12%)
-
-## Typography
-
-### Body Copy
-
-- Font size: 20px
-
-### Fonts
-
-- Family: [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin)
-- Weights: 300, 600, 700
-
-## Icons
-
-For the social icons, you can use a font icon library. Some suggestions can be found below:
-
-- [Font Awesome](https://fontawesome.com)
-- [IcoMoon](https://icomoon.io)
-- [Ionicons](https://ionicons.com) */
 
 * {
   box-sizing: border-box;
@@ -102,6 +70,11 @@ body {
   padding-left: 20px;
 }
 
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 0 5px 5px hsla(223, 87%, 63%, 0.377);
+}
+
 .form__input::placeholder {
   color: hsl(223, 100%, 88%);
 }
@@ -129,6 +102,11 @@ body {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 700;
   font-size: .8em;
+}
+
+.form__send:focus {
+  outline: none;
+  box-shadow: 0 0 5px 5px hsla(223, 87%, 63%, 0.377);
 }
 
 .illustration {
