@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Violet: hsl(257, 40%, 49%)
+
+## Typography
+
+### Headings
+
+- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Weights: 400, 700
+
+### Body
+
+- Family: [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+- Weights: 400
+
+## Icons
+
+For the social icons, you can use a font icon library. Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com/)
+- [IcoMoon](https://icomoon.io/)
+- [Ionicons](https://ionicons.com/) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  max-width: 500px;
+  background: top center / contain no-repeat url(images/bg-mobile.svg), hsl(257, 40%, 49%);
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px;
+}
+
+
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__logo {
+  min-width: 150px;
+  max-width: 40vw;
+}
+
+.header__hero-img {
+  max-width: 100%;
+  margin: 50px 0;
+}
+
+.main {
+  text-align: center;
+}
+
+.main__heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+.main__subheading {
+  font-weight: 400;
+  font-size: 1.3em;
+  margin: 20px 0;
+}
+
+.main__register {
+  display: block;
+  margin: 30px auto 20px auto;
+  max-width: 250px;
+  background: white;
+  color: hsl(257, 40%, 49%);
+  padding: 15px;
+  border-radius: 50px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.308);
+  text-align: center;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50px;
+}
+
+@media (min-width: 1000px) {
+  .page {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    background: center center / cover no-repeat url(images/bg-desktop.svg), hsl(257, 40%, 49%);
+    min-height: 100vh;
+  }
+
+  .header {
+    flex: 1 1 50%;
+    margin-right: 30px;
+  }
+
+  .main {
+    flex: 1 1 40%;
+    text-align: left;
+  }
+
+  .main__register {
+    margin: initial;
+  }
+
+  .socials {
+    align-self: flex-end;
+    margin: 0;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
