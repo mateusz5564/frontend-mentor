@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+#### Text
+
+- Very dark desaturated blue: hsl(238, 29%, 16%)
+- Soft red: hsl(14, 88%, 65%)
+
+#### Gradient
+
+Background gradient:
+
+- Soft violet: hsl(273, 75%, 66%)
+- Soft blue: hsl(240, 73%, 65%)
+
+### Neutral
+
+#### Text
+
+- Very dark grayish blue: hsl(237, 12%, 33%)
+- Dark grayish blue: hsl(240, 6%, 50%)
+
+#### Dividers
+
+- Light grayish blue: hsl(240, 5%, 91%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 12px
+
+### Font
+
+- Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+- Weights: 400, 700 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: 'Kumbh Sans', sans-serif;
+  background: no-repeat linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq {
+  position: relative;
+  margin: 0 auto;
+  background: white;
+  max-width: 600px;
+  border-radius: 30px;
+  margin-top: 100px;
+  padding: 30px;
+  padding-top: 140px;
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  max-width: 250px;
+  transform: translate(-54%, -53%);
+}
+
+.illustration__woman {
+  width: 100%;
+}
+
+.illustration__bg {
+  position: absolute;
+  width: 100%;
+  left: 6%;
+  top: 55%
+}
+
+.faq__title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.2em;
+}
+
+.faq__question-btn {
+  font-family: inherit;
+  font-size: 1.2em;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq__question-btn:focus,
+.faq__question-btn:hover {
+  color: hsl(14, 88%, 65%);
+  outline: none;
+}
+
+.faq__question-btn--active {
+  font-weight: 700;
+  color: black !important;
+}
+
+.faq__answer {
+  color: hsl(240, 6%, 50%);
+  height: 0;
+  transform: scale(0);
+  transition: all 1s ease-in;
+}
+
+.faq__answer--active {
+  transform: scale(1);
+  height: auto;
+}
+
+.faq__divider {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid hsl(240, 5%, 91%);
+}
+
+@media(min-width: 1000px) {
+
+  .faq-wrapper {
+    position: relative;
+  }
+
+  .faq-wrapper__illustration {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    z-index: 2;
+  }
+
+  .faq {
+    position: relative;
+    display: flex;
+    max-width: 1000px;
+    margin-top: 0;
+    padding: 40px;
+    clip-path: padding-box;
+  }
+
+  .faq__title {
+    text-align: left;
+  }
+
+  .illustration {
+    position: relative;
+    left: -13%;
+    max-width: 100%;
+    transform: translate(0%, 0%);
+    flex: 0 0 50%;
+    align-self: center;
+  }
+
+  .illustration__bg {
+    left: 0%;
+    top: initial;
+    bottom: -20%;
+  }
+
+  .faq__qestions {
+    flex: 1 1 50%;
+  }
+}
