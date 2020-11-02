@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="FAQ Accordion card">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
@@ -16,6 +17,7 @@
       <source srcset="images/illustration-box-desktop.svg" media="(min-width: 1000px)">
       <img src="" alt="" class="faq-wrapper__illustration">
     </picture>
+
     <section class="faq">
       <div class="illustration">
         <picture>
@@ -27,66 +29,84 @@
           <img src="images/bg-pattern-mobile.svg" alt="" class="illustration__bg">
         </picture>
       </div>
-      <dl class="faq__questions">
-        <h1 class="faq__title">FAQ</h1>
-  
-        <article class="faq__question">
-          <button class="faq__question-btn">
-            <dt class="faq__question-content">How many team members can I invite?</dt>
-            <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
-          </button>
-          <dd class="faq__answer">
-            You can invite up to 2 additional users on the Free plan. There is no limit on
-            team members for the Premium plan.
-          </dd>
-        </article>
-  
-        <hr class="faq__divider">
-  
-        <article class="faq__question">
-          <button class="faq__question-btn">
-            <dt class="faq__question">What is the maximum file upload size?</dt>
-            <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
-          </button>
-          <dd class="faq__answer">No more than 2GB. All files in your account must fit your allotted storage space.</dd>
-        </article>
-  
-        <hr class="faq__divider">
-  
-        <article class="faq__question">
-          <button class="faq__question-btn">
-            <dt class="faq__question">How do I reset my password?</dt>
-            <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
-          </button>
-          <dd class="faq__answer">
-            Click “Forgot password” from the login page or “Change password” from your profile page.
-            A reset link will be emailed to you.
-          </dd>
-        </article>
-  
-        <hr class="faq__divider">
-  
-        <article class="faq__question">
-          <button class="faq__question-btn">
-            <dt class="faq__question">Can I cancel my subscription?</dt>
-            <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
-          </button>
-          <dd class="faq__answer">Yes! Send us a message and we’ll process your request no questions asked.</dd>
-        </article>
-  
-        <hr class="faq__divider">
-  
-        <article class="faq__question">
-          <button class="faq__question-btn">
-            <dt class="faq__question">Do you provide additional support?</dt>
-            <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
-          </button>
-          <dd class="faq__answer">Chat and email support is available 24/7. Phone lines are open during normal business
-            hours.</dd>
-        </article>
-  
-        <hr class="faq__divider">
-      </dl>
+
+      <div class="faq__questions">
+        <h1 class="faq__title" id="faq__title"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+
+        <dl aria-labelledby="faq__title">
+          <div class="faq__question">
+            <dt class="faq__question-content">
+              <button class="faq__question-btn" id="q1" aria-expanded="false">
+                How many team members can I invite?
+                <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
+              </button>
+            </dt>
+            <dd class="faq__answer" id="a1" aria-hidden="true" aria-labelledby="q1">
+              You can invite up to 2 additional users on the Free plan. There is no limit on
+              team members for the Premium plan.
+            </dd>
+          </div>
+
+          <hr class="faq__divider" aria-hidden="true">
+
+          <div class="faq__question">
+            <dt class="faq__question-content">
+              <button class="faq__question-btn" aria-expanded="false">
+                What is the maximum file upload size?
+                <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
+              </button>
+            </dt>
+            <dd class="faq__answer" aria-hidden="true">No more than 2GB. All files in your account must fit your
+              allotted storage space.
+            </dd>
+          </div>
+
+          <hr class="faq__divider" aria-hidden="true">
+
+          <div class="faq__question">
+            <dt class="faq__question-content">
+              <button class="faq__question-btn" aria-expanded="false">
+                How do I reset my password?
+                <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
+              </button>
+            </dt>
+            <dd class="faq__answer" aria-hidden="true">
+              Click “Forgot password” from the login page or “Change password” from your profile page.
+              A reset link will be emailed to you.
+            </dd>
+          </div>
+
+          <hr class="faq__divider" aria-hidden="true">
+
+          <div class="faq__question">
+            <dt class="faq__question-content">
+              <button class="faq__question-btn" aria-expanded="false">
+                Can I cancel my subscription?
+                <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
+              </button>
+            </dt>
+            <dd class="faq__answer" aria-hidden="true">Yes! Send us a message and we’ll process your request no
+              questions asked.</dd>
+          </div>
+
+          <hr class="faq__divider" aria-hidden="true">
+
+          <div class="faq__question">
+            <dt class="faq__question-content">
+              <button class="faq__question-btn" aria-expanded="false">
+                Do you provide additional support?
+                <img class="faq__question-arrow" src="images/icon-arrow-down.svg" alt="">
+              </button>
+            </dt>
+            <dd class="faq__answer" aria-hidden="true">Chat and email support is available 24/7. Phone lines are open
+              during normal
+              business
+              hours.</dd>
+          </div>
+
+          <hr class="faq__divider" aria-hidden="true">
+        </dl>
+      </div>
     </section>
   </div>
 
