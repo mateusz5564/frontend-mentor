@@ -71,15 +71,15 @@ abbr {
   align-items: center;
 }
 
+.faq__question-btn--active {
+  font-weight: 700;
+  color: black;
+}
+
 .faq__question-btn:focus,
 .faq__question-btn:hover {
   color: hsl(14, 88%, 65%);
   outline: none;
-}
-
-.faq__question-btn--active {
-  font-weight: 700;
-  color: black !important;
 }
 
 .faq__question-arrow {
