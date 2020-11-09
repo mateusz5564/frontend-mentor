@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Lime Green: hsl(163, 72%, 41%)
+- Bright Red: hsl(356, 69%, 56%)
+
+- Facebook: hsl(208, 92%, 53%)
+- Twitter: hsl(203, 89%, 53%)
+- Instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%)
+- YouTube: hsl(348, 97%, 39%)
+
+#### Dark Theme
+
+- Toggle: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%)
+
+#### Light Theme
+
+- Toggle: hsl(230, 22%, 74%)
+
+### Neutral
+
+#### Dark Theme
+
+- Very Dark Blue (BG): hsl(230, 17%, 14%)
+- Very Dark Blue (Top BG Pattern): hsl(232, 19%, 15%)
+- Dark Desaturated Blue (Card BG): hsl(228, 28%, 20%)
+- Desaturated Blue (Text): hsl(228, 34%, 66%)
+- White (Text): hsl(0, 0%, 100%)
+
+#### Light Theme
+
+- White (BG): hsl(0, 0%, 100%)
+- Very Pale Blue (Top BG Pattern): hsl(225, 100%, 98%)
+- Light Grayish Blue (Card BG): hsl(227, 47%, 96%)
+- Dark Grayish Blue (Text): hsl(228, 12%, 44%)
+- Very Dark Blue (Text): hsl(230, 17%, 14%)
+
+## Typography
+
+### Body Copy
+
+- Font size (Overview Card Headings): 14px
+
+### Font
+
+- Family: [Inter](https://fonts.google.com/specimen/Inter)
+- Weights: 400, 700 */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+main {
+  padding: 1.5em;
+}
+
+/* HEADER */
+
+.header {
+  margin: 1.5em 0;
+}
+
+.header__title {
+  font-size: 1.7em;
+}
+
+.header__followers {
+  color: hsl(228, 12%, 44%);
+  font-size: 1.2em;
+  margin-top: .2em;
+  margin-bottom: 1.5em;
+}
+
+.divider {
+  border-color: hsl(230, 22%, 74%);
+}
+
+.switch {
+  display: flex;
+  color: hsl(228, 12%, 44%);
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 1em 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch__button {
+  position: relative;
+  appearance: none;
+  display: inline-block;
+  background-color: hsl(230, 22%, 74%);
+  width: 70px;
+  height: 35px;
+  border: none;
+  border-radius: 50px;
+}
+
+.switch__button:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background-color: hsl(0, 0%, 100%);
+  top: 3px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50px;
+  transition: .1s ease-out;
+}
+
+.switch__button:checked {
+  background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.switch__button:not(:checked):hover {
+  background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.switch__button:checked:before {
+  right: 37px;
+}
+
+/* SOCIAL MEDIA OVERALL */
+
+.socials-overall {
+  margin: 2em 0;
+}
+
+.social-card {
+  position: relative;
+  background-color: hsl(227, 47%, 96%);
+  padding: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+  border-radius: .5em;
+  border-top: 6px solid black;
+}
+
+.social-card--fb {
+  border-color: hsl(208, 92%, 53%);
+}
+
+.social-card--tw {
+  border-color: hsl(203, 89%, 53%);
+}
+
+.social-card--in {
+ border: none;
+ overflow: hidden;
+}
+
+.social-card--in:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+
+.social-card--yt {
+  border-color: hsl(348, 97%, 39%);
+}
+
+.social-card__account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-card__username {
+  font-size: .7em;
+  color: hsl(228, 12%, 44%);
+  margin-left: .5em;
+}
+
+.social-card__followers {
+  margin: 1.8em 0;
+}
+
+.social-card__followers-no {
+  display: block;
+  font-size: 5em;
+  font-weight: 700;
+}
+
+.social-card__followers-lbl {
+  display: block;
+  color: hsl(228, 12%, 44%);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: .5em;
+}
+
+.social-card__varation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(163, 72%, 41%);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.social-card__varation--dec {
+  color: hsl(356, 69%, 56%);
+}
+
+.social-card__varation-arrow {
+  vertical-align: middle;
+  margin-right: .3em;
+}
+
+/* OVERVIEW TODAY */
+.socials-today {
+  margin-top: 5em;
+}
+
+.socials-today__title {
+  color: hsl(228, 12%, 44%);
+}
+
+.social-card-today {
+  background-color: hsl(227, 47%, 96%);
+  padding: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+  border-radius: .5em;
+}
