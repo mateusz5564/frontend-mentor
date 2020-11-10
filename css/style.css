@@ -1,28 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 /* # Front-end Style Guide
 
-## Layout
-
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Lime Green: hsl(163, 72%, 41%)
-- Bright Red: hsl(356, 69%, 56%)
-
-- Facebook: hsl(208, 92%, 53%)
-- Twitter: hsl(203, 89%, 53%)
-- Instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%)
-- YouTube: hsl(348, 97%, 39%)
-
-#### Dark Theme
-
-- Toggle: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%)
 
 #### Light Theme
 
@@ -46,16 +24,7 @@ The designs were created to the following widths:
 - Dark Grayish Blue (Text): hsl(228, 12%, 44%)
 - Very Dark Blue (Text): hsl(230, 17%, 14%)
 
-## Typography
-
-### Body Copy
-
-- Font size (Overview Card Headings): 14px
-
-### Font
-
-- Family: [Inter](https://fonts.google.com/specimen/Inter)
-- Weights: 400, 700 */
+ */
 
 
 * {
@@ -78,6 +47,7 @@ main {
 
 .header {
   margin: 1.5em 0;
+  overflow: auto;
 }
 
 .header__title {
@@ -283,4 +253,76 @@ main {
 
 .social-card-today__percentages-arrow {
   margin-right: .3em;
+}
+
+
+@media (min-width: 450px) {
+  .switch {
+    width: max-content;
+    float: right;
+  }
+
+  .switch__button {
+    margin-left: 1em;
+  }
+}
+
+@media (min-width: 600px) {
+
+  body::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 17.8em;
+    background: hsl(225, 100%, 98%);
+  }
+
+  main {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  .header__followers {
+    margin: 0;
+  }
+  
+  .divider {
+    display: none;
+  }
+
+  .switch {
+    margin: 0;
+  }
+
+  .socials-overall {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
+  }
+
+
+  .socials-today {
+    display: grid;
+    margin-top: 2em;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
+  }
+
+  .socials-today__title {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .social-card-today {
+    margin: 0;
+  }
 }
