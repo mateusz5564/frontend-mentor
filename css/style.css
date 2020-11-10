@@ -229,7 +229,6 @@ main {
 }
 
 .social-card__varation-arrow {
-  vertical-align: middle;
   margin-right: .3em;
 }
 
@@ -240,6 +239,7 @@ main {
 
 .socials-today__title {
   color: hsl(228, 12%, 44%);
+  margin-bottom: 2em;
 }
 
 .social-card-today {
@@ -248,4 +248,39 @@ main {
   margin-bottom: 2em;
   text-align: center;
   border-radius: .5em;
+}
+
+.social-card-today__type {
+  display: flex;
+  justify-content: space-between;
+  color: hsl(228, 12%, 44%);
+}
+
+.social-card-today__varation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 3em;
+}
+
+.social-card-today__number {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.social-card-today__percentages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(163, 72%, 41%);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.social-card-today__percentages--dec {
+  color: hsl(356, 69%, 56%);
+}
+
+.social-card-today__percentages-arrow {
+  margin-right: .3em;
 }
