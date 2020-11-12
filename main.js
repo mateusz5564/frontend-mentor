@@ -1,7 +1,9 @@
-const switchBtn = document.querySelector('.switch__button');
+const darkModeBtn = document.querySelector('.switch__button');
+const page = document.querySelector('body');
 
-switchBtn.addEventListener('click', handleSwitch);
+darkModeBtn.addEventListener('click', handleSwitch);
+window.addEventListener('DOMContentLoaded', handleSwitch);
 
 function handleSwitch(e) {
-  console.log(e);
+  darkModeBtn.checked ? page.classList.add('page--dark') : page.classList.remove('page--dark');
 }

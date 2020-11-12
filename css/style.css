@@ -33,13 +33,56 @@
   box-sizing: border-box;
 }
 
-body {
+.page {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   background-color: hsl(0, 0%, 100%);
 }
 
-main {
+
+/* DARK MODE */
+
+.page--dark,
+.page--dark .switch__button::before {
+  background-color: hsl(230, 17%, 14%);
+}
+
+.page--dark .switch__button:hover::before {
+  background-color: hsl(230, 17%, 30%);
+}
+
+/* white text */
+.page--dark .header__title,
+.page--dark .socials-today__title,
+.page--dark .social-card__followers-no,
+.page--dark .social-card-today__number {
+  color: hsl(0, 0%, 100%);
+}
+
+/* blue text */
+.page--dark .header__followers,
+.page--dark .switch,
+.page--dark .social-card__username,
+.page--dark .social-card-today__type {
+  color: hsl(228, 34%, 66%);
+}
+
+.page--dark .social-card,
+.page--dark .social-card-today {
+  background-color: hsl(228, 28%, 20%);
+}
+
+.page--dark .social-card:hover,
+.page--dark .social-card-today:hover {
+  background-color: hsl(228, 28%, 25%);
+}
+
+
+
+/* DARK MODE END */
+
+
+.main {
   padding: 1.5em;
 }
 
@@ -73,9 +116,11 @@ main {
   margin: 1em 0;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .switch__button {
+  cursor: pointer;
   position: relative;
   appearance: none;
   display: inline-block;
@@ -127,6 +172,10 @@ main {
   border-top: 6px solid black;
 }
 
+.social-card:hover {
+  background-color: hsl(229, 12%, 90%);
+}
+
 .social-card--fb {
   border-color: hsl(208, 92%, 53%);
 }
@@ -136,8 +185,8 @@ main {
 }
 
 .social-card--in {
- border: none;
- overflow: hidden;
+  border: none;
+  overflow: hidden;
 }
 
 .social-card--in:before {
@@ -220,6 +269,10 @@ main {
   border-radius: .5em;
 }
 
+.social-card-today:hover {
+  background-color: hsl(229, 12%, 90%);
+}
+
 .social-card-today__type {
   display: flex;
   justify-content: space-between;
@@ -269,7 +322,7 @@ main {
 
 @media (min-width: 600px) {
 
-  body::before {
+  .page::before {
     content: "";
     z-index: -1;
     position: absolute;
@@ -279,7 +332,11 @@ main {
     background: hsl(225, 100%, 98%);
   }
 
-  main {
+  .page--dark:before {
+    background: hsl(232, 19%, 15%);
+  }
+
+  .main {
     max-width: 1440px;
     margin: 0 auto;
   }
@@ -294,7 +351,7 @@ main {
   .header__followers {
     margin: 0;
   }
-  
+
   .divider {
     display: none;
   }
