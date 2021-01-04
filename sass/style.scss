@@ -1,49 +1,165 @@
-/* # Front-end Style Guide
-
-## Layout
-
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Dark Violet: hsl(256, 26%, 20%)
-- Grayish Blue: hsl(216, 30%, 68%)
-
-### Neutral
-
-- Very Dark Violet: hsl(270, 9%, 17%)
-- Dark Grayish Violet: hsl(273, 4%, 51%)
-- Very Light Gray: hsl(0, 0%, 98%)
-
-## Typography
-
-### Body Copy
-
-- Font size: 16px
-
-### Headings
-
-- Family: [DM Serif Display](https://fonts.google.com/specimen/DM+Serif+Display)
-- Weights: 400
-
-### Body
-
-- Family: [Karla](https://fonts.google.com/specimen/Karla)
-- Weights: 400, 700
-
-## Icons
-
-You can use either use the social icons provided or load in a font icon library. Some library suggestions can be found below:
-
-- [Font Awesome](https://fontawesome.com)
-- [IcoMoon](https://icomoon.io)
-- [Ionicons](https://ionicons.com) */
+@import "colors";
+@import "fonts";
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: $fontBody;
+}
+
+@mixin section-link {
+  display: inline-block;
+  border: 2px solid white;
+  margin-top: 2em;
+  padding: 8px 30px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 200%;
+}
+
+.header {
+  padding: 1.4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__img {
+    height: 1.4em;
+  }
+
+  &__btn {
+    border: none;
+    cursor: pointer;
+  }
+
+  &__nav {
+    display: none;
+  }
+}
+
+.about {
+  background-color: $darkViolet;
+  color: white;
+  text-align: center;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__content {
+    padding: 3em 1em;
+  }
+
+  &__heading {
+    font-size: 2.5em;
+    font-family: $fontHeadings;
+    margin-bottom: 0.5em;
+  }
+
+  &__subheading {
+    color: $veryLightGray;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  &__link {
+    @include section-link();
+  }
+}
+
+.different {
+  padding: 3em 1em;
+  text-align: center;
+
+  &__heading {
+    font-family: $fontHeadings;
+    font-size: 2.5em;
+    color: $darkViolet;
+    margin-bottom: 0.5em;
+  }
+
+  &__item {
+    padding: 2em 0;
+  }
+
+  &__item-logo {
+    margin-bottom: 1.5em;
+  }
+
+  &__item-heading {
+    font-family: $fontHeadings;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: $darkViolet;
+  }
+
+  &__item-text {
+    color: $grayishBlue;
+    line-height: 1.4;
+  }
+}
+
+.how {
+  margin: 3em 1em;
+  padding: 3em 1em;
+  background-color: $darkViolet;
+  color: white;
+  text-align: center;
+
+  &__heading {
+    font-family: $fontHeadings;
+    font-size: 2.5em;
+  }
+
+  &__link {
+    @include section-link();
+  }
+}
+
+.footer {
+  background: url('../images/bg-pattern-footer-mobile.svg') no-repeat;
+  text-align: center;
+  padding: 5em 0;
+  margin-top: 120px;
+
+  &__socials {
+    margin-bottom: 2em;
+  }
+
+  &__logo {
+    margin-bottom: 1em;
+  }
+
+  &__social-link {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  &__subheading {
+    font-size: 0.9em;
+    color: $grayishBlue;
+    margin: 2em 0;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: $darkViolet;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    line-height: 2;
+  }
 }
