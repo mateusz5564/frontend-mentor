@@ -12,7 +12,17 @@ body {
   font-family: "Karla", sans-serif;
 }
 
+.decorative-line {
+  height: 2px;
+  background-color: #837d87;
+  opacity: 0.4;
+  margin: 2em auto;
+}
+
 .header {
+  position: relative;
+  height: 80px;
+  background-color: white;
   padding: 1.4em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,6 +33,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 2;
 }
 
 .header__img {
@@ -32,40 +43,102 @@ body {
 .header__btn {
   border: none;
   cursor: pointer;
+  height: 32px;
 }
 
 .header__nav {
   display: none;
 }
 
-.about {
+.mobile-nav {
+  -webkit-transform: translateY(-100vh);
+          transform: translateY(-100vh);
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center;
+  background-color: #2b272f;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  z-index: 1;
+}
+
+.mobile-nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2em;
+  list-style: none;
+}
+
+.mobile-nav__item {
+  width: 90%;
+  margin-bottom: 1em;
+}
+
+.mobile-nav__item:last-of-type a {
+  border: 2px solid white;
+}
+
+.mobile-nav__link {
+  display: block;
+  font-size: 1.4em;
+  text-align: center;
+  padding: 12px 10px;
+  color: #fafafa;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.intro {
   background-color: #2d2640;
   color: white;
   text-align: center;
 }
 
-.about__img {
+.intro__img {
   width: 100%;
 }
 
-.about__content {
-  padding: 3em 1em;
+.intro__bg-left {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.about__heading {
+.intro__bg-right {
+  position: absolute;
+  right: 0;
+  bottom: -195px;
+}
+
+.intro__content {
+  padding: 6em 1em;
+  position: relative;
+}
+
+.intro__heading {
   font-size: 2.5em;
   font-family: "DM Serif Display", serif;
   margin-bottom: 0.5em;
 }
 
-.about__subheading {
+.intro__subheading {
   color: #fafafa;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.4;
 }
 
-.about__link {
+.intro__link {
   display: inline-block;
   border: 2px solid white;
   margin-top: 2em;
@@ -77,8 +150,12 @@ body {
 }
 
 .different {
-  padding: 3em 1em;
+  padding: 6em 1em;
   text-align: center;
+}
+
+.different__decorative-line {
+  width: 50%;
 }
 
 .different__heading {
@@ -110,7 +187,8 @@ body {
 
 .how {
   margin: 3em 1em;
-  padding: 3em 1em;
+  padding: 4.5em 1em;
+  background: url(../images/bg-pattern-how-we-work-mobile.svg) no-repeat top right;
   background-color: #2d2640;
   color: white;
   text-align: center;
@@ -137,6 +215,10 @@ body {
   text-align: center;
   padding: 5em 0;
   margin-top: 120px;
+}
+
+.footer__decorative-line {
+  width: 85%;
 }
 
 .footer__socials {
@@ -169,7 +251,7 @@ body {
   text-decoration: none;
   color: #2d2640;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 2;
 }
 /*# sourceMappingURL=style.css.map */

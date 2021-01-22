@@ -13,7 +13,7 @@
 
   <header class="header">
     <img class="header__img" src="images/logo.svg" alt="">
-    <button class="header__btn"><img src="images/icon-hamburger.svg" alt=""></button>
+    <button class="header__btn"><img class="header__btn-icon" src="images/icon-hamburger.svg" alt=""></button>
     <nav class="header__nav">
       <ul class="header__list">
         <li><a href="" class="header__link">How we work</a></li>
@@ -24,26 +24,40 @@
     </nav>
   </header>
 
-  <section class="about">
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__list">
+      <li class="mobile-nav__item"><a href="" class="mobile-nav__link">How we work</a></li>
+      <li class="mobile-nav__item"><a href="" class="mobile-nav__link">Blog</a></li>
+      <li class="mobile-nav__item"><a href="" class="mobile-nav__link">Account</a></li>
+      <li class="mobile-nav__item"><a href="" class="mobile-nav__link">View plans</a></li>
+    </ul>
+  </nav>
+  
+
+  <section class="intro">
     <picture>
       <source srcset="images/image-intro-desktop22.jpg" media="(min-width: 600px)" />
-      <img class="about__img" src="images/image-intro-mobile.jpg" alt="">
+      <img class="intro__img" src="images/image-intro-mobile.jpg" alt="">
     </picture>
 
-    <div class="about__content">
-      <h1 class="about__heading">Humanizing your insurance.</h1>
+    <div class="intro__content">
+      <img class="intro__bg-left" src="./images/bg-pattern-intro-left-mobile.svg" alt="">
+      <img class="intro__bg-right" src="./images/bg-pattern-intro-right-mobile.svg" alt="">
+      <h1 class="intro__heading">Humanizing your insurance.</h1>
 
-      <h2 class="about__subheading">
+      <h2 class="intro__subheading">
         Get your life insurance coverage easier and faster. We blend our expertise
         and technology to help you find the plan that’s right for you. Ensure you
         and your loved ones are protected.
       </h2>
 
-      <a class="about__link" href="#">View plans</a>
+      <a class="intro__link" href="#">View plans</a>
     </div>
   </section>
+  
 
   <section class="different">
+    <div class="decorative-line different__decorative-line"></div>
     <h2 class="different__heading">We’re different</h2>
 
     <div class="different__item">
@@ -61,7 +75,7 @@
       <h3 class="different__item-heading">Affordable Prices</h3>
 
       <p class="different__item-text">
-        We don’t want you worrying about high monthly costs. Our prices may be low,
+        We don’t want you worrying intro high monthly costs. Our prices may be low,
         but we still offer the best coverage possible.
       </p>
     </div>
@@ -78,7 +92,7 @@
   </section>
 
   <section class="how">
-    <h2 class="how__heading">Find out more about how we work</h2>
+    <h2 class="how__heading">Find out more intro how we work</h2>
 
     <a class="how__link" href="#">How we work</a>
   </section>
@@ -97,7 +111,10 @@
           alt="pinterest profile"></a>
       <a class="footer__social-link" href="#"><img class="footer__social-logo" src="images/icon-instagram.svg"
           alt="instagram profile"></a>
+
+      <div class="decorative-line footer__decorative-line"></div>
     </section>
+
 
     <section class="footer__links">
       <h3 class="footer__subheading">Our company</h3>
@@ -134,6 +151,8 @@
       </ul>
     </section>
   </footer>
+
+  <script src="./main.js"></script>
 </body>
 
 </html>

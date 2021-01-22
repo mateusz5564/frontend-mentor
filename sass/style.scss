@@ -23,11 +23,22 @@ body {
   letter-spacing: 200%;
 }
 
+.decorative-line {
+  height: 2px;
+  background-color: $darkGrayishViolet;
+  opacity: 0.4;
+  margin: 2em auto;
+}
+
 .header {
+  position: relative;
+  height: 80px;
+  background-color: white;
   padding: 1.4em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 
   &__img {
     height: 1.4em;
@@ -36,6 +47,7 @@ body {
   &__btn {
     border: none;
     cursor: pointer;
+    height: 32px;
   }
 
   &__nav {
@@ -43,7 +55,48 @@ body {
   }
 }
 
-.about {
+.mobile-nav {
+  transform: translateY(-100vh);
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center;
+  background-color: $veryDarkViolet;
+  transition: all .3s ease;
+  z-index: 1;
+
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    list-style: none;
+  }
+
+  &__item {
+    width: 90%;
+    margin-bottom: 1em;
+
+    &:last-of-type a {
+      border: 2px solid white;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 1.4em;
+    text-align: center;
+    padding: 12px 10px;
+    color: $veryLightGray;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+  }
+}
+
+.intro {
   background-color: $darkViolet;
   color: white;
   text-align: center;
@@ -52,8 +105,21 @@ body {
     width: 100%;
   }
 
+  &__bg-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &__bg-right {
+    position: absolute;
+    right: 0;
+    bottom: -195px;
+  }
+
   &__content {
-    padding: 3em 1em;
+    padding: 6em 1em;
+    position: relative;
   }
 
   &__heading {
@@ -75,8 +141,12 @@ body {
 }
 
 .different {
-  padding: 3em 1em;
+  padding: 6em 1em;
   text-align: center;
+
+  &__decorative-line {
+    width: 50%;
+  }
 
   &__heading {
     font-family: $fontHeadings;
@@ -108,7 +178,9 @@ body {
 
 .how {
   margin: 3em 1em;
-  padding: 3em 1em;
+  padding: 4.5em 1em;
+  background: url(../images/bg-pattern-how-we-work-mobile.svg) no-repeat top
+    right;
   background-color: $darkViolet;
   color: white;
   text-align: center;
@@ -124,10 +196,14 @@ body {
 }
 
 .footer {
-  background: url('../images/bg-pattern-footer-mobile.svg') no-repeat;
+  background: url("../images/bg-pattern-footer-mobile.svg") no-repeat;
   text-align: center;
   padding: 5em 0;
   margin-top: 120px;
+
+  &__decorative-line {
+    width: 85%;
+  }
 
   &__socials {
     margin-bottom: 2em;
@@ -159,7 +235,7 @@ body {
     text-decoration: none;
     color: $darkViolet;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     line-height: 2;
   }
 }
