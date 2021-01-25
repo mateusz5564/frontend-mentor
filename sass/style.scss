@@ -23,11 +23,22 @@ body {
   letter-spacing: 200%;
 }
 
+@mixin min-width($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
 .decorative-line {
   height: 2px;
   background-color: $darkGrayishViolet;
   opacity: 0.4;
   margin: 2em auto;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .header {
@@ -62,9 +73,8 @@ body {
   height: calc(100vh - 80px);
   background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center;
   background-color: $veryDarkViolet;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   z-index: 1;
-
 
   &__list {
     display: flex;
@@ -92,7 +102,6 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-
   }
 }
 
@@ -144,8 +153,26 @@ body {
   padding: 6em 1em;
   text-align: center;
 
+  @media (min-width: 480px) and (max-width: 799px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    
+    @include min-width(800px) {
+      text-align: left;
+      display: flex;
+    }
+  }
+
   &__decorative-line {
     width: 50%;
+
+    @include min-width(800px) {
+      width: 6em;
+      margin: 2em 0;
+    }
   }
 
   &__heading {
@@ -153,10 +180,24 @@ body {
     font-size: 2.5em;
     color: $darkViolet;
     margin-bottom: 0.5em;
+
+    @include min-width(800px) {
+      text-align: left;
+    }
   }
 
   &__item {
     padding: 2em 0;
+
+    @include min-width(800px) {
+      margin-right: 30px;
+    }
+  }
+
+  &__item:last-child {
+    @include min-width(800px) {
+      margin-right: 0;
+    }
   }
 
   &__item-logo {
@@ -197,25 +238,49 @@ body {
 
 .footer {
   background: url("../images/bg-pattern-footer-mobile.svg") no-repeat;
+  background-color: $veryLightGray;
   text-align: center;
-  padding: 5em 0;
+  padding: 5em 1em;
   margin-top: 120px;
 
-  &__decorative-line {
-    width: 85%;
+  @include min-width(600px) {
+    text-align: left;
+    background-image: url("../images/bg-pattern-footer-desktop.svg");
   }
 
   &__socials {
     margin-bottom: 2em;
+
+    @include min-width(500px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
   }
 
   &__logo {
     margin-bottom: 1em;
+
+    @include min-width(500px) {
+      margin-bottom: 0;
+    }
   }
 
   &__social-link {
-    display: inline-block;
     margin: 10px;
+  }
+
+  &__links {
+    @include min-width(600px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      justify-items: center;
+    }
+
+    @include min-width(911px) {
+      justify-items: start;
+    }
+
   }
 
   &__subheading {
