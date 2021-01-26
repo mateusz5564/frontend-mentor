@@ -106,29 +106,71 @@ body {
 }
 
 .intro {
+  position: relative;
   background-color: $darkViolet;
   color: white;
   text-align: center;
+
+  @include min-width(700px) {
+    background: url("../images/bg-pattern-intro-right-desktop.svg") no-repeat 100% -130% /auto 90%;
+    background-color: $darkViolet;
+    text-align: left;
+  }
+
+  &__container {
+    @include min-width(700px) {
+      position: relative;
+      padding: 6em 1em;
+    }
+  }
+  
+  &__picture {
+    @include min-width(700px) {
+      width: 45%;
+      max-width: 420px;
+      position: absolute;
+      right: 1em;
+      top: 15%;
+    }
+    
+  }
 
   &__img {
     width: 100%;
   }
 
-  &__bg-left {
+  &::after {
+    content: "";
+    background-image: url("../images/bg-pattern-intro-right-mobile.svg");
     position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  &__bg-right {
-    position: absolute;
-    right: 0;
+    width: 124px;
+    height: 330px;
     bottom: -195px;
+    right: 0;
+
+    @include min-width(700px) {
+      background: none;
+    }
+
+    @include min-width(1250px) {
+      background: url("../images/bg-pattern-intro-left-desktop.svg") top left / 100% no-repeat;
+      left: 0;
+      bottom: -250px;
+      width: 150px;
+      height: 402px;
+    }
   }
 
   &__content {
     padding: 6em 1em;
     position: relative;
+    background: url("../images/bg-pattern-intro-left-mobile.svg") no-repeat;
+
+    @include min-width(700px) {
+      padding: 0;
+      max-width: 50%;
+      background: none;
+    }
   }
 
   &__heading {
@@ -275,10 +317,12 @@ body {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       justify-items: center;
+      text-align: center;
     }
 
     @include min-width(911px) {
       justify-items: start;
+      text-align: left;
     }
 
   }
