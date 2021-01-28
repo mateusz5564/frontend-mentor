@@ -29,11 +29,21 @@ body {
   }
 }
 
+@mixin max-width($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
 .decorative-line {
   height: 2px;
   background-color: $darkGrayishViolet;
   opacity: 0.4;
   margin: 2em auto;
+
+  &--half-width {
+    width: 50%;
+  }
 }
 
 .container {
@@ -59,10 +69,41 @@ body {
     border: none;
     cursor: pointer;
     height: 32px;
+
+    @include min-width(900px) {
+      display: none;
+    }
   }
 
   &__nav {
     display: none;
+
+    @include min-width(900px) {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item:last-of-type {
+    border: 2px solid black;
+
+    & .header__link {
+      color: black;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.5em 2em;
+    font-weight: 700;
+    color: $darkGrayishViolet;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -71,10 +112,16 @@ body {
   position: fixed;
   width: 100vw;
   height: calc(100vh - 80px);
-  background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center;
+  background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center /
+    contain;
   background-color: $veryDarkViolet;
   transition: all 0.3s ease;
   z-index: 1;
+
+  @include min-width(650px) {
+    background-position: bottom right;
+    background-size: 60%;
+  }
 
   &__list {
     display: flex;
@@ -112,7 +159,8 @@ body {
   text-align: center;
 
   @include min-width(700px) {
-    background: url("../images/bg-pattern-intro-right-desktop.svg") no-repeat 100% -130% /auto 90%;
+    background: url("../images/bg-pattern-intro-right-desktop.svg") no-repeat
+      100% -130% / auto 90%;
     background-color: $darkViolet;
     text-align: left;
   }
@@ -123,7 +171,7 @@ body {
       padding: 6em 1em;
     }
   }
-  
+
   &__picture {
     @include min-width(700px) {
       width: 45%;
@@ -132,7 +180,6 @@ body {
       right: 1em;
       top: 15%;
     }
-    
   }
 
   &__img {
@@ -153,7 +200,8 @@ body {
     }
 
     @include min-width(1250px) {
-      background: url("../images/bg-pattern-intro-left-desktop.svg") top left / 100% no-repeat;
+      background: url("../images/bg-pattern-intro-left-desktop.svg") top left /
+        100% no-repeat;
       left: 0;
       bottom: -250px;
       width: 150px;
@@ -170,6 +218,17 @@ body {
       padding: 0;
       max-width: 50%;
       background: none;
+    }
+  }
+
+  &__decorative-line {
+    @include max-width(699px) {
+      display: none;
+    }
+
+    @include min-width(700px) {
+      width: 6em;
+      margin: 2em 0;
     }
   }
 
@@ -200,17 +259,7 @@ body {
     margin: 0 auto;
   }
 
-  &__content {
-    
-    @include min-width(800px) {
-      text-align: left;
-      display: flex;
-    }
-  }
-
   &__decorative-line {
-    width: 50%;
-
     @include min-width(800px) {
       width: 6em;
       margin: 2em 0;
@@ -227,6 +276,14 @@ body {
       text-align: left;
     }
   }
+
+  &__content {
+    @include min-width(800px) {
+      text-align: left;
+      display: flex;
+    }
+  }
+
 
   &__item {
     padding: 2em 0;
@@ -263,14 +320,27 @@ body {
   margin: 3em 1em;
   padding: 4.5em 1em;
   background: url(../images/bg-pattern-how-we-work-mobile.svg) no-repeat top
-    right;
+    right / contain;
   background-color: $darkViolet;
   color: white;
   text-align: center;
 
+  @include min-width(600px) {
+    padding: 4.5em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(../images/bg-pattern-how-we-work-desktop.svg);
+    text-align: left;
+  }
+
   &__heading {
     font-family: $fontHeadings;
     font-size: 2.5em;
+
+    @include min-width(600px) {
+      flex-basis: 50%;
+    }
   }
 
   &__link {
@@ -296,7 +366,7 @@ body {
     @include min-width(500px) {
       display: flex;
       justify-content: space-between;
-      align-items: center
+      align-items: center;
     }
   }
 
@@ -324,7 +394,6 @@ body {
       justify-items: start;
       text-align: left;
     }
-
   }
 
   &__subheading {
