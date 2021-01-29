@@ -33,6 +33,10 @@
     margin: 10px;
   }
 
+  &__social-logo:hover path{
+    fill: $veryDarkViolet;
+  }
+
   &__links {
     @include min-width(600px) {
       display: grid;
@@ -61,5 +65,9 @@
   &__link {
     font-size: 0.9em;
     line-height: 2;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

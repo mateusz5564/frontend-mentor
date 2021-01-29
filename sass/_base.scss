@@ -74,6 +74,10 @@ body {
 
   &--gray {
     color: $darkGrayishViolet;
+
+    &:hover {
+      color: $veryDarkViolet;
+    }
   }
 
   &--white {
@@ -84,10 +88,20 @@ body {
     color: $veryLightGray;
     border: 2px solid $veryLightGray;
     padding: .5em 2em;
+
+    &:hover {
+      color: $veryDarkViolet;
+      background-color: $veryLightGray;
+    }
   }
 
   &--border-black {
     border: 2px solid $veryDarkViolet;
     padding: .5em 2em;
+
+    &:hover {
+      color: $veryLightGray;
+      background-color: $veryDarkViolet;
+    }
   }
 }
