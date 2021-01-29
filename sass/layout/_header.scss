@@ -1,0 +1,101 @@
+
+.header {
+  position: relative;
+  height: 80px;
+  background-color: white;
+  padding: 1.4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+
+  &__img {
+    height: 1.4em;
+  }
+
+  &__btn {
+    border: none;
+    cursor: pointer;
+    height: 32px;
+
+    @include min-width(900px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include min-width(900px) {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item:last-of-type {
+    border: 2px solid black;
+
+    & .header__link {
+      color: black;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.5em 2em;
+    font-weight: 700;
+    color: $darkGrayishViolet;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.mobile-nav {
+  transform: translateY(-100vh);
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center /
+    contain;
+  background-color: $veryDarkViolet;
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  @include min-width(650px) {
+    background-position: bottom right;
+    background-size: 60%;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    list-style: none;
+  }
+
+  &__item {
+    width: 90%;
+    margin-bottom: 1em;
+
+    &:last-of-type a {
+      border: 2px solid white;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 1.4em;
+    text-align: center;
+    padding: 12px 10px;
+    color: $veryLightGray;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}

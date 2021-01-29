@@ -28,6 +28,22 @@ body {
   margin: 0 auto;
 }
 
+.link {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.link--border {
+  border: 2px solid white;
+  padding: 8px 30px;
+}
+
+.link--white {
+  color: white;
+}
+
 .header {
   position: relative;
   height: 80px;
