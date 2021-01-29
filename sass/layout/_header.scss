@@ -33,25 +33,13 @@
 
   &__list {
     display: flex;
+    align-items: center;
     list-style: none;
   }
 
-  &__item:last-of-type {
-    border: 2px solid black;
-
-    & .header__link {
-      color: black;
-    }
-  }
-
   &__link {
-    display: inline-block;
-    padding: 0.5em 2em;
-    font-weight: 700;
-    color: $darkGrayishViolet;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 
@@ -86,16 +74,5 @@
     &:last-of-type a {
       border: 2px solid white;
     }
-  }
-
-  &__link {
-    display: block;
-    font-size: 1.4em;
-    text-align: center;
-    padding: 12px 10px;
-    color: $veryLightGray;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
   }
 }

@@ -64,3 +64,30 @@ body {
   margin: 0 auto;
 }
 
+.link {
+  color: $veryDarkViolet;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+
+  &--gray {
+    color: $darkGrayishViolet;
+  }
+
+  &--white {
+    color: $veryLightGray;
+  }
+
+  &--border {
+    color: $veryLightGray;
+    border: 2px solid $veryLightGray;
+    padding: .5em 2em;
+  }
+
+  &--border-black {
+    border: 2px solid $veryDarkViolet;
+    padding: .5em 2em;
+  }
+}

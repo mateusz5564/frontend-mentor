@@ -27,6 +27,7 @@
   }
 
   &__link {
-    @include section-link();
+    color: white;
+    margin-top: 2em;
   }
 }
