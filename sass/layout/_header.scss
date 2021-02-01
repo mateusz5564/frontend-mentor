@@ -1,3 +1,6 @@
+.menu-open {
+  overflow: hidden;
+}
 
 .header {
   position: relative;
@@ -68,10 +71,14 @@
 
   &__item {
     width: 90%;
-    margin-bottom: 1em;
-
-    &:last-of-type a {
-      border: 2px solid white;
-    }
+    margin: .3em 0;
+    
+    text-align: center;
+  }
+  
+  &__link {
+    padding: 1em 0;
+    width: 100%;
+    font-size: 1.2em;
   }
 }

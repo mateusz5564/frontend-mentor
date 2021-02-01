@@ -52,7 +52,7 @@ body {
 .link--border {
   color: #fafafa;
   border: 2px solid #fafafa;
-  padding: .5em 2em;
+  padding: .6em 2em;
 }
 
 .link--border:hover {
@@ -62,12 +62,16 @@ body {
 
 .link--border-black {
   border: 2px solid #2b272f;
-  padding: .5em 2em;
+  padding: .6em 2em;
 }
 
 .link--border-black:hover {
   color: #fafafa;
   background-color: #2b272f;
+}
+
+.menu-open {
+  overflow: hidden;
 }
 
 .header {
@@ -164,11 +168,14 @@ body {
 
 .mobile-nav__item {
   width: 90%;
-  margin-bottom: 1em;
+  margin: .3em 0;
+  text-align: center;
 }
 
-.mobile-nav__item:last-of-type a {
-  border: 2px solid white;
+.mobile-nav__link {
+  padding: 1em 0;
+  width: 100%;
+  font-size: 1.2em;
 }
 
 .intro {

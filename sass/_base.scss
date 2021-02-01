@@ -12,6 +12,7 @@ $veryDarkViolet: hsl(270, 9%, 17%);
 $darkGrayishViolet: hsl(273, 4%, 51%);
 $veryLightGray: hsl(0, 0%, 98%);
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -87,7 +88,7 @@ body {
   &--border {
     color: $veryLightGray;
     border: 2px solid $veryLightGray;
-    padding: .5em 2em;
+    padding: .6em 2em;
 
     &:hover {
       color: $veryDarkViolet;
@@ -97,7 +98,7 @@ body {
 
   &--border-black {
     border: 2px solid $veryDarkViolet;
-    padding: .5em 2em;
+    padding: .6em 2em;
 
     &:hover {
       color: $veryLightGray;
