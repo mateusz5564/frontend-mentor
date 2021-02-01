@@ -101,6 +101,10 @@ body {
   height: 32px;
 }
 
+.header__btn:focus {
+  outline: none;
+}
+
 @media (min-width: 900px) {
   .header__btn {
     display: none;
@@ -132,6 +136,7 @@ body {
 }
 
 .mobile-nav {
+  display: none;
   -webkit-transform: translateY(-100vh);
           transform: translateY(-100vh);
   position: fixed;
