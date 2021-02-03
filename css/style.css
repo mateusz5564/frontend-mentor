@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+*:focus {
+  border: 5px solid red !important;
+}
+
 body {
   font-size: 16px;
   font-family: "Karla", sans-serif;

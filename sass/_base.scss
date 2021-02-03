@@ -17,6 +17,10 @@ $veryLightGray: hsl(0, 0%, 98%);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  &:focus {
+    border: 5px solid red !important;
+  }
 }
 
 body {
