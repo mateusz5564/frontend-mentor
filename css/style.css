@@ -12,6 +12,10 @@ body {
   font-family: "Karla", sans-serif;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 .decorative-line {
   height: 2px;
   background-color: #837d87;
@@ -68,10 +72,6 @@ body {
 .link--border-black:hover {
   color: #fafafa;
   background-color: #2b272f;
-}
-
-.menu-open {
-  overflow: hidden;
 }
 
 .header {
@@ -147,6 +147,12 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 1;
+}
+
+.mobile-nav--open {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  display: block;
 }
 
 @media (min-width: 650px) {
