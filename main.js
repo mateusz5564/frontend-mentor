@@ -14,6 +14,7 @@ const isMenuOpen = () => menu.classList.contains("mobile-nav--open");
 
 const closeMenu = () => {
   menu.classList.remove("mobile-nav--open");
+  menuBtn.setAttribute("aria-expanded", "false");
   document.body.classList.remove("modal-open");
   menuBtnIcon.setAttribute("src", "./images/icon-hamburger.svg");
   document.removeEventListener("keydown", keyboardListener);
@@ -27,6 +28,7 @@ const openMenu = () => {
   document.addEventListener("keydown", keyboardListener);
 
   menu.classList.add("mobile-nav--open");
+  menuBtn.setAttribute("aria-expanded", "true");
   document.body.classList.add("modal-open");
   menuBtnIcon.setAttribute("src", "./images/icon-close.svg");
 };
@@ -48,7 +50,7 @@ const handleKeyboardInput = (e, focusableEls) => {
   //TAB
   else if (e.keyCode === 9) {
     e.preventDefault();
-    focusElement("next", focusableEls);
+    focusElement("next", focusableEls); 
   }
 };
 

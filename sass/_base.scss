@@ -19,7 +19,7 @@ $veryLightGray: hsl(0, 0%, 98%);
   padding: 0;
 
   &:focus {
-    border: 5px solid red !important;
+    outline: 5px solid $grayishBlue !important;
   }
 }
 

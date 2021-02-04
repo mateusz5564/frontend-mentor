@@ -3,6 +3,7 @@
   background-color: $darkViolet;
   color: white;
   text-align: center;
+  margin-top: 80px;
 
   @include min-width(700px) {
     background: url("../images/bg-pattern-intro-right-desktop.svg") no-repeat

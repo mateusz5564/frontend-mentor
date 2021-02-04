@@ -11,10 +11,11 @@
 
 <body>
 
-  <div class="container">
-    <header class="header">
+  <header class="header">
+    <div class="container header__container">
       <img class="header__img" src="images/logo.svg" alt="">
-      <button class="header__btn" aria-label="open menu"><img class="header__btn-icon" src="images/icon-hamburger.svg" alt=""></button>
+      <button class="header__btn" aria-label="menu" aria-expanded="false"><img class="header__btn-icon" src="images/icon-hamburger.svg"
+          alt=""></button>
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item"><a href="" class="header__link link link--gray">How we work</a></li>
@@ -23,15 +24,19 @@
           <li class="header__item"><a href="" class="header__link link link--border-black">View plans</a></li>
         </ul>
       </nav>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <nav class="mobile-nav">
     <ul class="mobile-nav__list">
-      <li class="mobile-nav__item"><a href="" class="mobile-nav__link link link--white">How we work</a></li>
-      <li class="mobile-nav__item"><a href="" class="mobile-nav__link link link--white">Blog</a></li>
-      <li class="mobile-nav__item"><a href="" class="mobile-nav__link link link--white">Account</a></li>
-      <li class="mobile-nav__item"><a href="" class="mobile-nav__link link link--white link--border">View plans</a></li>
+      <li class="mobile-nav__item"><a href="https://www.google.com/" class="mobile-nav__link link link--white">How we
+          work</a></li>
+      <li class="mobile-nav__item"><a href="https://www.google.com/" class="mobile-nav__link link link--white">Blog</a>
+      </li>
+      <li class="mobile-nav__item"><a href="https://www.google.com/"
+          class="mobile-nav__link link link--white">Account</a></li>
+      <li class="mobile-nav__item"><a href="https://www.google.com/"
+          class="mobile-nav__link link link--white link--border">View plans</a></li>
     </ul>
   </nav>
 
@@ -113,7 +118,7 @@
             <svg class="footer__social-logo" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
               <path fill="#837D88"
                 d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
-              </svg></a>
+            </svg></a>
           <a class="footer__social-link" aria-label="Twitter profile" href="#">
             <svg class="footer__social-logo" xmlns="http://www.w3.org/2000/svg" width="24" height="20">
               <path fill="#837D88"
