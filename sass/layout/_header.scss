@@ -58,8 +58,10 @@
   padding-top: 80px;
   position: fixed;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  width: 100%;
   background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center /
     contain;
   background-color: $veryDarkViolet;
@@ -69,6 +71,10 @@
   &--open {
     transform: translateY(0);
     display: block;
+  }
+
+  @media (max-height: 650px) and (orientation: landscape) {
+    background-image: none;
   }
 
   @include min-width(650px) {

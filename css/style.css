@@ -167,8 +167,10 @@ body {
   padding-top: 80px;
   position: fixed;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
   background: url("../images/bg-pattern-mobile-nav.svg") no-repeat bottom center/contain;
   background-color: #2b272f;
   -webkit-transition: all 0.3s ease;
@@ -180,6 +182,12 @@ body {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   display: block;
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .mobile-nav {
+    background-image: none;
+  }
 }
 
 @media (min-width: 650px) {
