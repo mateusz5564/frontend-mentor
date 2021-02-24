@@ -1,0 +1,33 @@
+
+.how {
+  margin: 3em 1em;
+  padding: 4.5em 1em;
+  background: url(../images/bg-pattern-how-we-work-mobile.svg) no-repeat top
+    right / contain;
+  background-color: $darkViolet;
+  color: white;
+  text-align: center;
+
+  @include min-width(600px) {
+    padding: 4.5em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(../images/bg-pattern-how-we-work-desktop.svg);
+    text-align: left;
+  }
+
+  &__heading {
+    font-family: $fontHeadings;
+    font-size: 2.5em;
+
+    @include min-width(600px) {
+      flex-basis: 50%;
+    }
+  }
+
+  &__link {
+    color: white;
+    margin-top: 2em;
+  }
+}

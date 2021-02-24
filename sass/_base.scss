@@ -1,0 +1,127 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+$fontBody: 'Karla', sans-serif;
+$fontHeadings: 'DM Serif Display', serif;
+
+// COLORS
+$darkViolet: hsl(256, 26%, 20%);
+$grayishBlue: hsl(216, 30%, 68%);
+$veryDarkViolet: hsl(270, 9%, 17%);
+$darkGrayishViolet: hsl(273, 4%, 51%);
+$veryLightGray: hsl(0, 0%, 98%);
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: 5px solid $grayishBlue !important;
+  }
+}
+
+body {
+  font-size: 16px;
+  font-family: $fontBody;
+}
+
+// MIXINS
+@mixin section-link {
+  display: inline-block;
+  border: 2px solid white;
+  margin-top: 2em;
+  padding: 8px 30px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 200%;
+}
+
+@mixin min-width($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin max-width($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+// UTILS
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.decorative-line {
+  height: 2px;
+  background-color: $darkGrayishViolet;
+  opacity: 0.4;
+  margin: 2em auto;
+
+  &--half-width {
+    width: 50%;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.link {
+  color: $veryDarkViolet;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+
+  &--gray {
+    color: $darkGrayishViolet;
+
+    &:hover {
+      color: $veryDarkViolet;
+    }
+  }
+
+  &--white {
+    color: $veryLightGray;
+  }
+
+  &--border {
+    color: $veryLightGray;
+    border: 2px solid $veryLightGray;
+    padding: .6em 2em;
+
+    &:hover {
+      color: $veryDarkViolet;
+      background-color: $veryLightGray;
+    }
+  }
+
+  &--border-black {
+    border: 2px solid $veryDarkViolet;
+    padding: .6em 2em;
+
+    &:hover {
+      color: $veryLightGray;
+      background-color: $veryDarkViolet;
+    }
+  }
+}
