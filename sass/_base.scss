@@ -6,6 +6,8 @@ $dark-grayish-blue: hsl(210, 10%, 33%);
 $grayish-blue: hsl(201, 11%, 66%);
 
 $section-margin: 10em;
+$heading-margin: .5em;
+$feature-margin: 4em;
 
 * {
   box-sizing: border-box;
@@ -17,5 +19,9 @@ body {
   font-family: 'Bai Jamjuree', sans-serif;
   font-size: 18px;
   color: $grayish-blue;
+  text-align: center;
 }
 
+.container {
+  padding: 0 2em;  
+}

@@ -1,0 +1,25 @@
+.tools {
+  margin-bottom: $section-margin;
+  
+  &__heading {
+    color: $dark-grayish-blue;
+    margin-bottom: $heading-margin;
+  }
+
+  &__descr {
+    margin-bottom: 4em;
+  }
+
+  &__feature {
+    margin-bottom: $feature-margin;
+  }
+
+  &__feature-icon {
+    margin-bottom: 2em;
+  }
+
+  &__feature-heading {
+    color: $dark-grayish-blue;
+    margin-bottom: $heading-margin;
+  }
+}

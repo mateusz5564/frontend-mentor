@@ -10,6 +10,11 @@ body {
   font-family: 'Bai Jamjuree', sans-serif;
   font-size: 18px;
   color: #9fabb2;
+  text-align: center;
+}
+
+.container {
+  padding: 0 2em;
 }
 
 .button {
@@ -40,6 +45,7 @@ body {
           align-items: center;
   text-align: center;
   margin-bottom: 10em;
+  padding: 0 2em;
 }
 
 .header__logo {
@@ -48,6 +54,7 @@ body {
 }
 
 .header__heading {
+  font-size: 1.9em;
   color: #4c545d;
   margin-bottom: 0.5em;
 }
@@ -58,6 +65,108 @@ body {
 }
 
 .header__btn {
+  margin: 0.6em 0;
+}
+
+.track {
+  margin-bottom: 10em;
+}
+
+.track__heading {
+  color: #4c545d;
+  margin-bottom: 0.5em;
+}
+
+.track__descr {
+  margin-bottom: 4em;
+}
+
+.track__image {
+  margin-bottom: 4em;
+}
+
+.track__img {
+  max-width: 100%;
+}
+
+.track__feature {
+  margin-bottom: 3em;
+}
+
+.track__feature-heading {
+  margin-bottom: .5em;
+  color: #4c545d;
+}
+
+.footer {
+  background-color: #f4f5f6;
+}
+
+.access {
+  margin-bottom: 10em;
+}
+
+.access__heading {
+  color: #4c545d;
+  margin-bottom: 0.5em;
+}
+
+.access__descr {
+  margin-bottom: 4em;
+}
+
+.access__img {
+  max-width: 100%;
+}
+
+.tools {
+  margin-bottom: 10em;
+}
+
+.tools__heading {
+  color: #4c545d;
+  margin-bottom: 0.5em;
+}
+
+.tools__descr {
+  margin-bottom: 4em;
+}
+
+.tools__feature {
+  margin-bottom: 4em;
+}
+
+.tools__feature-icon {
+  margin-bottom: 2em;
+}
+
+.tools__feature-heading {
+  color: #4c545d;
+  margin-bottom: 0.5em;
+}
+
+.brands {
+  margin-bottom: 10em;
+}
+
+.brands__logo {
+  margin-bottom: 4em;
+}
+
+.download {
+  margin-bottom: 10em;
+}
+
+.download__heading {
+  color: #4c545d;
+  margin-bottom: 0.5em;
+}
+
+.download__descr {
+  margin-bottom: 2em;
+}
+
+.download__btn {
   margin: 0.6em 0;
 }
 /*# sourceMappingURL=style.css.map */

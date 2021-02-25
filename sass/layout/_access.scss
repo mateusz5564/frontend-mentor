@@ -1,0 +1,17 @@
+.access {
+  margin-bottom: $section-margin;
+
+  &__heading {
+    color: $dark-grayish-blue;
+    margin-bottom: $heading-margin;
+  }
+
+  &__descr {
+    margin-bottom: 4em;
+  }
+
+  &__img {
+    max-width: 100%;
+  }
+
+}

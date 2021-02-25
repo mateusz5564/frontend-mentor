@@ -11,6 +11,7 @@
 
 <body>
 
+  
   <header class="header">
     <div class="header__logo">
       <img src="./images/logo.svg" alt="">
@@ -25,6 +26,8 @@
     <button class="button header__btn">Download for iOS</button>
     <button class="button button--blue header__btn">Download for Mac</button>
   </header>
+
+  <div class="container">
 
   <section class="track">
     <h2 class="track__heading">Keep track of your snippets</h2>
@@ -67,8 +70,8 @@
       snippets in a few simple clicks.
     </p>
 
-    <div class="track__image">
-      <img class="track__img" src="./images/image-devices.png" alt="">
+    <div class="access__image">
+      <img class="access__img" src="./images/image-devices.png" alt="">
     </div>
 
   </section>
@@ -80,6 +83,11 @@
     <p class="tools__descr">We’ve got the tools to boost your productivity.</p>
 
     <div class="tools__feature">
+
+      <div class="tools__feature-icon">
+        <img class="tools__feature-img" src="./images/icon-blacklist.svg" alt="">
+      </div>
+
       <h3 class="tools__feature-heading">Create blacklists</h3>
 
       <p class="tools__feature-descr">Ensure sensitive information never makes its way to your clipboard by excluding
@@ -87,12 +95,22 @@
     </div>
 
     <div class="tools__feature">
+
+      <div class="tools__feature-icon">
+        <img class="tools__feature-img" src="./images/icon-text.svg" alt="">
+      </div>
+
       <h3 class="tools__feature-heading">Plain text snippets</h3>
 
       <p class="tools__feature-descr">Remove unwanted formatting from copied text for a consistent look.</p>
     </div>
 
     <div class="tools__feature">
+
+      <div class="tools__feature-icon">
+        <img class="tools__feature-img" src="./images/icon-preview.svg" alt="">
+      </div>
+
       <h3 class="tools__feature-heading">Sneak preview</h3>
 
       <p class="tools__feature-descr">Quick preview of all snippets on your Clipboard for easy access.</p>
@@ -120,14 +138,15 @@
   <section class="download">
     <h2 class="download__heading">Clipboard for iOS and Mac OS</h2>
 
-    <p class="donwload__descr">
+    <p class="download__descr">
       Available for free on the App Store. Download for Mac or iOS, sync with iCloud
       and you’re ready to start adding to your clipboard.
     </p>
 
-    <button class="download__btn">Download for iOS</button>
-    <button class="download__btn">Download for Mac</button>
+    <button class="button download__btn">Download for iOS</button>
+    <button class="button button--blue download__btn">Download for Mac</button>
   </section>
+</div>
 
   <footer class="footer">
     <div class="footer__logo">

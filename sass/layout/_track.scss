@@ -1,0 +1,29 @@
+.track {
+  margin-bottom: $section-margin;
+  
+  &__heading {
+    color: $dark-grayish-blue;
+    margin-bottom: $heading-margin;
+  }
+
+  &__descr {
+    margin-bottom: 4em;
+  }
+
+  &__image {
+    margin-bottom: 4em;
+  }
+
+  &__img {
+    max-width: 100%;
+  }
+
+  &__feature {
+    margin-bottom: 3em;
+  }
+
+  &__feature-heading {
+    margin-bottom: .5em;
+    color: $dark-grayish-blue;
+  }
+}
