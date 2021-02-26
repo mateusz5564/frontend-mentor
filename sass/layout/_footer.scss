@@ -1,3 +1,40 @@
 .footer {
   background-color: lighten($grayish-blue, 30%);
+  padding-bottom: 3em;
+  font-size: 1.2em;
+
+  &__logo {
+    padding: 3.5em 0 1.5em;
+  }
+
+  &__img {
+    max-width: 5em;
+  }
+
+  &__nav {
+    margin-bottom: 3em;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    margin: 1.5em 0;
+  }
+
+  &__link {
+    color: $grayish-blue;
+    text-decoration: none;
+  }
+
+  &__list-socials {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+
+  &__item-socials {
+    margin: 0 1em;
+  }
 }
