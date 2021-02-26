@@ -15,6 +15,12 @@ body {
 
 .container {
   padding: 0 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--small {
+  max-width: 700px;
 }
 
 .button {
@@ -45,7 +51,6 @@ body {
           align-items: center;
   text-align: center;
   margin-bottom: 10em;
-  padding: 0 2em;
 }
 
 .header__logo {
@@ -68,6 +73,21 @@ body {
   margin: 0.6em 0;
 }
 
+@media (min-width: 700px) {
+  .header__btn {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+}
+
+@media (min-width: 700px) {
+  .header {
+    background-image: url("../../images/bg-header-desktop.png");
+  }
+}
+
 .track {
   margin-bottom: 10em;
 }
@@ -79,6 +99,10 @@ body {
 
 .track__descr {
   margin-bottom: 4em;
+}
+
+.track__columns {
+  padding: 0 2em;
 }
 
 .track__image {
@@ -96,6 +120,22 @@ body {
 .track__feature-heading {
   margin-bottom: .5em;
   color: #4c545d;
+}
+
+@media (min-width: 700px) {
+  .track__columns {
+    margin-left: -80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .track__features {
+    text-align: left;
+    margin-left: 4em;
+  }
 }
 
 .footer {
@@ -181,9 +221,29 @@ body {
   margin-bottom: 2em;
 }
 
+.tools__feature-img {
+  height: 32px;
+}
+
 .tools__feature-heading {
   color: #4c545d;
   margin-bottom: 0.5em;
+}
+
+@media (min-width: 700px) {
+  .tools__features {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .tools__feature {
+    margin: 0 1em;
+    -ms-flex-preferred-size: 400px;
+        flex-basis: 400px;
+  }
 }
 
 .brands {
@@ -192,6 +252,23 @@ body {
 
 .brands__logo {
   margin-bottom: 4em;
+}
+
+@media (min-width: 700px) {
+  .brands {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .brands__logo {
+    margin: 0 2em;
+  }
 }
 
 .download {

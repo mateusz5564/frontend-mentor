@@ -18,8 +18,24 @@
     margin-bottom: 2em;
   }
 
+  &__feature-img {
+    height: 32px;
+  }
+
   &__feature-heading {
     color: $dark-grayish-blue;
     margin-bottom: $heading-margin;
+  }
+
+  @media (min-width: 700px) {
+    &__features {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__feature {
+      margin: 0 1em;
+      flex-basis: 400px;
+    }
   }
 }

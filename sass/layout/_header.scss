@@ -7,7 +7,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: $section-margin;
-  padding: 0 2em;
+
 
   &__logo {
     margin-top: 9em;
@@ -27,5 +27,17 @@
 
   &__btn {
     margin: 0.6em 0;
+
+    @media (min-width: 700px) {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+      margin-left: .5em;
+      margin-right: .5em;
+    }
   }
+
+  @media (min-width: 700px) {
+    background-image: url('../../images/bg-header-desktop.png');    
+  }
+
 }

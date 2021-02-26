@@ -10,6 +10,10 @@
     margin-bottom: 4em;
   }
 
+  &__columns {
+    padding: 0 2em;
+  }
+
   &__image {
     margin-bottom: 4em;
   }
@@ -25,5 +29,18 @@
   &__feature-heading {
     margin-bottom: .5em;
     color: $dark-grayish-blue;
+  }
+
+  @media (min-width: 700px) {
+    &__columns {
+      margin-left: -80px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__features {
+      text-align: left;
+      margin-left: 4em;
+    }
   }
 }
