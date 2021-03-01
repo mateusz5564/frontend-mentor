@@ -12,5 +12,12 @@
 
   &__btn {
     margin: 0.6em 0;
+
+    @media (min-width: 700px) {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+      margin-left: .5em;
+      margin-right: .5em;
+    }
   }
 }

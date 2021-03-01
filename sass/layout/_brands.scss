@@ -6,14 +6,13 @@
   }
 
   @media (min-width: 700px) {
-    & {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
     &__logo {
-      margin: 0 2em ;
+      margin: 0 2em;
     }
   }
 }
