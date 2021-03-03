@@ -326,7 +326,8 @@ body {
         flex-wrap: wrap;
   }
   .brands__logo {
-    margin: 0 2em;
+    margin-left: 2em;
+    margin-right: 2em;
   }
 }
 
