@@ -38,11 +38,20 @@ body {
   border-bottom: 3px solid #209d8a;
   -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
           box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #2acfb7;
 }
 
 .button--blue {
   background-color: #6173ff;
   border-bottom: 3px solid #3d54ff;
+}
+
+.button--blue:hover {
+  background-color: #7a8aff;
 }
 
 .header {
@@ -221,6 +230,11 @@ body {
 
 .footer__item {
   margin: 1.5em 0;
+  cursor: pointer;
+}
+
+.footer__item:hover .footer__link {
+  color: #26baa4;
 }
 
 @media (min-width: 700px) {
@@ -246,6 +260,17 @@ body {
 
 .footer__item-socials {
   margin: 0 1em;
+}
+
+.footer__icon-socials:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+}
+
+.footer__icon-socials:hover path {
+  fill: #26baa4;
 }
 
 .access {

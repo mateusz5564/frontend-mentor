@@ -54,6 +54,11 @@
 
   &__item {
     margin: 1.5em 0;
+    cursor: pointer;
+
+    &:hover .footer__link{
+      color: $strong-cyan;
+    }
 
     @media (min-width: 700px) {
       margin: 0;
@@ -73,5 +78,14 @@
 
   &__item-socials {
     margin: 0 1em;
+  }
+
+  &__icon-socials:hover {
+    transform: scale(1.2);
+    transition: all ease .3s;
+    
+    & path{
+      fill: $strong-cyan;
+    }
   }
 }

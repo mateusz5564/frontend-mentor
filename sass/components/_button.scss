@@ -8,9 +8,19 @@
   background-color: $strong-cyan;
   border-bottom: 3px solid darken($strong-cyan, 7%);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
+  cursor: pointer;
+  
+  &:hover {
+    background-color: lighten($strong-cyan, 5%);
+  }
 
   &--blue {
     background-color: $light-blue;
     border-bottom: 3px solid darken($light-blue, 7%);
+
+    &:hover {
+      background-color: lighten($light-blue, 5%);
+    }
   }
+
 }
