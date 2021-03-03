@@ -35,10 +35,14 @@ body {
   border: none;
   color: #d8d1d1;
   background-color: #26baa4;
+  border-bottom: 3px solid #209d8a;
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
+          box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
 }
 
 .button--blue {
   background-color: #6173ff;
+  border-bottom: 3px solid #3d54ff;
 }
 
 .header {
