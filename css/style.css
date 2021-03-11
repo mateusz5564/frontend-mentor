@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  height: 160px;
+  background-color: #5ba4a4;
+  background-image: url("../images/bg-header-mobile.svg");
+}
+/*# sourceMappingURL=style.css.map */
