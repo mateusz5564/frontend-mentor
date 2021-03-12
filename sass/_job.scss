@@ -3,15 +3,37 @@
 }
 
 .job {
-  background-color: $light-grayish-cyan-bg;
-  padding: 20px;
-  padding-top: 3em;
   position: relative;
+  display: flex;
+  margin-bottom: 30px;
+  
+  &__content {
+    position: relative;
+    background-color: $light-grayish-cyan-bg;
+    box-shadow: 0px 5px 20px lighten($dark-grayish-cyan, 20%);
+    margin-top: 44px;
+    padding: 0 25px;
+    padding-top: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__content::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background-color: $desaturated-dark-cyan;
+  }
 
   &__logo {
     position: absolute;
     top: 0;
-    transform: translateY(-50%);
+    left: 25px;
+    z-index: 2;
   }
 
   &__header {
@@ -51,8 +73,19 @@
     color: $dark-grayish-cyan;
   }
 
+  &__detail:not(:last-child)::after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $dark-grayish-cyan;
+    vertical-align: middle;
+    margin: 0 8px;
+  }
+
   &__tags {
-    margin: 1em -15px;
+    margin: 1em -10px;
   }
 
   &__tag {
@@ -62,6 +95,6 @@
     font-weight: 700;
     border-radius: 4px;
     padding: 10px;
-    margin: 7px 15px;
+    margin: 7px 10px;
   }
 }
