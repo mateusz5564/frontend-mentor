@@ -10,7 +10,26 @@
 </head>
 
 <body>
-  <header class="header"></header>
+  <header class="header">
+      <div class="header__bg"></div>
+        <section class="header__filters">
+          <div class="header__tags">
+            <button class="header__tag">
+              <span class="header__tag-text">Frontend</span>
+              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+            </button>
+            <button class="header__tag">
+              <span class="header__tag-text">CSS</span>
+              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+            </button>
+            <button class="header__tag">
+              <span class="header__tag-text">JavaScript</span>
+              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+            </button>
+          </div>
+          <button class="header__clear">Clear</button>
+        </section>
+  </header>
 
   <div class="container">
     <section class="jobs">
@@ -34,11 +53,11 @@
           <hr class="job__dec-line">
   
           <div class="job__tags">
-            <span class="job__tag">Frontend</span>
-            <span class="job__tag">Senior</span>
-            <span class="job__tag">HTML</span>
-            <span class="job__tag">CSS</span>
-            <span class="job__tag">JavaScript</span>
+            <button class="job__tag">Frontend</button>
+            <button class="job__tag">Senior</button>
+            <button class="job__tag">HTML</button>
+            <button class="job__tag">CSS</button>
+            <button class="job__tag">JavaScript</button>
           </div>
        </div>
       </article>
@@ -63,10 +82,10 @@
           <hr class="job__dec-line">
   
           <div class="job__tags">
-            <span class="job__tag">Fullstack</span>
-            <span class="job__tag">Midweight</span>
-            <span class="job__tag">Python</span>
-            <span class="job__tag">React</span>
+            <button class="job__tag">Fullstack</button>
+            <button class="job__tag">Midweight</button>
+            <button class="job__tag">Python</button>
+            <button class="job__tag">React</button>
           </div>
        </div>
       </article>
