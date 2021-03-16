@@ -18,7 +18,8 @@ body {
 }
 
 .header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  border: 1px solid transparent;
 }
 
 .header__bg {
@@ -93,7 +94,14 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 44px;
   margin-bottom: 30px;
+}
+
+@media (min-width: 1000px) {
+  .job {
+    padding-top: 0;
+  }
 }
 
 .job__content {
@@ -101,11 +109,25 @@ body {
   background-color: #effafa;
   -webkit-box-shadow: 0px 5px 20px #b2bdbd;
           box-shadow: 0px 5px 20px #b2bdbd;
-  margin-top: 44px;
   padding: 0 25px;
   padding-top: 40px;
   border-radius: 10px;
-  overflow: hidden;
+  width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .job__content {
+    padding: 10px 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .job__content::before {
@@ -116,14 +138,23 @@ body {
   top: 0;
   width: 7px;
   height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   background-color: #5ba4a4;
 }
 
 .job__logo {
   position: absolute;
-  top: 0;
+  top: -44px;
   left: 25px;
   z-index: 2;
+}
+
+@media (min-width: 1000px) {
+  .job__logo {
+    position: static;
+    margin-right: 20px;
+  }
 }
 
 .job__header {
@@ -140,8 +171,8 @@ body {
 .job__label {
   display: inline-block;
   background-color: #5ba4a4;
-  margin: 0 .3em;
-  padding: 10px;
+  margin: 0 0.3em;
+  padding: 5px 10px;
   border-radius: 20px;
   color: #effafa;
   text-transform: uppercase;
@@ -174,8 +205,26 @@ body {
   margin: 0 8px;
 }
 
+@media (min-width: 1000px) {
+  .job__dec-line {
+    display: none;
+  }
+}
+
 .job__tags {
   margin: 1em -10px;
+}
+
+@media (min-width: 1000px) {
+  .job__tags {
+    justify-self: flex-end;
+  }
+}
+
+.job .separate {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .job__tag {

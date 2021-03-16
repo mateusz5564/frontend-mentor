@@ -11,47 +11,50 @@
 
 <body>
   <header class="header">
-      <div class="header__bg"></div>
-        <section class="header__filters">
-          <div class="header__tags">
-            <button class="header__tag">
-              <span class="header__tag-text">Frontend</span>
-              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
-            </button>
-            <button class="header__tag">
-              <span class="header__tag-text">CSS</span>
-              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
-            </button>
-            <button class="header__tag">
-              <span class="header__tag-text">JavaScript</span>
-              <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
-            </button>
-          </div>
-          <button class="header__clear">Clear</button>
-        </section>
+    <div class="header__bg"></div>
+    <section class="header__filters">
+      <div class="header__tags">
+        <button class="header__tag">
+          <span class="header__tag-text">Frontend</span>
+          <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+        </button>
+        <button class="header__tag">
+          <span class="header__tag-text">CSS</span>
+          <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+        </button>
+        <button class="header__tag">
+          <span class="header__tag-text">JavaScript</span>
+          <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+        </button>
+      </div>
+      <button class="header__clear">Clear</button>
+    </section>
   </header>
 
   <div class="container">
     <section class="jobs">
       <article class="job">
-        <div class="job__logo">
-          <img class="job__img" src="./images/photosnap.svg" alt="">
-        </div>
-       <div class="job__content">
-          <div class="job__header">
-            <span class="job__company">Photosnap</span>
-            <span class="job__label">New!</span>
-            <span class="job__label job__label--dark">Featured</span>
+        <div class="job__content">
+          <div class="job__logo">
+            <img class="job__img" src="./images/photosnap.svg" alt="">
           </div>
-          <p class="job__title">Senior Frontend Developer</p>
-          <div class="job__details">
-            <span class="job__detail">1d ago</span>
-            <span class="job__detail">Full Time</span>
-            <span class="job__detail">USA only</span>
+          <div>
+            <div class="job__header">
+              <span class="job__company">Photosnap</span>
+              <span class="job__label">New!</span>
+              <span class="job__label job__label--dark">Featured</span>
+            </div>
+            <p class="job__title">Senior Frontend Developer</p>
+            <div class="job__details">
+              <span class="job__detail">1d ago</span>
+              <span class="job__detail">Full Time</span>
+              <span class="job__detail">USA only</span>
+            </div>
           </div>
-  
+
           <hr class="job__dec-line">
-  
+          <div class="separate"></div>
+
           <div class="job__tags">
             <button class="job__tag">Frontend</button>
             <button class="job__tag">Senior</button>
@@ -59,35 +62,38 @@
             <button class="job__tag">CSS</button>
             <button class="job__tag">JavaScript</button>
           </div>
-       </div>
+        </div>
       </article>
 
       <article class="job">
-        <div class="job__logo">
-          <img class="job__img" src="./images/manage.svg" alt="">
-        </div>
-       <div class="job__content">
-          <div class="job__header">
-            <span class="job__company">Manage</span>
-            <span class="job__label">New!</span>
-            <span class="job__label job__label--dark">Featured</span>
+        <div class="job__content">
+          <div class="job__logo">
+            <img class="job__img" src="./images/manage.svg" alt="">
           </div>
-          <p class="job__title">Fullstack Developer</p>
-          <div class="job__details">
-            <span class="job__detail">1d ago</span>
-            <span class="job__detail">Part Time</span>
-            <span class="job__detail">Remote</span>
+          <div>
+            <div class="job__header">
+              <span class="job__company">Manage</span>
+              <span class="job__label">New!</span>
+              <span class="job__label job__label--dark">Featured</span>
+            </div>
+            <p class="job__title">Fullstack Developer</p>
+            <div class="job__details">
+              <span class="job__detail">1d ago</span>
+              <span class="job__detail">Part Time</span>
+              <span class="job__detail">Remote</span>
+            </div>
           </div>
-  
+
           <hr class="job__dec-line">
-  
+          <div class="separate"></div>
+
           <div class="job__tags">
             <button class="job__tag">Fullstack</button>
             <button class="job__tag">Midweight</button>
             <button class="job__tag">Python</button>
             <button class="job__tag">React</button>
           </div>
-       </div>
+        </div>
       </article>
 
 
@@ -263,6 +269,12 @@
 
     </section>
   </div>
+
+  <script>
+    document.addEventListener("click", (e) => {
+      console.log(e.target);
+    })
+  </script>
 </body>
 
 </html>
