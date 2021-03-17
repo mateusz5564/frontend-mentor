@@ -14,6 +14,7 @@ body {
 
 .container {
   padding: 0 20px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -32,6 +33,7 @@ body {
 .header__filters {
   position: relative;
   min-height: 100px;
+  max-width: 1400px;
   top: -50px;
   padding: 15px;
   margin: 0 20px;
@@ -46,6 +48,13 @@ body {
           justify-content: space-between;
   -webkit-box-shadow: 0px 5px 20px #b2bdbd;
           box-shadow: 0px 5px 20px #b2bdbd;
+}
+
+@media (min-width: 1440px) {
+  .header__filters {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .header__tag {
@@ -106,13 +115,13 @@ body {
 
 .job__content {
   position: relative;
+  width: 100%;
+  padding: 0 25px;
+  padding-top: 40px;
   background-color: #effafa;
   -webkit-box-shadow: 0px 5px 20px #b2bdbd;
           box-shadow: 0px 5px 20px #b2bdbd;
-  padding: 0 25px;
-  padding-top: 40px;
   border-radius: 10px;
-  width: 100%;
 }
 
 @media (min-width: 1000px) {
@@ -217,6 +226,7 @@ body {
 
 @media (min-width: 1000px) {
   .job__tags {
+    margin-left: auto;
     justify-self: flex-end;
   }
 }

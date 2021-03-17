@@ -12,6 +12,7 @@
   &__filters {
     position: relative;
     min-height: 100px;
+    max-width: 1400px;
     top: -50px;
     padding: 15px;
     margin: 0 20px;
@@ -21,6 +22,11 @@
     display: flex;
     justify-content: space-between;
     box-shadow: $box-shadow;
+
+    @media (min-width: 1440px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__tag {

@@ -8,15 +8,14 @@
     padding-top: 0;
   }
 
-
   &__content {
     position: relative;
-    background-color: $light-grayish-cyan-bg;
-    box-shadow: $box-shadow;
+    width: 100%;
     padding: 0 25px;
     padding-top: 40px;
+    background-color: $light-grayish-cyan-bg;
+    box-shadow: $box-shadow;
     border-radius: 10px;
-    width: 100%;
 
     @media (min-width: 1000px) {
       padding: 10px 25px;
@@ -109,6 +108,7 @@
     margin: 1em -10px;
 
     @media (min-width: 1000px) {
+      margin-left: auto;
       justify-self: flex-end;
     }
   }
