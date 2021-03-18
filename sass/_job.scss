@@ -4,6 +4,10 @@
   padding-top: 44px;
   margin-bottom: 30px;
 
+  &--hidden {
+    display: none;
+  }
+
   @media (min-width: 1000px) {
     padding-top: 0;
   }
@@ -74,12 +78,18 @@
     &--dark {
       background-color: black;
     }
+    
   }
 
   &__title {
     font-weight: 700;
     font-size: 1.3em;
     margin: 1em 0;
+
+    &:hover {
+      color: $desaturated-dark-cyan;
+      cursor: pointer;
+    }
   }
 
   &__details {
@@ -120,5 +130,11 @@
   &__tag {
     @include tag;
     padding: 10px;
+
+    &:hover {
+      background-color: $desaturated-dark-cyan;
+      color: white;
+      cursor: pointer;
+    }
   }
 }

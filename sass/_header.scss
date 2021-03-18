@@ -19,10 +19,14 @@
     margin-bottom: -40px;
     background-color: $light-grayish-cyan-bg;
     border-radius: 5px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     box-shadow: $box-shadow;
+
+    &--active {
+      display: flex;
+    }
 
     @media (min-width: 1440px) {
       margin-left: auto;
@@ -39,6 +43,10 @@
     @include tag;
     display: flex;
     overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__tag-text {
@@ -51,6 +59,10 @@
     align-self: stretch;
     padding: 0 7px;
     background: $desaturated-dark-cyan;
+
+    .header__tag:hover & {
+      background-color: black;
+    }
   }
 
   &__clear {

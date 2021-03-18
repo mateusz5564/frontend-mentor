@@ -40,9 +40,7 @@ body {
   margin-bottom: -40px;
   background-color: #effafa;
   border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -51,6 +49,12 @@ body {
           align-items: center;
   -webkit-box-shadow: 0px 5px 20px #b2bdbd;
           box-shadow: 0px 5px 20px #b2bdbd;
+}
+
+.header__filters--active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media (min-width: 1440px) {
@@ -82,6 +86,10 @@ body {
   overflow: hidden;
 }
 
+.header__tag:hover {
+  cursor: pointer;
+}
+
 .header__tag-text {
   padding: 10px 15px;
 }
@@ -97,6 +105,10 @@ body {
       align-self: stretch;
   padding: 0 7px;
   background: #5ba4a4;
+}
+
+.header__tag:hover .header__icon {
+  background-color: black;
 }
 
 .header__clear {
@@ -122,6 +134,10 @@ body {
   display: flex;
   padding-top: 44px;
   margin-bottom: 30px;
+}
+
+.job--hidden {
+  display: none;
 }
 
 @media (min-width: 1000px) {
@@ -215,6 +231,11 @@ body {
   margin: 1em 0;
 }
 
+.job__title:hover {
+  color: #5ba4a4;
+  cursor: pointer;
+}
+
 .job__details {
   margin: 1em 0;
   color: #7b8e8e;
@@ -263,5 +284,11 @@ body {
   border-radius: 4px;
   margin: 7px 10px;
   padding: 10px;
+}
+
+.job__tag:hover {
+  background-color: #5ba4a4;
+  color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
