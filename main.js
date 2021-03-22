@@ -7,12 +7,11 @@ const jobHiddenClass = "job--hidden";
 
 const filtersContainerEl = document.querySelector(".header__filters");
 const filtersTagsEl = document.querySelector(".header__tags");
-const clearBtn = document.querySelector('.header__clear');
+const clearBtn = document.querySelector(".header__clear");
 const jobsEl = document.querySelector(".jobs");
 
 const filters = [];
 const jobElements = [];
-
 
 renderJobs();
 
@@ -21,16 +20,27 @@ jobTags.forEach((job) => {
   job.addEventListener("click", (e) => {
     displayFilters();
 
-    if(filters.includes(e.target.textContent)) return;
+    if (filters.includes(e.target.textContent)) return;
     filters.push(e.target.textContent);
     const filterTag = generateFilterTag(e.target.textContent);
-    filtersTagsEl.innerHTML += filterTag; 
+    filtersTagsEl.appendChild(filterTag);
     filterJobs();
+
   });
 });
 
-clearBtn.addEventListener("click", (e) => resetFilters());
+filtersContainerEl.addEventListener("click", (e) => {
+  const tag = e.target.closest(".header__tag");
 
+  if(!tag) return;
+  
+  filtersTagsEl.removeChild(tag);
+  filters.splice(filters.indexOf(tag.querySelector('.header__tag-text').textContent), 1);
+  filterJobs();
+  if (filters.length == 0) resetFilters();
+})
+
+clearBtn.addEventListener("click", (e) => resetFilters());
 
 function generateTags(tab) {
   let html = "";
@@ -43,13 +53,14 @@ function generateTags(tab) {
 }
 
 function generateFilterTag(label) {
-    const html = `<button class="header__tag">
-    <span class="header__tag-text">${label}</span>
-    <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
-    </button>`;
-    
-    return html;
-  }
+  const btn = document.createElement("button");
+  btn.classList.add("header__tag");
+  btn.innerHTML = `<span class="header__tag-text">${label}</span>
+  <div class="header__icon"><img src="./images/icon-remove.svg" alt=""></div>
+  `;
+
+  return btn;
+}
 
 function generateJobHtml(data) {
   const el = document.createElement("article");
@@ -109,13 +120,15 @@ function displayFilters(display = true) {
 
 function filterJobs() {
   jobElements.forEach((job) => {
-    const isFullfilled = filters.every((filter) => job.querySelector('.job__tags').innerHTML.includes(filter));
-    if(!isFullfilled) {
+    const isFullfilled = filters.every((filter) =>
+      job.querySelector(".job__tags").innerHTML.includes(filter)
+    );
+    if (!isFullfilled) {
       job.classList.add(jobHiddenClass);
     } else {
       job.classList.remove(jobHiddenClass);
     }
-  })
+  });
 }
 
 function resetFilters() {
@@ -126,4 +139,3 @@ function resetFilters() {
     displayFilters(false);
   }
 }
-
