@@ -3,13 +3,34 @@ const json =
 
 let dataObj = JSON.parse(json);
 const filtersActiveClass = "header__filters--active";
+const jobHiddenClass = "job--hidden";
+
 const filtersContainerEl = document.querySelector(".header__filters");
 const filtersTagsEl = document.querySelector(".header__tags");
-const filters = [];
+const clearBtn = document.querySelector('.header__clear');
 const jobsEl = document.querySelector(".jobs");
-const jobTags = document.querySelectorAll(".job__tag");
-const jobHiddenClass = "job--hidden";
+
+const filters = [];
 const jobElements = [];
+
+
+renderJobs();
+
+const jobTags = document.querySelectorAll(".job__tag");
+jobTags.forEach((job) => {
+  job.addEventListener("click", (e) => {
+    displayFilters();
+
+    if(filters.includes(e.target.textContent)) return;
+    filters.push(e.target.textContent);
+    const filterTag = generateFilterTag(e.target.textContent);
+    filtersTagsEl.innerHTML += filterTag; 
+    filterJobs();
+  });
+});
+
+clearBtn.addEventListener("click", (e) => resetFilters());
+
 
 function generateTags(tab) {
   let html = "";
@@ -97,16 +118,12 @@ function filterJobs() {
   })
 }
 
-renderJobs();
+function resetFilters() {
+  for (job of jobElements) {
+    job.classList.remove(jobHiddenClass);
+    filters.length = 0;
+    filtersTagsEl.innerHTML = "";
+    displayFilters(false);
+  }
+}
 
-jobTags.forEach((job) => {
-  job.addEventListener("click", (e) => {
-    displayFilters();
-
-    if(filters.includes(e.target.textContent)) return;
-    filters.push(e.target.textContent);
-    const filterTag = generateFilterTag(e.target.textContent);
-    filtersTagsEl.innerHTML += filterTag; 
-    filterJobs();
-  });
-});
