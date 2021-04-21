@@ -1,3 +1,29 @@
+@import './colors';
+
 .App {
-  background-color: yellow;
+  background: url('./images/bg-mobile-light.jpg') no-repeat top/120%;
+  min-height: 100vh;
+  padding: 0 25px;
+  padding-top: 50px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-theme {
+    background: none;
+    border: none;
+  }
+
+  &__heading {
+    color: $veryLightGray;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+  }
+
+  &__btn-theme {
+    width: 32px;
+    height: 32px;
+  }
 }
