@@ -17,4 +17,13 @@
     align-items: center;
     height: 66px;
   }
+
+  &__items-left {
+    color: $darkGrayishBlue;
+    font-size: .9em;
+  }
+
+  &__btn-clear {
+    @include btn-text;
+  }
 }

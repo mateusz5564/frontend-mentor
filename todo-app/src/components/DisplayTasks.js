@@ -8,10 +8,13 @@ function DisplayTasks() {
         <li className='DisplayTasks__item'>
           <Task />
         </li>
+        <li className='DisplayTasks__item'>
+          <Task />
+        </li>
       </ul>
       <footer className="DisplayTasks__footer">
-        <p>items left</p>
-        <button>Clear Completed</button>
+        <p className="DisplayTasks__items-left">5 items left</p>
+        <button className="DisplayTasks__btn-clear">Clear Completed</button>
       </footer>
     </section>
   );

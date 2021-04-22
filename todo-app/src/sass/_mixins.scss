@@ -1,0 +1,13 @@
+@mixin btn-circle {
+  width: 26px;
+  height: 26px;
+  background-color: $veryLightGray;
+  border: 1px solid $veryLightGrayishBlue;
+  border-radius: 50%;
+}
+
+@mixin btn-text {
+  color: $darkGrayishBlue;
+  border: none;
+  background-color: transparent;
+}

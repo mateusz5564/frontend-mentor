@@ -8,10 +8,7 @@
   padding: 20px;
 
   &__btn {
-    width: 26px;
-    background-color: $veryLightGray;
-    border: 1px solid $veryLightGrayishBlue;
-    border-radius: 50%;
+    @include btn-circle;
   }
 
   &__input {

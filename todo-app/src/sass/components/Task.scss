@@ -8,9 +8,23 @@
   align-items: center;
   border-bottom: 1px solid $lightGrayishBlue;
 
-  
+  &__btn-done {
+    @include btn-circle;
+  }
 
   &__name {
     flex-grow: 1;
+    margin: 0 15px;
+    color: $veryDarkGrayishBlue;
+  }
+
+  &__btn-delete {
+    width: 26px;
+    height: 26px;
+    border: none;
+    background-color: $veryLightGray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
