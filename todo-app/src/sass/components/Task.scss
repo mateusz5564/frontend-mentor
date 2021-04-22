@@ -1,0 +1,16 @@
+
+
+.Task {
+  height: 66px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $lightGrayishBlue;
+
+  
+
+  &__name {
+    flex-grow: 1;
+  }
+}

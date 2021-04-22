@@ -1,4 +1,4 @@
-import "./App.scss";
+
 import AddTask from "./components/AddTask";
 import DisplayTasks from "./components/DisplayTasks";
 import FilterTasks from "./components/FilterTasks";

@@ -1,0 +1,20 @@
+
+
+.DisplayTasks {
+  background-color: $veryLightGray;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px $lightGrayishBlue;
+
+  &__list {
+    list-style: none;
+  }
+
+  &__footer {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+  }
+}
