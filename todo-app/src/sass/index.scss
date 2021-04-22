@@ -6,6 +6,8 @@
 @import './components/AddTask.scss';
 @import './components/DisplayTasks.scss';
 @import './components/Task.scss';
+@import './components/FilterTasks.scss';
+
 
 * {
   margin: 0;
@@ -13,9 +15,14 @@
   box-sizing: border-box;
 }
 
+input, button {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 18px;
+  background-color: $veryLightGray;
 }
 
 

@@ -27,7 +27,7 @@ function App() {
         <FilterTasks />
       </main>
 
-      <footer>Drag and drop to reorder list</footer>
+      <footer className="App__footer">Drag and drop to reorder list</footer>
     </div>
   );
 }

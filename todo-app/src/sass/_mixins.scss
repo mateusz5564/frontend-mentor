@@ -1,7 +1,7 @@
 @mixin btn-circle {
   width: 26px;
   height: 26px;
-  background-color: $veryLightGray;
+  background-color: white;
   border: 1px solid $veryLightGrayishBlue;
   border-radius: 50%;
 }
@@ -10,4 +10,8 @@
   color: $darkGrayishBlue;
   border: none;
   background-color: transparent;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 2px 10px $lightGrayishBlue;
 }

@@ -25,4 +25,10 @@
       cursor: pointer;
     }
   }
+
+  &__footer {
+    margin-top: 50px;
+    color: $darkGrayishBlue;
+    text-align: center;
+  }
 }

@@ -1,0 +1,13 @@
+.FilterTasks {
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  @include box-shadow;
+
+  &__btn {
+    @include btn-text;
+    font-size: 1em;
+    margin: 0 10px;
+  }
+}

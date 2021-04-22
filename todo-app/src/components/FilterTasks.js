@@ -1,9 +1,9 @@
 function FilterTasks() {
   return (
-    <section>
-      <button>All</button>
-      <button>Active </button>
-      <button>Completed</button>
+    <section className="FilterTasks">
+      <button className="FilterTasks__btn">All</button>
+      <button className="FilterTasks__btn">Active </button>
+      <button className="FilterTasks__btn">Completed</button>
     </section>
   );
 }

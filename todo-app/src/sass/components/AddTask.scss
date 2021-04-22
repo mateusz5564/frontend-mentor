@@ -3,7 +3,7 @@
 .AddTask {
   height: 66px;
   display: flex;
-  background-color: $veryLightGray;
+  background-color: white;
   border-radius: 5px;
   padding: 20px;
 
@@ -15,10 +15,8 @@
     flex-grow: 1;
     margin-left: 15px;
     border: none;
-    font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     color: $veryDarkGrayishBlue;
-    background-color: $veryLightGray;
 
     &::placeholder {
       color: $darkGrayishBlue;

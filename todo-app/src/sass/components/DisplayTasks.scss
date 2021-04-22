@@ -1,10 +1,10 @@
 
 
 .DisplayTasks {
-  background-color: $veryLightGray;
+  background-color: white;
   border-radius: 5px;
   margin: 20px 0;
-  box-shadow: 0 2px 10px $lightGrayishBlue;
+  @include box-shadow;
 
   &__list {
     list-style: none;
