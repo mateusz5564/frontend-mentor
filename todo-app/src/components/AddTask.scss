@@ -1,0 +1,30 @@
+@import '../colors';
+
+.AddTask {
+  height: 66px;
+  display: flex;
+  background-color: $veryLightGray;
+  border-radius: 5px;
+  padding: 20px;
+
+  &__btn {
+    width: 26px;
+    background-color: $veryLightGray;
+    border: 1px solid $veryLightGrayishBlue;
+    border-radius: 50%;
+  }
+
+  &__input {
+    flex-grow: 1;
+    margin-left: 15px;
+    border: none;
+    font-weight: 700;
+    color: $veryDarkGrayishBlue;
+    background-color: $veryLightGray;
+
+    &::placeholder {
+      color: $darkGrayishBlue;
+      font-weight: 400;
+    }
+  }
+}

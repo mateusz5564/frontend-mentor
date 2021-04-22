@@ -9,11 +9,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-  }
-
-  &__btn-theme {
-    background: none;
-    border: none;
+    margin-bottom: 50px;
   }
 
   &__heading {
@@ -23,7 +19,11 @@
   }
 
   &__btn-theme {
-    width: 32px;
-    height: 32px;
+    background: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
