@@ -1,7 +1,11 @@
 function Task() {
   return (
-    <div className="Task">
-      <button className="Task__btn-done"></button>
+    <div className="Task Task--done">
+      <button className="Task__btn-check">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+          <path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" />
+        </svg>
+      </button>
       <p className="Task__name">task name</p>
       <button className="Task__btn-delete" aria-label="delete task">
         <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18">

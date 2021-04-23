@@ -1,4 +1,3 @@
-
 import AddTask from "./components/AddTask";
 import DisplayTasks from "./components/DisplayTasks";
 import FilterTasks from "./components/FilterTasks";
@@ -24,7 +23,9 @@ function App() {
 
         <DisplayTasks />
 
-        <FilterTasks />
+        <div className="App__filters-mobile">
+          <FilterTasks />
+        </div>
       </main>
 
       <footer className="App__footer">Drag and drop to reorder list</footer>

@@ -8,14 +8,26 @@
   align-items: center;
   border-bottom: 1px solid $lightGrayishBlue;
 
-  &__btn-done {
+  &__btn-check {
     @include btn-circle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Task--done & {
+      background: $checkBackground;
+    }
   }
 
   &__name {
     flex-grow: 1;
     margin: 0 15px;
     color: $veryDarkGrayishBlue;
+
+    .Task--done & {
+      color: $lightGrayishBlue;
+      text-decoration: line-through;
+    }
   }
 
   &__btn-delete {
