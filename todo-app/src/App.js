@@ -1,8 +1,24 @@
+import { useState } from 'react';
 import AddTask from "./components/AddTask";
 import DisplayTasks from "./components/DisplayTasks";
 import FilterTasks from "./components/FilterTasks";
 
 function App() {
+  const [tasks, setTasks] = useState([
+    { 
+      id: 1,
+      name: 'Do something 1',
+      isDone: true,
+    },
+    { 
+      id: 2,
+      name: 'Do something 2',
+      isDone: false,
+    }
+  ]);
+  const [uniqueId, setUniqueId] = useState(tasks.length);
+
+
   return (
     <div className="App">
      <div className="container">
@@ -20,9 +36,9 @@ function App() {
         </header>
   
         <main>
-          <AddTask />
+          <AddTask tasks={tasks} setTasks={setTasks} uniqueId={uniqueId} setUniqueId={setUniqueId}/>
   
-          <DisplayTasks />
+          <DisplayTasks tasks={tasks} />
   
           <div className="App__filters-mobile">
             <FilterTasks />

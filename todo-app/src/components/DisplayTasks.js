@@ -1,17 +1,17 @@
-
 import Task from "./Task";
-import FilterTasks from './FilterTasks';
+import FilterTasks from "./FilterTasks";
 
-function DisplayTasks() {
+function DisplayTasks(props) {
   return (
     <section className="DisplayTasks">
-      <ul className='DisplayTasks__list'>
-        <li className='DisplayTasks__item'>
-          <Task />
-        </li>
-        <li className='DisplayTasks__item'>
-          <Task />
-        </li>
+      <ul className="DisplayTasks__list">
+        {props.tasks.map(task => {
+          return (
+            <li key={task.id} className='DisplayTasks__item'>
+              <Task  task={task}/>
+          </li>
+          );
+        })}
       </ul>
       <footer className="DisplayTasks__footer">
         <p className="DisplayTasks__items-left">5 items left</p>
