@@ -4,6 +4,19 @@
   padding: 0 25px;
   padding-top: 50px;
 
+  @media (min-width: 600px) {
+    background: url("../../images/bg-desktop-light.jpg") no-repeat top/220%;
+    padding-top: 100px;
+  }
+
+  @media (min-width: 800px) {
+    background-size: 160%;
+  }
+
+  @media (min-width: 1250px) {
+    background-size: 100%;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
