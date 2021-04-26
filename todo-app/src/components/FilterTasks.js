@@ -1,9 +1,14 @@
-function FilterTasks() {
+function FilterTasks(props) {
+
+  const updateFilter = (e) => {
+    props.setFilter(e.target.textContent.toLowerCase());
+  }
+
   return (
     <section className="FilterTasks">
-      <button className="FilterTasks__btn">All</button>
-      <button className="FilterTasks__btn">Active </button>
-      <button className="FilterTasks__btn">Completed</button>
+      <button className="FilterTasks__btn" onClick={updateFilter}>All</button>
+      <button className="FilterTasks__btn" onClick={updateFilter}>Active</button>
+      <button className="FilterTasks__btn" onClick={updateFilter}>Completed</button>
     </section>
   );
 }
