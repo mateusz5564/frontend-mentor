@@ -8,22 +8,23 @@ function AddTask(props) {
   };
 
   const generateTask = (taskName) => {
-    props.setUniqueId(prevState => prevState + 1)
-    return {
+    const newTask = {
       'id': props.uniqueId,
       'name': taskName,
       'isDone': false,
     }
+    props.setUniqueId(prevState => prevState + 1)
+    return newTask;
   };
 
-  const insertTask = (task) => {
+  const addTask = (task) => {
     const newTasks =  props.tasks.concat([task]);
     props.setTasks(newTasks);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    insertTask(generateTask(taskName));
+    addTask(generateTask(taskName));
   }
 
   return (

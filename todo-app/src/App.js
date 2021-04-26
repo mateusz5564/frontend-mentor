@@ -7,16 +7,16 @@ function App() {
   const [tasks, setTasks] = useState([
     { 
       id: 1,
-      name: 'Do something 1',
-      isDone: true,
+      name: 'Task 1',
+      isDone: false,
     },
     { 
       id: 2,
-      name: 'Do something 2',
-      isDone: false,
+      name: 'Task 2',
+      isDone: true,
     }
   ]);
-  const [uniqueId, setUniqueId] = useState(tasks.length);
+  const [uniqueId, setUniqueId] = useState(tasks.length + 1);
 
 
   return (
@@ -38,7 +38,7 @@ function App() {
         <main>
           <AddTask tasks={tasks} setTasks={setTasks} uniqueId={uniqueId} setUniqueId={setUniqueId}/>
   
-          <DisplayTasks tasks={tasks} />
+          <DisplayTasks tasks={tasks} setTasks={setTasks} />
   
           <div className="App__filters-mobile">
             <FilterTasks />

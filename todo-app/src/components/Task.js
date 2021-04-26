@@ -7,7 +7,7 @@ function Task(props) {
         </svg>
       </button>
       <p className="Task__name">{props.task.name}</p>
-      <button className="Task__btn-delete" aria-label="delete task">
+      <button className="Task__btn-delete" onClick={(e) => props.onDelete(e, props.task)} aria-label="delete task">
         <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
           <path
             fill="#494C6B"
