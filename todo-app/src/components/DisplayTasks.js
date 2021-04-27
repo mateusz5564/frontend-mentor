@@ -1,20 +1,23 @@
 import Task from "./Task";
 import FilterTasks from "./FilterTasks";
 
-function DisplayTasks(props) {
+function DisplayTasks({tasks, setTasks, filter, setFilter}) {
   
-  const onDelete = (e, taskToDelete) => {
-    const newTasks = props.tasks.filter(task => task.id !== taskToDelete.id);
-    props.setTasks(newTasks);
+  const onDelete = (taskToDelete) => {
+    const newTasks = tasks.filter(task => task.id !== taskToDelete.id);
+    setTasks(newTasks);
   }
+
+  const getActiveTasks = () => tasks.filter(task => task.isDone === false);
+  const getCompletedTasks = () => tasks.filter(task => task.isDone === true);
   
   const renderTasks = (tasks) => {
     let tasksToDisplay;
 
-    if(props.filter === 'active') {
-      tasksToDisplay = tasks.filter(task => task.isDone === false);
-    } else if(props.filter === 'completed') {
-      tasksToDisplay = tasks.filter(task => task.isDone === true);
+    if(filter === 'active') {
+      tasksToDisplay = getActiveTasks();
+    } else if(filter === 'completed') {
+      tasksToDisplay = getCompletedTasks();
     } else {
       tasksToDisplay = tasks;
     }
@@ -31,12 +34,12 @@ function DisplayTasks(props) {
   return (
     <section className="DisplayTasks">
       <ul className="DisplayTasks__list">
-        {renderTasks(props.tasks)}
+        {renderTasks(tasks)}
       </ul>
       <footer className="DisplayTasks__footer">
-        <p className="DisplayTasks__items-left">5 items left</p>
+        <p className="DisplayTasks__items-left">{tasks.length}  items left</p>
         <div className="DisplayTasks__filters-desktop">
-          <FilterTasks filter={props.filter} setFilter={props.setFilter} />
+          <FilterTasks setFilter={setFilter} />
         </div>
         <button className="DisplayTasks__btn-clear">Clear Completed</button>
       </footer>

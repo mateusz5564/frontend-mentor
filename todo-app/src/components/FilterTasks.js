@@ -1,7 +1,7 @@
-function FilterTasks(props) {
+function FilterTasks({setFilter}) {
 
   const updateFilter = (e) => {
-    props.setFilter(e.target.textContent.toLowerCase());
+    setFilter(e.target.textContent.toLowerCase());
   }
 
   return (

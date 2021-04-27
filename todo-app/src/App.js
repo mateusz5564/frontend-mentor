@@ -42,7 +42,7 @@ function App() {
           <DisplayTasks tasks={tasks} setTasks={setTasks} filter={filter} setFilter={setFilter} />
   
           <div className="App__filters-mobile">
-            <FilterTasks filter={filter} setFilter={setFilter}/>
+            <FilterTasks setFilter={setFilter}/>
           </div>
         </main>
   

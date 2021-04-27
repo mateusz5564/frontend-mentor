@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function AddTask(props) {
+function AddTask({tasks, setTasks, uniqueId, setUniqueId}) {
   const [taskName, setTaskName] = useState("");
 
   const onChange = (e) => {
@@ -9,17 +9,17 @@ function AddTask(props) {
 
   const generateTask = (taskName) => {
     const newTask = {
-      'id': props.uniqueId,
+      'id': uniqueId,
       'name': taskName,
       'isDone': false,
     }
-    props.setUniqueId(prevState => prevState + 1)
+    setUniqueId(prevState => prevState + 1)
     return newTask;
   };
 
   const addTask = (task) => {
-    const newTasks =  props.tasks.concat([task]);
-    props.setTasks(newTasks);
+    const newTasks = tasks.concat([task]);
+    setTasks(newTasks);
   };
 
   const onSubmit = (e) => {
