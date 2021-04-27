@@ -1,7 +1,14 @@
-function Task({task, onDelete}) {
+function Task({task, tasks, setTasks, onDelete}) {
+
+  const toggleStatus = () => {
+    const updatedTask = {...task, isDone: !task.isDone}
+    const newTasks = tasks.map(task => task.id === updatedTask.id ? updatedTask : task );
+    setTasks(newTasks);
+  }
+
   return (
     <div className={task.isDone ? "Task Task--done" : "Task"}>
-      <button className="Task__btn-check">
+      <button className="Task__btn-check" onClick={toggleStatus}>
         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
           <path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" />
         </svg>

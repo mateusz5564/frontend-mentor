@@ -25,7 +25,7 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
     return tasksToDisplay.map(task => {
       return (
         <li key={task.id} className='DisplayTasks__item'>
-          <Task task={task} onDelete={onDelete}/>
+          <Task task={task} tasks={tasks} setTasks={setTasks} onDelete={onDelete}/>
         </li>
         );
       })
@@ -37,7 +37,7 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
         {renderTasks(tasks)}
       </ul>
       <footer className="DisplayTasks__footer">
-        <p className="DisplayTasks__items-left">{tasks.length}  items left</p>
+        <p className="DisplayTasks__items-left">{getActiveTasks().length}  items left</p>
         <div className="DisplayTasks__filters-desktop">
           <FilterTasks setFilter={setFilter} />
         </div>
