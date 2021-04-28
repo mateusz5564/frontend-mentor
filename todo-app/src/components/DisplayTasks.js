@@ -8,8 +8,13 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
     setTasks(newTasks);
   }
 
-  const getActiveTasks = () => tasks.filter(task => task.isDone === false);
-  const getCompletedTasks = () => tasks.filter(task => task.isDone === true);
+  const onDeleteCompleted = () => {
+    const newTasks = tasks.filter(task => !task.isDone);
+    setTasks(newTasks);
+  }
+
+  const getActiveTasks = () => tasks.filter(task => !task.isDone);
+  const getCompletedTasks = () => tasks.filter(task => task.isDone);
   
   const renderTasks = (tasks) => {
     let tasksToDisplay;
@@ -41,7 +46,7 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
         <div className="DisplayTasks__filters-desktop">
           <FilterTasks setFilter={setFilter} />
         </div>
-        <button className="DisplayTasks__btn-clear">Clear Completed</button>
+        <button className="DisplayTasks__btn-clear" onClick={onDeleteCompleted}>Clear Completed</button>
       </footer>
     </section>
   );
