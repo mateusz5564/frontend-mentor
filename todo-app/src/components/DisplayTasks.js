@@ -44,7 +44,7 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
       <footer className="DisplayTasks__footer">
         <p className="DisplayTasks__items-left">{getActiveTasks().length}  items left</p>
         <div className="DisplayTasks__filters-desktop">
-          <FilterTasks setFilter={setFilter} />
+          <FilterTasks filter={filter} setFilter={setFilter} />
         </div>
         <button className="DisplayTasks__btn-clear" onClick={onDeleteCompleted}>Clear Completed</button>
       </footer>

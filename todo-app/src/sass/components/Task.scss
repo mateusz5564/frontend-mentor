@@ -17,6 +17,10 @@
     .Task--done & {
       background: $checkBackground;
     }
+
+    &:hover {
+      background: red;
+    }
   }
 
   &__name {
