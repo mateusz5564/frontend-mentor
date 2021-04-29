@@ -9,6 +9,7 @@
   border-bottom: 1px solid $lightGrayishBlue;
   position: relative;
   z-index: 1;
+  background-color: white;
 
   &__btn-check {
     @include btn-circle;

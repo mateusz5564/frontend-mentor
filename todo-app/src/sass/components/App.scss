@@ -44,9 +44,4 @@
     text-align: center;
   }
 
-  &__filters-mobile {
-    @media (min-width: 600px) {
-      display: none;
-    }
-  }
 }

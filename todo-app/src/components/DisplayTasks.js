@@ -1,27 +1,26 @@
 import Task from "./Task";
 import FilterTasks from "./FilterTasks";
 
-function DisplayTasks({tasks, setTasks, filter, setFilter}) {
-  
-  const onDelete = (taskToDelete) => {
+function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
+  const onDelete = taskToDelete => {
     const newTasks = tasks.filter(task => task.id !== taskToDelete.id);
     setTasks(newTasks);
-  }
+  };
 
   const onDeleteCompleted = () => {
     const newTasks = tasks.filter(task => !task.isDone);
     setTasks(newTasks);
-  }
+  };
 
   const getActiveTasks = () => tasks.filter(task => !task.isDone);
   const getCompletedTasks = () => tasks.filter(task => task.isDone);
-  
-  const renderTasks = (tasks) => {
+
+  const renderTasks = tasks => {
     let tasksToDisplay;
 
-    if(filter === 'active') {
+    if (filter === "active") {
       tasksToDisplay = getActiveTasks();
-    } else if(filter === 'completed') {
+    } else if (filter === "completed") {
       tasksToDisplay = getCompletedTasks();
     } else {
       tasksToDisplay = tasks;
@@ -29,24 +28,38 @@ function DisplayTasks({tasks, setTasks, filter, setFilter}) {
 
     return tasksToDisplay.map(task => {
       return (
-        <li key={task.id} className='DisplayTasks__item'>
-          <Task task={task} tasks={tasks} setTasks={setTasks} onDelete={onDelete}/>
+        <li key={task.id} className="DisplayTasks__item">
+          <Task task={task} tasks={tasks} setTasks={setTasks} onDelete={onDelete} />
         </li>
-        );
-      })
-  }
+      );
+    });
+  };
 
   return (
     <section className="DisplayTasks">
-      <ul className="DisplayTasks__list">
-        {renderTasks(tasks)}
-      </ul>
+      <ul className="DisplayTasks__list">{renderTasks(tasks)}</ul>
       <footer className="DisplayTasks__footer">
-        <p className="DisplayTasks__items-left">{getActiveTasks().length}  items left</p>
-        <div className="DisplayTasks__filters-desktop">
-          <FilterTasks filter={filter} setFilter={setFilter} />
+
+        <div className="DisplayTasks__footer-top">
+          <p className="DisplayTasks__items-left">{getActiveTasks().length} items left</p>
+          <FilterTasks
+            styleName="DisplayTasks__filters-desktop"
+            filter={filter}
+            setFilter={setFilter}
+          />
+          <button className="DisplayTasks__btn-clear" onClick={onDeleteCompleted}>
+            Clear Completed
+          </button>
         </div>
-        <button className="DisplayTasks__btn-clear" onClick={onDeleteCompleted}>Clear Completed</button>
+
+        <div className="DisplayTasks__footer-down">
+          <FilterTasks
+            styleName="DisplayTasks__filters-mobile"
+            filter={filter}
+            setFilter={setFilter}
+          />
+        </div>
+
       </footer>
     </section>
   );

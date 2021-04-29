@@ -1,21 +1,29 @@
-
-
 .DisplayTasks {
-  background-color: white;
   border-radius: 5px;
   margin: 20px 0;
-  @include box-shadow;
 
   &__list {
     list-style: none;
+    @include box-shadow;
   }
 
-  &__footer {
+  &__footer-top {
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 66px;
+    background-color: white;
+    @include box-shadow;
+  }
+
+  &__footer-down {
+    margin-top: 20px;
+    @include box-shadow;
+
+    @media (min-width: 600px) {
+      display: none;
+    }
   }
 
   &__items-left {
@@ -33,11 +41,7 @@
 
   &__filters-desktop {
     @media (max-width: 599px) {
-        display: none;
-    }
-
-    & .FilterTasks {
-      box-shadow: none  ;
+        display: none !important;
     }
   }
 }

@@ -5,7 +5,6 @@
   background-color: white;
   color: $lightGrayishBlue;
   border-radius: 5px;
-  @include box-shadow;
 
   &__btn {
     @include btn-text;

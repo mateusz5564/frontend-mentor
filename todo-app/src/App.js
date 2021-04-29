@@ -41,9 +41,6 @@ function App() {
   
           <DisplayTasks tasks={tasks} setTasks={setTasks} filter={filter} setFilter={setFilter} />
   
-          <div className="App__filters-mobile">
-            <FilterTasks setFilter={setFilter}/>
-          </div>
         </main>
   
         <footer className="App__footer">Drag and drop to reorder list</footer>
