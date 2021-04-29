@@ -9,9 +9,12 @@
 
   &__btn {
     @include btn-text;
-    color: $darkGrayishBlue;
     font-size: 1em;
     margin: 0 10px;
+
+    &:hover {
+      color: $darkGrayishBlue;
+    }
 
     &--active {
       color: $brightBlue;

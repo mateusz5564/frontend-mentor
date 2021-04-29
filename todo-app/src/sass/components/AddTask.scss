@@ -9,6 +9,7 @@
 
   &__btn {
     @include btn-circle;
+    border: 1px solid $veryLightGrayishBlue;
   }
 
   &__input {
