@@ -44,7 +44,107 @@
     text-align: center;
   }
 
+  // DARK MODE STYLES
+
   &.dark {
     background-color: map-get($darkMode, "veryDarkBlue");
+
+    .App__footer {
+      color: map-get($darkMode, "darkGrayishBlue");
+    }
+
+    // add task
+    & .AddTask {
+      background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+
+      &__btn {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+        border-color: map-get($darkMode, "darkGrayishBlue");
+      }
+
+      &__input {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+        color: map-get($darkMode, "lightGrayishBlue");
+
+        &::placeholder {
+          color: map-get($darkMode, "darkGrayishBlue");
+        }
+      }
+    }
+
+    // task
+    & .Task {
+      background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+      border-color: map-get($darkMode, "darkGrayishBlue");
+
+      &__btn-check {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+
+        &::before {
+          background-color: map-get($darkMode, "darkGrayishBlue");
+        }
+      }
+
+      &__btn-cross {
+        fill: map-get($darkMode, "darkGrayishBlue");
+      }
+
+      &__name {
+        color: map-get($darkMode, "lightGrayishBlue");
+      }
+
+      &__btn-delete {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+      }
+
+      &--done {
+        & .Task__name {
+          color: map-get($darkMode, "darkGrayishBlue");
+        }
+      }
+    }
+
+    // displaytasks
+    & .DisplayTasks {
+      box-shadow: 0 30px 20px rgba(0, 0, 0, 0.19), 0 40px 60px rgba(0, 0, 0, 0.23);
+      // box-shadow: 0 50px 70px map-get($darkMode, "veryDarkBlue");
+
+      &__footer {
+        background-color: rgba(0, 0, 0, 0.19);
+      }
+
+      &__list {
+        box-shadow: none;
+      }
+
+      &__footer-top {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+        box-shadow: none;
+      }
+
+      &__items-left {
+        color: map-get($darkMode, "darkGrayishBlue");
+      }
+
+      &__btn-clear {
+        color: map-get($darkMode, "darkGrayishBlue");
+      }
+
+      &__footer-down {
+        background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
+        box-shadow: none;
+      }
+    }
+
+    // filters
+    & .FilterTasks {
+      &__btn {
+        color: map-get($darkMode, "darkGrayishBlue");
+      }
+
+      .FilterTasks__btn--active {
+        color: #3a7bfd;
+      }
+    }
   }
 }

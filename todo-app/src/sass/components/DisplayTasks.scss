@@ -33,6 +33,7 @@
 
   &__btn-clear {
     @include btn-text;
+    font-size: 0.9em;
 
     &:hover {
       color: $darkGrayishBlue;
