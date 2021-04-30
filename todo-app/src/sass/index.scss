@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-@import './colors';
-@import './mixins';
-@import './components/App.scss';
-@import './components/AddTask.scss';
-@import './components/DisplayTasks.scss';
-@import './components/Task.scss';
-@import './components/FilterTasks.scss';
-
+@import "./colors";
+@import "./mixins";
+@import "./components/App.scss";
+@import "./components/AddTask.scss";
+@import "./components/DisplayTasks.scss";
+@import "./components/Task.scss";
+@import "./components/FilterTasks.scss";
 
 * {
   margin: 0;
@@ -19,12 +18,13 @@ button {
   cursor: pointer;
 }
 
-input, button {
-  font-family: 'Josefin Sans', sans-serif;
+input,
+button {
+  font-family: "Josefin Sans", sans-serif;
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   background-color: $veryLightGray;
 }
@@ -33,5 +33,3 @@ body {
   max-width: 700px;
   margin: 0 auto;
 }
-
-

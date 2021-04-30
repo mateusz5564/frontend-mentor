@@ -39,7 +39,6 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
     <section className="DisplayTasks">
       <ul className="DisplayTasks__list">{renderTasks(tasks)}</ul>
       <footer className="DisplayTasks__footer">
-
         <div className="DisplayTasks__footer-top">
           <p className="DisplayTasks__items-left">{getActiveTasks().length} items left</p>
           <FilterTasks
@@ -59,7 +58,6 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
             setFilter={setFilter}
           />
         </div>
-
       </footer>
     </section>
   );

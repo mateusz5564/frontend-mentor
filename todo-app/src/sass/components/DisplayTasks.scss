@@ -28,7 +28,7 @@
 
   &__items-left {
     color: $lightGrayishBlue;
-    font-size: .9em;
+    font-size: 0.9em;
   }
 
   &__btn-clear {
@@ -41,7 +41,7 @@
 
   &__filters-desktop {
     @media (max-width: 599px) {
-        display: none !important;
+      display: none !important;
     }
   }
 }

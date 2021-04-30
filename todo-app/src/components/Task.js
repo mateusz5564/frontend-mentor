@@ -1,10 +1,9 @@
-function Task({task, tasks, setTasks, onDelete}) {
-
+function Task({ task, tasks, setTasks, onDelete }) {
   const toggleStatus = () => {
-    const updatedTask = {...task, isDone: !task.isDone}
-    const newTasks = tasks.map(task => task.id === updatedTask.id ? updatedTask : task );
+    const updatedTask = { ...task, isDone: !task.isDone };
+    const newTasks = tasks.map(task => (task.id === updatedTask.id ? updatedTask : task));
     setTasks(newTasks);
-  }
+  };
 
   return (
     <div className={task.isDone ? "Task Task--done" : "Task"}>

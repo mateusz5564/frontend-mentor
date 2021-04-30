@@ -44,4 +44,7 @@
     text-align: center;
   }
 
+  &.dark {
+    background-color: map-get($darkMode, "veryDarkBlue");
+  }
 }
