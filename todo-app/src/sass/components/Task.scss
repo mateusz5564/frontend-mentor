@@ -8,6 +8,7 @@
   position: relative;
   z-index: 1;
   background-color: white;
+  cursor: pointer;
 
   &__btn-check {
     @include btn-circle;
@@ -56,5 +57,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 600px) {
+      display: none;
+
+      .Task:hover & {
+        display: flex;
+      }
+    }
   }
 }

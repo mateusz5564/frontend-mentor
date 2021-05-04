@@ -5,6 +5,11 @@
   &__list {
     list-style: none;
     @include box-shadow;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__item:first-child div {
+    border-radius: 5px 5px 0 0;
   }
 
   &__footer-top {
@@ -14,11 +19,13 @@
     align-items: center;
     height: 66px;
     background-color: white;
+    border-radius: 0 0 5px 5px;
     @include box-shadow;
   }
 
   &__footer-down {
     margin-top: 20px;
+    border-radius: 5px;
     @include box-shadow;
 
     @media (min-width: 600px) {

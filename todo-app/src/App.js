@@ -27,7 +27,7 @@ function App() {
   ]);
   const [uniqueId, setUniqueId] = useState(tasks.length + 1);
   const [filter, setFilter] = useState("all");
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(prevState => !prevState);
