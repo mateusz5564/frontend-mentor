@@ -5,7 +5,9 @@
   padding-top: 50px;
 
   @media (min-width: 600px) {
-    background: url("../../images/bg-desktop-light.jpg") no-repeat top/220%;
+    background-image: url("../../images/bg-desktop-light.jpg");
+    background-position: top;
+    background-size: 220%;
     padding-top: 100px;
   }
 
@@ -48,6 +50,12 @@
 
   &.dark {
     background-color: map-get($darkMode, "veryDarkBlue");
+    background-image: url('../../images/bg-mobile-dark.jpg');
+
+    @media (min-width: 600px) {
+      background-image: url("../../images/bg-desktop-dark.jpg");
+      background-position: top/220%;
+    }
 
     .App__footer {
       color: map-get($darkMode, "darkGrayishBlue");
@@ -59,7 +67,7 @@
 
       &__btn {
         background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
-        border-color: map-get($darkMode, "darkGrayishBlue");
+        border-color: map-get($darkMode, "veryDarkGrayishBlue");
       }
 
       &__input {
@@ -81,7 +89,7 @@
         background-color: map-get($darkMode, "veryDarkDesaturatedBlue");
 
         &::before {
-          background-color: map-get($darkMode, "darkGrayishBlue");
+          background-color: map-get($darkMode, "veryDarkGrayishBlue");
         }
       }
 
@@ -128,6 +136,10 @@
 
       &__btn-clear {
         color: map-get($darkMode, "darkGrayishBlue");
+
+        &:hover {
+          color: map-get($darkMode, "lightGrayishBlue");
+        }
       }
 
       &__footer-down {
@@ -140,6 +152,10 @@
     & .FilterTasks {
       &__btn {
         color: map-get($darkMode, "darkGrayishBlue");
+
+        &:hover {
+          color: map-get($darkMode, "lightGrayishBlue");
+        }
       }
 
       .FilterTasks__btn--active {
