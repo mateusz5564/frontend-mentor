@@ -15,6 +15,38 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
   const getActiveTasks = () => tasks.filter(task => !task.isDone);
   const getCompletedTasks = () => tasks.filter(task => task.isDone);
 
+  const onDragStart = e => {
+    e.currentTarget.classList.add("dragging");
+  };
+
+  const onDragEnd = e => {
+    e.currentTarget.classList.remove("dragging");
+  };
+
+  const onDragover = e => {
+    e.preventDefault();
+    e.currentTarget.insertBefore(
+      document.querySelector(".dragging"),
+      getElementAfter(e.currentTarget, e.clientY)
+    );
+  };
+
+  const getElementAfter = (parent, y) => {
+    const positionYParent = y - parent.getBoundingClientRect().top;
+    const listChildren = [...parent.children];
+
+    const difference = listChildren.map(li => {
+      const positionYTopChildren = li.offsetTop - parent.offsetTop;
+      const positionYCenterChildren = positionYTopChildren + li.offsetHeight / 2;
+
+      return positionYParent - positionYCenterChildren;
+    });
+
+    const indexOfClosest = difference.findIndex(liDiff => liDiff < 0);
+
+    return listChildren[indexOfClosest];
+  };
+
   const renderTasks = tasks => {
     let tasksToDisplay;
 
@@ -28,7 +60,13 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
 
     return tasksToDisplay.map(task => {
       return (
-        <li key={task.id} className="DisplayTasks__item">
+        <li
+          key={task.id}
+          draggable="true"
+          onDragStart={onDragStart}
+          onDragEnd={onDragEnd}
+          className="DisplayTasks__item"
+        >
           <Task task={task} tasks={tasks} setTasks={setTasks} onDelete={onDelete} />
         </li>
       );
@@ -37,7 +75,9 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
 
   return (
     <section className="DisplayTasks">
-      <ul className="DisplayTasks__list">{renderTasks(tasks)}</ul>
+      <ul className="DisplayTasks__list" onDragOver={onDragover}>
+        {renderTasks(tasks)}
+      </ul>
       <footer className="DisplayTasks__footer">
         <div className="DisplayTasks__footer-top">
           <p className="DisplayTasks__items-left">{getActiveTasks().length} items left</p>

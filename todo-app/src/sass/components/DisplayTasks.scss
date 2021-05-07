@@ -8,6 +8,10 @@
     border-radius: 5px 5px 0 0;
   }
 
+  &__item.dragging {
+    opacity: .5;
+  }
+
   &__item:first-child div {
     border-radius: 5px 5px 0 0;
   }
