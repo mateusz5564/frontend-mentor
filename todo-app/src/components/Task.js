@@ -7,12 +7,18 @@ function Task({ task, tasks, setTasks, onDelete }) {
 
   return (
     <div className={task.isDone ? "Task Task--done" : "Task"}>
-      <button className="Task__btn-check" onClick={toggleStatus}>
-      {task.isDone &&
-        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-          <path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" />
-        </svg>
-      }
+      <button
+        className="Task__btn-check"
+        role="checkbox"
+        aria-checked={task.isDone}
+        aria-label="is task done"
+        onClick={toggleStatus}
+      >
+        {task.isDone && (
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+            <path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" />
+          </svg>
+        )}
       </button>
       <p className="Task__name">{task.name}</p>
       <button className="Task__btn-delete" onClick={() => onDelete(task)} aria-label="delete task">
