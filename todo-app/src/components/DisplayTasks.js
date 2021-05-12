@@ -1,5 +1,6 @@
 import Task from "./Task";
 import FilterTasks from "./FilterTasks";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
   const onDelete = taskToDelete => {
@@ -15,36 +16,22 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
   const getActiveTasks = () => tasks.filter(task => !task.isDone);
   const getCompletedTasks = () => tasks.filter(task => task.isDone);
 
-  const onDragStart = e => {
-    e.currentTarget.classList.add("dragging");
-  };
+  const onDragEnd = result => {
+    const { destination, source, draggableId } = result;
 
-  const onDragEnd = e => {
-    e.currentTarget.classList.remove("dragging");
-  };
+    if (!destination) {
+      return;
+    }
 
-  const onDragover = e => {
-    e.preventDefault();
-    e.currentTarget.insertBefore(
-      document.querySelector(".dragging"),
-      getElementAfter(e.currentTarget, e.clientY)
-    );
-  };
+    if (destination.droppableId === source.droppableId && destination.index === source.index) {
+      return;
+    }
 
-  const getElementAfter = (parent, y) => {
-    const positionYParent = y - parent.getBoundingClientRect().top;
-    const listChildren = [...parent.children];
-
-    const difference = listChildren.map(li => {
-      const positionYTopChildren = li.offsetTop - parent.offsetTop;
-      const positionYCenterChildren = positionYTopChildren + li.offsetHeight / 2;
-
-      return positionYParent - positionYCenterChildren;
-    });
-
-    const indexOfClosest = difference.findIndex(liDiff => liDiff < 0);
-
-    return listChildren[indexOfClosest];
+    const taskIndex = tasks.findIndex(task => task.id === Number(draggableId));
+    const newTasks = Array.from(tasks);
+    newTasks.splice(source.index, 1);
+    newTasks.splice(destination.index, 0, tasks[taskIndex]);
+    setTasks(newTasks);
   };
 
   const renderTasks = tasks => {
@@ -58,26 +45,42 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
       tasksToDisplay = tasks;
     }
 
-    return tasksToDisplay.map(task => {
+    return tasksToDisplay.map((task, index) => {
       return (
-        <li
-          key={task.id}
-          draggable="true"
-          onDragStart={onDragStart}
-          onDragEnd={onDragEnd}
-          className="DisplayTasks__item"
-        >
-          <Task task={task} tasks={tasks} setTasks={setTasks} onDelete={onDelete} />
-        </li>
+        <Draggable draggableId={String(task.id)} key={task.id} index={index}>
+          {provided => (
+            <li
+              className="DisplayTasks__item"
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+            >
+              <Task
+                task={task}
+                index={index}
+                tasks={tasks}
+                setTasks={setTasks}
+                onDelete={onDelete}
+              />
+            </li>
+          )}
+        </Draggable>
       );
     });
   };
 
   return (
     <section className="DisplayTasks">
-      <ul className="DisplayTasks__list" onDragOver={onDragover}>
-        {renderTasks(tasks)}
-      </ul>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId={"tasks-list"}>
+          {provided => (
+            <ul className="DisplayTasks__list" ref={provided.innerRef} {...provided.droppableProps}>
+              {renderTasks(tasks)}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
       <footer className="DisplayTasks__footer">
         <div className="DisplayTasks__footer-top">
           <p className="DisplayTasks__items-left">{getActiveTasks().length} items left</p>
