@@ -8,7 +8,7 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
     setTasks(newTasks);
   };
 
-  const onDeleteCompleted = () => {
+  const onDeleteCompletedTasks = () => {
     const newTasks = tasks.filter(task => !task.isDone);
     setTasks(newTasks);
   };
@@ -89,7 +89,7 @@ function DisplayTasks({ tasks, setTasks, filter, setFilter }) {
             filter={filter}
             setFilter={setFilter}
           />
-          <button className="DisplayTasks__btn-clear" onClick={onDeleteCompleted}>
+          <button className="DisplayTasks__btn-clear" onClick={onDeleteCompletedTasks}>
             Clear Completed
           </button>
         </div>

@@ -51,7 +51,7 @@
 
   &.dark {
     background-color: map-get($darkMode, "veryDarkBlue");
-    background-image: url('../../images/bg-mobile-dark.jpg');
+    background-image: url("../../images/bg-mobile-dark.jpg");
 
     @media (min-width: 600px) {
       background-image: url("../../images/bg-desktop-dark.jpg");

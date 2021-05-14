@@ -14,16 +14,6 @@ function App() {
       name: "Task 2",
       isDone: true,
     },
-    {
-      id: 3,
-      name: "Task 3",
-      isDone: false,
-    },
-    {
-      id: 4,
-      name: "Task 4",
-      isDone: true,
-    },
   ]);
   const [uniqueId, setUniqueId] = useState(tasks.length + 1);
   const [filter, setFilter] = useState("all");
