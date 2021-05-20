@@ -34,7 +34,6 @@ const Button = styled.button`
   border: none;
   font-family: "Nunito Sans", sans-serif;
   font-size: 1em;
-  font-weight: 600;
 `;
 
 const Heading = styled.h1`

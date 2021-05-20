@@ -1,21 +1,35 @@
-import {useState} from 'react';
+import { useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
 import GlobalStyles from "./styles/globalStyles";
 import themes from "./styles/themes";
+import Navbar from "./components/Navbar";
+import Countries from './components/Countries';
+import Country from './components/Country';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(false);
 
   return (
-    <div className="App">
-    <ThemeProvider theme={darkTheme ? themes.dark : themes.light}>
-    <GlobalStyles />
-        <Navbar setDarkTheme={setDarkTheme} />
-        <main>content</main>
-      </ThemeProvider>
-    </div>
+    <Router>
+      <div className="App">
+        <ThemeProvider theme={darkTheme ? themes.dark : themes.light}>
+          <GlobalStyles />
+          <Navbar setDarkTheme={setDarkTheme} />
+          <main>
+            <Switch>
+              <Route exact path="/">
+                <Countries />
+              </Route>
+              <Route path="/country/:name">
+                <Country />
+              </Route>
+            </Switch>
+          </main>
+        </ThemeProvider>
+      </div>
+    </Router>
   );
 }
 
