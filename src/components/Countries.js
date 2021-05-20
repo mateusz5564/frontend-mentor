@@ -1,17 +1,22 @@
 import CountryCard from "./CountryCard";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
 const Countries = () => {
   const name = "germany";
 
   return (
     <>
-      <h2>Countries</h2>
-      <Link to={`/country/${name}`}>
+      <CardLink to={`/country/${name}`}>
         <CountryCard></CountryCard>
-      </Link>
+      </CardLink>
     </>
   );
 };
+
+const CardLink = styled(Link)`
+  text-decoration: none;
+  color: ${({theme}) => theme.colors.text}
+`;
 
 export default Countries;

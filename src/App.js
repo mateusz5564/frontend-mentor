@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import styled from 'styled-components';
 
 import GlobalStyles from "./styles/globalStyles";
 import themes from "./styles/themes";
@@ -17,7 +18,7 @@ function App() {
         <ThemeProvider theme={darkTheme ? themes.dark : themes.light}>
           <GlobalStyles />
           <Navbar setDarkTheme={setDarkTheme} />
-          <main>
+          <Main>
             <Switch>
               <Route exact path="/">
                 <Countries />
@@ -26,11 +27,15 @@ function App() {
                 <Country />
               </Route>
             </Switch>
-          </main>
+          </Main>
         </ThemeProvider>
       </div>
     </Router>
   );
 }
+
+const Main = styled.main`
+  padding: 20px;
+`;
 
 export default App;
