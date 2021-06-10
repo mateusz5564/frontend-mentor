@@ -3,6 +3,7 @@ import colors from './colors';
 
 export default {
   dark: {
+    mode: "dark",
     colors: {
       background: colors.veryDarkBlue,
       element: colors.darkBlue,
@@ -10,6 +11,7 @@ export default {
     }
   },
   light: {
+    mode: "light",
     colors: {
       background: colors.veryLightGray,
       element: colors.white,
