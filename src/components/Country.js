@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Country = () => {
   const { name } = useParams();
   const [country, setCountry] = useState(null);
+  const history = useHistory();
   let countryObj;
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const Country = () => {
   if (country) {
     return (
       <>
+        <BackLink onClick={() => history.goBack()}>Back</BackLink>
         <Img src={country.flag} alt="" />
         <h2>{country.name}</h2>
         <div>
@@ -76,6 +78,11 @@ const Country = () => {
     return <></>;
   }
 };
+
+const BackLink = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.text};
+`;
 
 const Img = styled.img`
   width: 100%;
