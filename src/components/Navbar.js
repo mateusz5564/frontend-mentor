@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoMoonOutline } from "react-icons/io5";
 
@@ -8,7 +9,9 @@ const Navbar = ({ setDarkTheme }) => {
 
   return (
     <StyledNavbar>
+    <HomeLink to="/">
       <Heading>Where in the world?</Heading>
+    </HomeLink>
       <Button onClick={onClick}>
         <IoMoonOutline style={{ marginRight: "10px" }} />
         Dark Mode
@@ -25,6 +28,11 @@ const StyledNavbar = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.element};
   color: ${({ theme }) => theme.colors.text}; ;
+`;
+
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const Button = styled.button`
