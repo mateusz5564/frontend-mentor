@@ -1,22 +1,38 @@
 import CountryCard from "./CountryCard";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
+import React from "react";
+import { useEffect, useState } from "react";
 
 const Countries = () => {
-  const name = "germany";
+  const [countries, setCountries] = useState([]);
 
-  return (
-    <>
-      <CardLink to={`/country/${name}`}>
-        <CountryCard></CountryCard>
-      </CardLink>
-    </>
-  );
+  useEffect(() => {
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then(res => {
+        return res.json();
+      })
+      .then(json => {
+        setCountries(json);
+      });
+  }, []);
+
+  const renderCountries = () => {
+    return countries.map(country => {
+      return (
+        <CardLink key={country.alpha3Code} to={`/country/${country.name}`}>
+          <CountryCard country={country}></CountryCard>
+        </CardLink>
+      );
+    });
+  };
+
+  return <React.Fragment>{renderCountries()}</React.Fragment>;
 };
 
 const CardLink = styled(Link)`
   text-decoration: none;
-  color: ${({theme}) => theme.colors.text}
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export default Countries;
