@@ -3,20 +3,15 @@ import { Link } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
 import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 
-const Navbar = ({ setDarkTheme }) => {
+const Navbar = ({ themeToggler }) => {
   const themeContext = useContext(ThemeContext);
-
-
-  const onClick = () => {
-    setDarkTheme(prevState => !prevState);
-  };
 
   return (
     <StyledNavbar>
     <StyledLink to="/">
       <Heading>Where in the world?</Heading>
     </StyledLink>
-      <Button onClick={onClick}>
+      <Button onClick={themeToggler}>
         {themeContext.mode === "light" && <IoMoonOutline style={{ marginRight: "10px" }} />}
         {themeContext.mode === "dark" && <IoMoonSharp style={{ marginRight: "10px", color: themeContext.colors.text }} />}
         Dark Mode
@@ -33,6 +28,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.element};
   color: ${({ theme }) => theme.colors.text};
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 `;
 
 const StyledLink = styled(Link)`
@@ -48,6 +44,7 @@ const Button = styled.button`
   border: none;
   font-family: "Nunito Sans", sans-serif;
   font-size: 1em;
+  cursor: pointer;
 `;
 
 const Heading = styled.h1`

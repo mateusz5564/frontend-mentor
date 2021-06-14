@@ -1,23 +1,24 @@
-import { useState } from "react";
+
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import GlobalStyles from "./styles/globalStyles";
-import themes from "./styles/themes";
+import { lightTheme, darkTheme } from "./styles/themes";
 import Navbar from "./components/Navbar";
-import Countries from './components/Countries';
-import Country from './components/Country';
+import Countries from "./components/Countries";
+import Country from "./components/Country";
+import { useDarkMode } from "./components/useDarkMode";
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [theme, themeToggler] = useDarkMode();
 
   return (
     <Router>
-      <div className="App">
-        <ThemeProvider theme={darkTheme ? themes.dark : themes.light}>
-          <GlobalStyles />
-          <Navbar setDarkTheme={setDarkTheme} />
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <div className="App">
+          <Navbar themeToggler={themeToggler} />
           <Main>
             <Switch>
               <Route exact path="/">
@@ -28,8 +29,8 @@ function App() {
               </Route>
             </Switch>
           </Main>
-        </ThemeProvider>
-      </div>
+        </div>
+      </ThemeProvider>
     </Router>
   );
 }

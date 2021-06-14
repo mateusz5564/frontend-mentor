@@ -1,16 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
 import colors from './colors';
 
-export default {
-  dark: {
+  export const darkTheme = {
     mode: "dark",
     colors: {
       background: colors.veryDarkBlue,
       element: colors.darkBlue,
       text: colors.white,
     }
-  },
-  light: {
+  }
+
+  export const lightTheme = {
     mode: "light",
     colors: {
       background: colors.veryLightGray,
@@ -19,4 +19,3 @@ export default {
       input: colors.darkGray,
     }
   }
-}

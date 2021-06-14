@@ -15,6 +15,7 @@ body {
   font-size: 14px;
   font-family: 'Nunito Sans', sans-serif;
   background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 }
 
 `;
