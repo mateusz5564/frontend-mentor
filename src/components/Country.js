@@ -7,21 +7,29 @@ import { BsArrowLeft } from "react-icons/bs";
 const Country = () => {
   const { name } = useParams();
   const [country, setCountry] = useState(null);
+  const [status, setStatus] = useState("idle");
   const history = useHistory();
   let countryObj;
 
   useEffect(() => {
+    setStatus("fetching");
     fetch(`https://restcountries.eu/rest/v2/name/${name}`)
       .then(res => res.json())
       .then(json => {
         countryObj = generateCountryObj(json[0]);
         const borderCountriesURL = countryObj.borders.join(";");
-        return fetch(`https://restcountries.eu/rest/v2/alpha?codes=${borderCountriesURL}`);
-      })
-      .then(res => res.json())
-      .then(json => {
-        countryObj.borders = json.status === 400 ? [] : json.map(country => country.name);
-        setCountry(countryObj);
+        if (countryObj.borders.length !== 0) {
+          fetch(`https://restcountries.eu/rest/v2/alpha?codes=${borderCountriesURL}`)
+            .then(res => res.json())
+            .then(json => {
+              countryObj.borders = json.status === 400 ? [] : json.map(country => country.name);
+              setCountry(countryObj);
+              setStatus("finished");
+            });
+        } else {
+          setCountry(countryObj);
+          setStatus("finished");
+        }
       })
       .catch(err => console.log(err));
   }, [name]);
@@ -52,7 +60,7 @@ const Country = () => {
     });
   };
 
-  if (country) {
+  if (status === 'finished') {
     return (
       <CountryWrapper>
         <BackLink onClick={() => history.goBack()}>
@@ -66,7 +74,7 @@ const Country = () => {
             <span>Native name:</span> {country.nativeName}
           </p>
           <p>
-            <span>Population:</span> {country.population}
+            <span>Population:</span> {country.population.toLocaleString("en-US")}
           </p>
           <p>
             <span>Region:</span> {country.region}
@@ -94,6 +102,12 @@ const Country = () => {
           <ul>{renderBorderCountries(country.borders)}</ul>
         </BorderCountries>
       </CountryWrapper>
+    );
+  } else if(status === "fetching") {
+    return (
+    <>
+      getting data...
+    </>
     );
   } else {
     return <></>;
@@ -133,6 +147,7 @@ const BackLink = styled.a`
   padding: 8px 20px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  cursor: pointer;
 
   span {
     margin: 0 5px;
