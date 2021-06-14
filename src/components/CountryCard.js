@@ -1,38 +1,51 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const CountryCard = ({country}) => {
-
-
-  return ( 
+const CountryCard = ({ country }) => {
+  return (
     <Card>
-      <Img src={country.flag}/>
-      <Info>
+      <img src={country.flag} alt="" />
+      <div className="info">
         <h2>{country.name}</h2>
-        <p><Span>Population: {country.population}</Span></p>
-        <p><Span>Region: {country.region}</Span></p>
-        <p><Span>Capital: {country.capital}</Span></p>
-      </Info>
+        <p>
+          <span>Population:</span> {country.population}
+        </p>
+        <p>
+          <span>Region:</span> {country.region}
+        </p>
+        <p>
+          <span>Capital:</span> {country.capital}
+        </p>
+      </div>
     </Card>
-   );
-}
+  );
+};
 
 const Card = styled.div`
-  background-color: ${({theme}) => theme.colors.element};
+  background-color: ${({ theme }) => theme.colors.element};
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 3em;
   overflow: hidden;
-`;
- 
-const Img = styled.img`
-  width: 100%;
-`;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
-const Info = styled.div`
-  padding: 20px;
-`;
+  img {
+    width: 100%;
+  }
 
-const Span = styled.span`
-  font-weight: 600;
+  .info {
+    padding: 20px;
+
+    h2 {
+      margin-bottom: 1em;
+    }
+
+    p {
+      margin: 0.6em 0;
+    }
+  }
+
+  span {
+    font-weight: 600;
+  }
 `;
 
 export default CountryCard;
