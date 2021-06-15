@@ -1,14 +1,13 @@
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import styled from "styled-components";
-import { BsArrowLeft } from "react-icons/bs";
+import BackLink from "./BackLink";
 
 const Country = () => {
   const { name } = useParams();
   const [country, setCountry] = useState(null);
   const [status, setStatus] = useState("idle");
-  const history = useHistory();
   let countryObj;
 
   useEffect(() => {
@@ -63,10 +62,7 @@ const Country = () => {
   if (status === 'finished') {
     return (
       <CountryWrapper>
-        <BackLink onClick={() => history.goBack()}>
-          <BsArrowLeft style={{ fontSize: "1.5em" }}></BsArrowLeft>
-          <span>Back</span>
-        </BackLink>
+        <BackLink />
         <img src={country.flag} alt="" />
         <h2>{country.name}</h2>
         <div>
@@ -136,21 +132,6 @@ const CountryWrapper = styled.article`
 
   div {
     margin-bottom: 40px;
-  }
-`;
-
-const BackLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  margin: 20px 0 60px;
-  padding: 8px 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  cursor: pointer;
-
-  span {
-    margin: 0 5px;
   }
 `;
 
