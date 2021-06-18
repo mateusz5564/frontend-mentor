@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import styled from "styled-components";
 import BackLink from "./BackLink";
+import SkeletonCountry from "./SkeletonCountry";
 
 const Country = () => {
   const { name } = useParams();
@@ -59,7 +60,7 @@ const Country = () => {
     });
   };
 
-  if (status === 'finished') {
+  if (status === "finished") {
     return (
       <CountryWrapper>
         <BackLink />
@@ -99,11 +100,12 @@ const Country = () => {
         </BorderCountries>
       </CountryWrapper>
     );
-  } else if(status === "fetching") {
+  } else if (status === "fetching") {
     return (
-    <>
-      getting data...
-    </>
+      <>
+        <BackLink />
+        <SkeletonCountry />
+      </>
     );
   } else {
     return <></>;
@@ -137,19 +139,19 @@ const CountryWrapper = styled.article`
 
 const BorderCountries = styled.div`
   h3 {
-    margin-bottom: 1.2em;
+    margin-bottom: 20px;
   }
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -0.3em;
+    margin: 0 -7px;
   }
 
   li {
     list-style: none;
-    margin: 0 0.3em;
-    margin-bottom: 0.5em;
+    margin: 0 7px;
+    margin-bottom: 7px;
     border-radius: 4px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   }
@@ -157,7 +159,7 @@ const BorderCountries = styled.div`
 
 const CountryLink = styled(Link)`
   display: inline-block;
-  padding: 0.5em 1.2em;
+  padding: 7px 18px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
 `;
