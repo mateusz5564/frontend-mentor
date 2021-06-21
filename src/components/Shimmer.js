@@ -28,7 +28,7 @@ const ShimmerWrapper = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  animation: ${animation} 2s linear infinite;
+  animation: ${animation} 1.5s linear infinite;
 `;
 
 const StyledShimmer = styled.div`
