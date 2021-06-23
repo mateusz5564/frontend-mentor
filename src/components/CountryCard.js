@@ -23,12 +23,18 @@ const CountryCard = ({ country }) => {
 const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.element};
   border-radius: 10px;
-  margin-bottom: 3em;
   overflow: hidden;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
+  @media (max-width: 650px) {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
   img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 
   .info {

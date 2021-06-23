@@ -19,7 +19,6 @@ const SkeletonCountryCard = () => {
 const CardWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.skeletonCardBackground};
   border-radius: 10px;
-  margin-bottom: 3em;
 `;
 
 const InfoWrapper = styled.div`
@@ -30,9 +29,9 @@ const SkeletonImg = styled(SkeletonElement).attrs(props => ({
   width: "100%",
   height: "200px",
 }))`
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     width: 50%;
-  }
+  } */
 `;
 
 const SkeletonInfo = styled(SkeletonElement).attrs(props => ({
