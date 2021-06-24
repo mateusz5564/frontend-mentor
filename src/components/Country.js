@@ -62,43 +62,51 @@ const Country = () => {
 
   if (status === "finished") {
     return (
-      <CountryWrapper>
+      <Wrapper>
         <BackLink />
-        <img src={country.flag} alt="" />
-        <h2>{country.name}</h2>
-        <div>
-          <p>
-            <span>Native name:</span> {country.nativeName}
-          </p>
-          <p>
-            <span>Population:</span> {country.population.toLocaleString("en-US")}
-          </p>
-          <p>
-            <span>Region:</span> {country.region}
-          </p>
-          <p>
-            <span>Sub region:</span> {country.subregion}
-          </p>
-          <p>
-            <span>Capital:</span> {country.capital}
-          </p>
-        </div>
-        <div>
-          <p>
-            <span>Top Level Domain:</span> {country.topLevelDomain}
-          </p>
-          <p>
-            <span>Currencies:</span> {country.currencies.join(", ")}
-          </p>
-          <p>
-            <span>Languages:</span> {country.languages.join(", ")}
-          </p>
-        </div>
-        <BorderCountries>
-          <h3>Border Countries:</h3>
-          <ul>{renderBorderCountries(country.borders)}</ul>
-        </BorderCountries>
-      </CountryWrapper>
+        <DataWrapper>
+          <Flag>
+            <img src={country.flag} alt="" />
+          </Flag>
+          <TextWrapper>
+            <CountryName>{country.name}</CountryName>
+            <TextCol1>
+              <p>
+                <span>Native name:</span> {country.nativeName}
+              </p>
+              <p>
+                <span>Population:</span> {country.population.toLocaleString("en-US")}
+              </p>
+              <p>
+                <span>Region:</span> {country.region}
+              </p>
+              <p>
+                <span>Sub region:</span> {country.subregion}
+              </p>
+              <p>
+                <span>Capital:</span> {country.capital}
+              </p>
+            </TextCol1>
+            <TextCol2>
+              <p>
+                <span>Top Level Domain:</span> {country.topLevelDomain}
+              </p>
+              <p>
+                <span>Currencies:</span> {country.currencies.join(", ")}
+              </p>
+              <p>
+                <span>Languages:</span> {country.languages.join(", ")}
+              </p>
+            </TextCol2>
+            <BorderCountries>
+              <h3>Border Countries:</h3>
+              <ul>{renderBorderCountries(country.borders)}</ul>
+            </BorderCountries>
+          </TextWrapper>
+        </DataWrapper>
+      </Wrapper>
+
+      
     );
   } else if (status === "fetching") {
     return (
@@ -112,17 +120,8 @@ const Country = () => {
   }
 };
 
-const CountryWrapper = styled.article`
+const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.text};
-
-  img {
-    width: 100%;
-  }
-
-  h2 {
-    margin: 30px 0 20px;
-    font-weight: 600;
-  }
 
   p {
     margin: 10px 0;
@@ -131,15 +130,66 @@ const CountryWrapper = styled.article`
       font-weight: 600;
     }
   }
+`;
 
-  div {
-    margin-bottom: 40px;
+export const DataWrapper = styled.article`
+  @media (min-width: 900px) {
+    display: flex;
+    align-items: center;
   }
 `;
 
+const Flag = styled.div`
+
+  img {
+    width: 100%;
+  }
+
+  @media (min-width: 600px) {
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 900px) {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    margin-right: 50px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-right: 100px;
+  }
+`;
+
+export const TextWrapper = styled.div`
+  @media (min-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+`;
+
+const CountryName = styled.h2`
+  margin: 30px 0 20px;
+  font-weight: 600;
+  flex-basis: 100%;
+`;
+
+export const TextCol1 = styled.div`
+  margin-bottom: 40px;
+
+  @media (min-width: 600px) {
+    margin-right: 40px;
+  }
+`;
+export const TextCol2 = styled.div`
+  margin-bottom: 40px;
+`;
+
 const BorderCountries = styled.div`
+  flex-basis: 100%;
+
   h3 {
-    margin-bottom: 20px;
+    margin-bottom: 13px;
   }
 
   ul {
@@ -150,10 +200,23 @@ const BorderCountries = styled.div`
 
   li {
     list-style: none;
-    margin: 0 7px;
-    margin-bottom: 7px;
+    margin: 7px;
+    background-color: ${({ theme }) => theme.colors.element};
     border-radius: 4px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 20px 0;
+
+    h3 {
+      flex-shrink: 0;
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
   }
 `;
 
