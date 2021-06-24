@@ -1,26 +1,36 @@
 import SkeletonElement from "./SkeletonElement";
 import styled from "styled-components";
 
+import { DataWrapper, TextWrapper, TextCol1, TextCol2 } from "../components/Country";
+
 const SkeletonCountry = () => {
   return (
     <>
-      <SkeletonImg />
-      <SkeletonElement margin="30px 0 20px" width="40%" height="2.5em" />
-      <SkeletonInfo />
-      <SkeletonInfo />
-      <SkeletonInfo />
-      <SkeletonInfo />
-      <SkeletonInfo />
+      <DataWrapper>
+        <SkeletonImg />
+        <TextWrapper>
+          <SkeletonH2 />
+          <TextCol1>
+            <SkeletonInfo />
+            <SkeletonInfo />
+            <SkeletonInfo />
+            <SkeletonInfo />
+            <SkeletonInfo />
+          </TextCol1>
 
-      <div style={{ marginBottom: "40px" }} />
-
-      <SkeletonInfo />
-      <SkeletonInfo />
-      <SkeletonInfo />
-      <SkeletonElement margin="40px 0 10px" width="40%" height="2em" />
-      <SkeletonTile />
-      <SkeletonTile />
-      <SkeletonTile />
+          <TextCol2>
+            <SkeletonInfo />
+            <SkeletonInfo />
+            <SkeletonInfo />
+          </TextCol2>
+          <SkeletonH3 />
+          <div>
+            <SkeletonTile />
+            <SkeletonTile />
+            <SkeletonTile />
+          </div>
+        </TextWrapper>
+      </DataWrapper>
     </>
   );
 };
@@ -28,24 +38,53 @@ const SkeletonCountry = () => {
 const SkeletonImg = styled(SkeletonElement).attrs(props => ({
   margin: "0 0 20px",
   width: "100%",
-  height: "200px",
 }))`
+  min-height: 200px;
+  aspect-ratio: 3 / 2;
+
   @media (min-width: 600px) {
-    width: 50%;
+    flex-basis: 100%;
   }
+
+  @media (min-width: 900px) {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    margin-right: 50px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-right: 100px;
+  }
+`;
+
+const SkeletonH2 = styled(SkeletonElement).attrs(props => ({
+  margin: "30px 0 20px",
+  width: "130px",
+  height: "2.5em",
+}))`
+  flex-basis: 100%;
 `;
 
 const SkeletonInfo = styled(SkeletonElement).attrs(props => ({
   margin: "10px 0",
-  width: "50%",
+  width: "200px",
   height: "1.5em",
 }))``;
+
+const SkeletonH3 = styled(SkeletonElement).attrs(props => ({
+  margin: "10px 0 10px",
+  width: "130px",
+  height: "2.5em",
+}))`
+  flex-basis: 100%;
+`;
 
 const SkeletonTile = styled(SkeletonElement).attrs(props => ({
   margin: "7px 0 0",
   width: "120px",
   height: "30px",
 }))`
+  justify-self: flex-start;
   display: inline-block;
   margin-right: 7px;
 `;
