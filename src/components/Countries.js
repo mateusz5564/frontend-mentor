@@ -1,13 +1,15 @@
-import CountryCard from "./CountryCard";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import React from "react";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import CountryCard from "./CountryCard";
 import SkeletonCountryCard from "./SkeletonCountryCard";
+import SearchField from "./SearchField";
 
 const Countries = () => {
-  const [countries, setCountries] = useState([]);
+  const [visibleCountries, setVisibleCountries] = useState([]);
   const [status, setStatus] = useState("idle");
+  const allCountries = useRef([]);
 
   useEffect(() => {
     setStatus("fetching");
@@ -16,13 +18,21 @@ const Countries = () => {
         return res.json();
       })
       .then(json => {
-        setCountries(json);
+        allCountries.current = json;
+        setVisibleCountries(json);
         setStatus("finished");
       });
   }, []);
 
+  const filterCountries = value => {
+    const newCountries = allCountries.current.filter(country =>
+      country.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setVisibleCountries(newCountries);
+  };
+
   const renderCountries = () => {
-    return countries.map(country => {
+    return visibleCountries.map(country => {
       return (
         <CardLink key={country.alpha3Code} to={`/country/${country.name}`}>
           <CountryCard country={country}></CountryCard>
@@ -39,18 +49,28 @@ const Countries = () => {
     });
   };
 
-  if (status === "finished") {
-    return <CountriesWrapper>{renderCountries()}</CountriesWrapper>;
-  } else if (status === "fetching") {
-    return <CountriesWrapper>{renderSkeletons()}</CountriesWrapper>;
-  } else {
-    return <></>;
-  }
+  const displayCountries = () => {
+    if (status === "finished") {
+      return <CountriesWrapper>{renderCountries()}</CountriesWrapper>;
+    } else if (status === "fetching") {
+      return <CountriesWrapper>{renderSkeletons()}</CountriesWrapper>;
+    } else {
+      return <></>;
+    }
+  };
+
+  return (
+    <>
+      <SearchField onChange={filterCountries} />
+      {displayCountries()}
+    </>
+  );
 };
 
 const CountriesWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-items: center;
   gap: 30px;
 `;
 

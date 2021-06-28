@@ -7,6 +7,7 @@ import colors from './colors';
       background: colors.veryDarkBlue,
       element: colors.darkBlue,
       text: colors.white,
+      textPlaceholder: colors.whiteL75,
       skeletonBackground: colors.darkBlue,
       skeletonCardBackground: colors.darkBlueL20,
       shimmer: {
@@ -24,6 +25,7 @@ import colors from './colors';
       background: colors.veryLightGray,
       element: colors.white,
       text: colors.veryDarkBlue2,
+      textPlaceholder: colors.veryDarkBlue2L50,
       input: colors.darkGray,
       skeletonBackground: colors.lightgray,
       skeletonCardBackground: colors.lightgrayL90,

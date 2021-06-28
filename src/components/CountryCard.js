@@ -25,11 +25,7 @@ const Card = styled.div`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: 650px) {
-    max-width: 350px;
-    margin: 0 auto;
-  }
+  height: 100%;
 
   img {
     width: 100%;
