@@ -5,11 +5,20 @@ import { Link } from "react-router-dom";
 import CountryCard from "./CountryCard";
 import SkeletonCountryCard from "./SkeletonCountryCard";
 import SearchField from "./SearchField";
+import Select from "./Select";
 
 const Countries = () => {
   const [visibleCountries, setVisibleCountries] = useState([]);
   const [status, setStatus] = useState("idle");
   const allCountries = useRef([]);
+
+  const selectOptions = [
+    { value: "africa", label: "Africa" },
+    { value: "america", label: "America" },
+    { value: "asia", label: "Asia" },
+    { value: "europe", label: "Europe" },
+    { value: "oceania", label: "Oceania" },
+  ];
 
   useEffect(() => {
     setStatus("fetching");
@@ -24,9 +33,21 @@ const Countries = () => {
       });
   }, []);
 
-  const filterCountries = value => {
+  const filterCountriesByName = value => {
     const newCountries = allCountries.current.filter(country =>
       country.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setVisibleCountries(newCountries);
+  };
+
+  const filterCountriesByRegion = option => {
+    if (!option) {
+      setVisibleCountries(allCountries.current);
+      return;
+    }
+    const { value } = option;
+    const newCountries = allCountries.current.filter(country =>
+      country.region.toLowerCase().includes(value.toLowerCase())
     );
     setVisibleCountries(newCountries);
   };
@@ -61,7 +82,13 @@ const Countries = () => {
 
   return (
     <>
-      <SearchField onChange={filterCountries} />
+      <SearchField onChange={filterCountriesByName} />
+      <Select
+        placeholder="Filter by Region"
+        isClearable={true}
+        options={selectOptions}
+        onChange={filterCountriesByRegion}
+      />
       {displayCountries()}
     </>
   );
@@ -77,6 +104,13 @@ const CountriesWrapper = styled.section`
 const CardLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
+  width: 100%;
+  border-radius: 10px;
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.focusBorder};
+  }
 `;
 
 export default Countries;
