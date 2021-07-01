@@ -17,20 +17,30 @@ const Wrapper = styled.div`
   height: 60px;
   background-color: ${({theme}) => theme.colors.element };
   margin-bottom: 20px;
+  border-radius: 5px;
 `;
 
 const SearchIcon = styled(IoSearchSharp)`
   font-size: 1.5em;
-  margin: 0 20px;
+  margin-left: 20px;
+  margin-right: 15px;
   color: ${({theme}) => theme.colors.textPlaceholder };
 `;
 
 const Input = styled.input`
   height: 100%;
-  border: none;
+  border: transparent;
+  border-radius: 5px;
+  font-size: 1em;
   background-color: ${({theme}) => theme.colors.element };
-  padding-right: 15px;
   color: ${({theme}) => theme.colors.text };
+  padding-left: 5px;
+  padding-right: 10px;
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px ${({theme}) => theme.colors.focusBorder};
+  }
 
   ::placeholder {
     color: ${({theme}) => theme.colors.textPlaceholder };
