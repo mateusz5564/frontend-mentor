@@ -34,6 +34,11 @@ const StyledNavbar = styled.nav`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px ${({theme}) => theme.colors.focusBorder};
+  }
 `;
 
 const Button = styled.button`
@@ -45,6 +50,11 @@ const Button = styled.button`
   font-family: "Nunito Sans", sans-serif;
   font-size: 1em;
   cursor: pointer;
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px ${({theme}) => theme.colors.focusBorder};
+  }
 `;
 
 const Heading = styled.h1`
