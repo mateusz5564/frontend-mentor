@@ -1,6 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
+  blue: "hsl(214, 100%, 57%)",
+  paleBlue: "hsl(209, 39%, 33%)",
+  paleBlueA: "hsla(209, 39%, 33%, .9)",
+  lightBlue: "hsl(214, 69%, 82%)",
+  lightBlueA: "hsla(214, 69%, 82%, .9)",
   darkBlue: "hsl(209, 23%, 22%)",
+  darkBlueL35: "hsl(209, 23%, 35%)",
+  darkBlueL27: "hsl(209, 23%, 27%)",
   darkBlueL25: "hsl(209, 23%, 25%)",
   darkBlueL24: "hsl(209, 23%, 24%)",
   darkBlueL23: "hsl(209, 23%, 23%)",
