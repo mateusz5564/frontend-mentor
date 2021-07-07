@@ -6,6 +6,7 @@ export default {
   lightBlue: "hsl(214, 69%, 82%)",
   lightBlueA: "hsla(214, 69%, 82%, .9)",
   darkBlue: "hsl(209, 23%, 22%)",
+  darkBlue2: "hsla(205, 27%, 16%, .7)",
   darkBlueL35: "hsl(209, 23%, 35%)",
   darkBlueL27: "hsl(209, 23%, 27%)",
   darkBlueL25: "hsl(209, 23%, 25%)",

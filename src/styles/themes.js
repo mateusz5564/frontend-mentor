@@ -3,6 +3,7 @@ import colors from "./colors";
 
 export const darkTheme = {
   mode: "dark",
+  shadowElement: `0 0 2px 7px ${colors.darkBlue2}`,
   colors: {
     focusBorder: colors.blue,
     background: colors.veryDarkBlue,
@@ -28,6 +29,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   mode: "light",
+  shadowElement:  `0 0 6px ${colors.lightgrayL90}`,
   colors: {
     focusBorder: colors.blue,
     background: colors.veryLightGray,
