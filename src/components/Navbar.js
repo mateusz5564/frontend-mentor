@@ -28,7 +28,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.element};
   color: ${({ theme }) => theme.colors.text};
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.shadowElement};
 `;
 
 const StyledLink = styled(Link)`

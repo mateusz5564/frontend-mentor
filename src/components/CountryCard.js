@@ -24,8 +24,8 @@ const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.element};
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   height: 100%;
+  box-shadow: ${({ theme }) => theme.shadowElement};
 
   img {
     width: 100%;

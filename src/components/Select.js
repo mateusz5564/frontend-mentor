@@ -8,7 +8,6 @@ const Select = ({ ...props }) => {
   const customStyles = {
     container: provided => ({
       ...provided,
-      marginBottom: "20px",
     }),
     placeholder: provided => ({
       ...provided,
@@ -27,6 +26,7 @@ const Select = ({ ...props }) => {
     menu: provided => ({
       ...provided,
       backgroundColor: theme.colors.element,
+      boxShadow: theme.shadowElement,
     }),
     option: (provided, state) => ({
       ...provided,
@@ -46,6 +46,7 @@ const Select = ({ ...props }) => {
       borderRadius: "5px",
       paddingLeft: "5px",
       fontSize: "1em",
+      boxShadow: theme.shadowElement,
     }),
   };
 
