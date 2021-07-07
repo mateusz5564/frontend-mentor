@@ -82,13 +82,15 @@ const Countries = () => {
 
   return (
     <>
-      <SearchField onChange={filterCountriesByName} />
-      <Select
-        placeholder="Filter by Region"
-        isClearable={true}
-        options={selectOptions}
-        onChange={filterCountriesByRegion}
-      />
+      <FiltersWrapper>
+        <StyledSearchField onChange={filterCountriesByName} />
+        <StyledSelect
+          placeholder="Filter by Region"
+          isClearable={true}
+          options={selectOptions}
+          onChange={filterCountriesByRegion}
+        />
+      </FiltersWrapper>
       {displayCountries()}
     </>
   );
@@ -99,6 +101,30 @@ const CountriesWrapper = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   justify-items: center;
   gap: 30px;
+`;
+
+const FiltersWrapper = styled.div`
+  margin-bottom: 20px;
+
+  @media (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const StyledSearchField = styled(SearchField)`
+  margin-bottom: 20px;
+
+  @media (min-width: 600px) {
+    width: 400px;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+`;
+
+const StyledSelect = styled(Select)`
+  width: 100%;
+  max-width: 250px;
 `;
 
 const CardLink = styled(Link)`
