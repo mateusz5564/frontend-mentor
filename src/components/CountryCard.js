@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CountryCard = ({ country }) => {
   return (
     <Card>
-      <img src={country.flag} alt="" />
+      <img src={country.flag} alt="" loading="lazy" />
       <div className="info">
         <h2>{country.name}</h2>
         <p>
