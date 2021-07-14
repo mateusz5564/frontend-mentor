@@ -105,8 +105,6 @@ const Country = () => {
           </TextWrapper>
         </DataWrapper>
       </Wrapper>
-
-      
     );
   } else if (status === "fetching") {
     return (
@@ -140,7 +138,6 @@ export const DataWrapper = styled.article`
 `;
 
 const Flag = styled.div`
-
   img {
     width: 100%;
   }
@@ -225,6 +222,11 @@ const CountryLink = styled(Link)`
   padding: 7px 18px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.focusBorder};
+  }
 `;
 
 export default Country;
