@@ -10,6 +10,8 @@ import Select from "./Select";
 const Countries = () => {
   const [visibleCountries, setVisibleCountries] = useState([]);
   const [status, setStatus] = useState("idle");
+  const [countryName, setCountryName] = useState("");
+  const [region, setRegion] = useState("");
   const allCountries = useRef([]);
 
   const selectOptions = [
@@ -20,6 +22,16 @@ const Countries = () => {
     { value: "oceania", label: "Oceania" },
   ];
 
+  const filteredCountries = () => {
+    return allCountries.current
+      .filter(country =>
+        countryName ? country.name.toLowerCase().includes(countryName.toLowerCase()) : true
+      )
+      .filter(country =>
+        region ? country.region.toLowerCase().includes(region.toLowerCase()) : true
+      );
+  };
+
   useEffect(() => {
     setStatus("fetching");
     fetch("https://restcountries.eu/rest/v2/all")
@@ -28,28 +40,21 @@ const Countries = () => {
       })
       .then(json => {
         allCountries.current = json;
-        setVisibleCountries(json);
+        setVisibleCountries(filteredCountries());
         setStatus("finished");
       });
   }, []);
 
-  const filterCountriesByName = value => {
-    const newCountries = allCountries.current.filter(country =>
-      country.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setVisibleCountries(newCountries);
-  };
+  useEffect(() => {
+    setVisibleCountries(filteredCountries());
+  }, [countryName, region]);
 
-  const filterCountriesByRegion = option => {
+  const onRegionChange = option => {
     if (!option) {
-      setVisibleCountries(allCountries.current);
+      setRegion("");
       return;
     }
-    const { value } = option;
-    const newCountries = allCountries.current.filter(country =>
-      country.region.toLowerCase().includes(value.toLowerCase())
-    );
-    setVisibleCountries(newCountries);
+    setRegion(option.value);
   };
 
   const renderCountries = () => {
@@ -83,12 +88,12 @@ const Countries = () => {
   return (
     <>
       <FiltersWrapper>
-        <StyledSearchField onChange={filterCountriesByName} />
+        <StyledSearchField value={countryName} setValue={setCountryName} />
         <StyledSelect
           placeholder="Filter by Region"
           isClearable={true}
           options={selectOptions}
-          onChange={filterCountriesByRegion}
+          onChange={onRegionChange}
         />
       </FiltersWrapper>
       {displayCountries()}
