@@ -38,7 +38,7 @@ const Select = ({ ...props }) => {
       },
       opacity: state.isFocused ? 0.8 : 1,
     }),
-    control: provided => ({
+    control: (provided, state) => ({
       ...provided,
       height: "60px",
       backgroundColor: theme.colors.element,
@@ -46,7 +46,8 @@ const Select = ({ ...props }) => {
       borderRadius: "5px",
       paddingLeft: "5px",
       fontSize: "1em",
-      boxShadow: theme.shadowElement,
+      transition: "none",
+      boxShadow: state.isFocused ? `0 0 0 1px ${theme.colors.focusBorder}` : theme.shadowElement,
     }),
   };
 
