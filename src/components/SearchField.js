@@ -1,19 +1,12 @@
-import styled from "styled-components";
-import { IoSearchSharp } from "react-icons/io5";
+import styled from 'styled-components';
+import { IoSearchSharp } from 'react-icons/io5';
 
-const SearchField = ({ value, setValue, className }) => {
-  return (
-    <Wrapper className={className}>
-      <SearchIcon />
-      <Input
-        type="text"
-        placeholder="Search for a country..."
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </Wrapper>
-  );
-};
+const SearchField = ({ value, setValue, className }) => (
+  <Wrapper className={className}>
+    <SearchIcon alt="" />
+    <Input type="text" placeholder="Search for a country..." value={value} onChange={e => setValue(e.target.value)} />
+  </Wrapper>
+);
 
 const Wrapper = styled.div`
   display: flex;
