@@ -1,99 +1,123 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import CountryCard from "./CountryCard";
-import SkeletonCountryCard from "./SkeletonCountryCard";
-import SearchField from "./SearchField";
-import Select from "./Select";
+import CountryCard from './CountryCard';
+import SkeletonCountryCard from './SkeletonCountryCard';
+import SearchField from './SearchField';
+import Select from './Select';
 
 const Countries = () => {
-  const [visibleCountries, setVisibleCountries] = useState([]);
-  const [status, setStatus] = useState("idle");
-  const [countryName, setCountryName] = useState("");
-  const [region, setRegion] = useState("");
+  const [countryName, setCountryName] = useState('');
+  const [regionOpt, setRegionOpt] = useState(null);
   const allCountries = useRef([]);
 
-  const selectOptions = [
-    { value: "africa", label: "Africa" },
-    { value: "america", label: "America" },
-    { value: "asia", label: "Asia" },
-    { value: "europe", label: "Europe" },
-    { value: "oceania", label: "Oceania" },
-  ];
+  const region = regionOpt ? regionOpt.value : '';
 
-  const filteredCountries = () => {
-    return allCountries.current
-      .filter(country =>
-        countryName ? country.name.toLowerCase().includes(countryName.toLowerCase()) : true
-      )
-      .filter(country =>
-        region ? country.region.toLowerCase().includes(region.toLowerCase()) : true
-      );
+  const states = {
+    idle: 'idle',
+    isLoading: 'loading',
+    hasLoaded: 'loaded',
+    hasError: 'error',
   };
 
+  const [currentState, setCurrentState] = useState(states.idle);
+
+  const FETCH_COUNTRIES = 'FETCH_COUNTRIES';
+  const FETCH_COUNTRIES_SUCCESS = 'FETCH_COUNTRIES_SUCCESS';
+  const FETCH_COUNTRIES_ERROR = 'FETCH_COUNTRIES_ERROR';
+
+  const stateTransitions = {
+    [states.idle]: {
+      [FETCH_COUNTRIES]: states.isLoading,
+    },
+    [states.isLoading]: {
+      [FETCH_COUNTRIES_SUCCESS]: states.hasLoaded,
+      [FETCH_COUNTRIES_ERROR]: states.hasError,
+    },
+    [states.hasError]: {
+      [FETCH_COUNTRIES]: states.isLoading,
+    },
+  };
+
+  const transition = (state, action) => {
+    const nextState = stateTransitions[state][action];
+    return nextState || currentState;
+  };
+
+  const updateState = action => {
+    setCurrentState(state => transition(state, action));
+  };
+
+  const compareState = state => currentState === state;
+
+  const selectOptions = [
+    { value: 'africa', label: 'Africa' },
+    { value: 'americas', label: 'America' },
+    { value: 'asia', label: 'Asia' },
+    { value: 'europe', label: 'Europe' },
+    { value: 'oceania', label: 'Oceania' },
+  ];
+
+  const getFilteredCountries = () =>
+    allCountries.current
+      .filter(country => (countryName ? country.name.toLowerCase().includes(countryName.toLowerCase()) : true))
+      .filter(country => (region ? country.region.toLowerCase() === region.toLowerCase() : true));
+
   useEffect(() => {
-    setStatus("fetching");
-    fetch("https://restcountries.eu/rest/v2/all")
-      .then(res => {
-        return res.json();
-      })
+    updateState(FETCH_COUNTRIES);
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then(res => res.json())
       .then(json => {
         allCountries.current = json;
-        setVisibleCountries(filteredCountries());
-        setStatus("finished");
+        updateState(FETCH_COUNTRIES_SUCCESS);
+      })
+      .catch(() => {
+        updateState(FETCH_COUNTRIES_ERROR);
       });
   }, []);
 
-  useEffect(() => {
-    setVisibleCountries(filteredCountries());
-  }, [countryName, region]);
-
-  const onRegionChange = option => {
-    if (!option) {
-      setRegion("");
-      return;
-    }
-    setRegion(option.value);
-  };
-
   const renderCountries = () => {
-    return visibleCountries.map(country => {
-      return (
+    const filteredCountries = getFilteredCountries();
+    if (filteredCountries.length > 0) {
+      return filteredCountries.map(country => (
         <CardLink key={country.alpha3Code} to={`/country/${country.name}`}>
-          <CountryCard country={country}></CountryCard>
+          <CountryCard country={country} />
         </CardLink>
-      );
-    });
+      ));
+    }
+    return <p style={{ justifySelf: 'start' }}>No countries found</p>;
   };
 
   const renderSkeletons = () => {
     const ids = [0, 1, 2, 3, 4, 5, 6, 7];
 
-    return ids.map(id => {
-      return <SkeletonCountryCard key={id} />;
-    });
+    return ids.map(id => <SkeletonCountryCard key={id} />);
   };
 
   const displayCountries = () => {
-    if (status === "finished") {
+    if (compareState(states.hasLoaded)) {
       return <CountriesWrapper>{renderCountries()}</CountriesWrapper>;
-    } else if (status === "fetching") {
+    }
+    if (compareState(states.isLoading)) {
       return <CountriesWrapper>{renderSkeletons()}</CountriesWrapper>;
-    } else {
-      return <></>;
+    }
+    if (compareState(states.hasError)) {
+      return <p>Failed to retrieve the data</p>;
     }
   };
 
   return (
     <>
       <FiltersWrapper>
-        <StyledSearchField value={countryName} setValue={setCountryName} />
+        <StyledSearchField value={countryName} setValue={setCountryName} aria-label="search for a country" />
         <StyledSelect
           placeholder="Filter by Region"
-          isClearable={true}
+          isClearable
           options={selectOptions}
-          onChange={onRegionChange}
+          value={regionOpt}
+          onChange={opt => setRegionOpt(opt)}
+          aria-label="Filter by Region"
         />
       </FiltersWrapper>
       {displayCountries()}
@@ -140,7 +164,7 @@ const CardLink = styled(Link)`
 
   :focus {
     outline: none;
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.focusBorder};
+    box-shadow: 0 0 0 5px ${({ theme }) => theme.colors.focusBorder};
   }
 `;
 
