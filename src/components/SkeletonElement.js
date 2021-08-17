@@ -1,13 +1,11 @@
-import styled from "styled-components";
-import Shimmer from "./Shimmer";
+import styled from 'styled-components';
+import Shimmer from './Shimmer';
 
-const SkeletonElement = ({ className, width, height, margin }) => {
-  return (
-    <Element className={className} width={width} height={height} margin={margin}>
-      <Shimmer />
-    </Element>
-  );
-};
+const SkeletonElement = ({ className, width, height, margin }) => (
+  <Element className={className} width={width} height={height} margin={margin}>
+    <Shimmer />
+  </Element>
+);
 
 const Element = styled.div`
   position: relative;

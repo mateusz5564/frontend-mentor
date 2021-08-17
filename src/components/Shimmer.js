@@ -1,12 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-const Shimmer = () => {
-  return (
-    <ShimmerWrapper>
-      <StyledShimmer></StyledShimmer>
-    </ShimmerWrapper>
-  );
-};
+const Shimmer = () => (
+  <ShimmerWrapper>
+    <StyledShimmer />
+  </ShimmerWrapper>
+);
 
 const animation = keyframes`
   0% {
@@ -32,8 +30,10 @@ const ShimmerWrapper = styled.div`
 `;
 
 const StyledShimmer = styled.div`
-  background-color: ${({ theme }) => theme.colors.shimmer.background };
-  box-shadow: 0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow1 },  0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow2 }, 0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow3 };
+  background-color: ${({ theme }) => theme.colors.shimmer.background};
+  box-shadow: 0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow1},
+    0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow2},
+    0 0 40px 30px ${({ theme }) => theme.colors.shimmer.shadow3};
   width: 5%;
   height: 100%;
 `;

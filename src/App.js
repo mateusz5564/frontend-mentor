@@ -1,21 +1,19 @@
+import styled, { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import styled from "styled-components";
-
-import GlobalStyles from "./styles/globalStyles";
-import { lightTheme, darkTheme } from "./styles/themes";
-import Navbar from "./components/Navbar";
-import Countries from "./components/Countries";
-import Country from "./components/Country";
-import { useDarkMode } from "./components/useDarkMode";
+import GlobalStyles from './styles/globalStyles';
+import { lightTheme, darkTheme } from './styles/themes';
+import Navbar from './components/Navbar';
+import Countries from './components/Countries';
+import Country from './components/Country';
+import { useDarkMode } from './components/useDarkMode';
 
 function App() {
   const [theme, themeToggler] = useDarkMode();
 
   return (
     <Router>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
         <div className="App">
           <Navbar themeToggler={themeToggler} />
