@@ -1,19 +1,21 @@
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
-import styled, { ThemeContext } from "styled-components";
-import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import styled, { ThemeContext } from 'styled-components';
+import { IoMoonOutline, IoMoonSharp } from 'react-icons/io5';
 
 const Navbar = ({ themeToggler }) => {
   const themeContext = useContext(ThemeContext);
 
+  const isDarkModeOn = themeContext.mode === 'dark';
+
   return (
     <StyledNavbar>
-    <StyledLink to="/">
-      <Heading>Where in the world?</Heading>
-    </StyledLink>
-      <Button onClick={themeToggler}>
-        {themeContext.mode === "light" && <IoMoonOutline style={{ marginRight: "10px" }} />}
-        {themeContext.mode === "dark" && <IoMoonSharp style={{ marginRight: "10px", color: themeContext.colors.text }} />}
+      <StyledLink to="/" aria-label="homepage">
+        <Heading>Where in the world?</Heading>
+      </StyledLink>
+      <Button onClick={themeToggler} role="switch" aria-checked={isDarkModeOn}>
+        {!isDarkModeOn && <IoMoonOutline style={{ marginRight: '10px' }} />}
+        {isDarkModeOn && <IoMoonSharp style={{ marginRight: '10px', color: themeContext.colors.text }} />}
         Dark Mode
       </Button>
     </StyledNavbar>
@@ -37,7 +39,7 @@ const StyledLink = styled(Link)`
 
   :focus {
     outline: none;
-    box-shadow: 0 0 0 1px ${({theme}) => theme.colors.focusBorder};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.focusBorder};
   }
 `;
 
@@ -47,13 +49,13 @@ const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.element};
   color: ${({ theme }) => theme.colors.text};
   border: none;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1em;
   cursor: pointer;
 
   :focus {
     outline: none;
-    box-shadow: 0 0 0 1px ${({theme}) => theme.colors.focusBorder};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.focusBorder};
   }
 `;
 
