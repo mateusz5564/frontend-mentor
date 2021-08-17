@@ -1,69 +1,115 @@
-import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-import styled from "styled-components";
-import BackLink from "./BackLink";
-import SkeletonCountry from "./SkeletonCountry";
+import styled from 'styled-components';
+import BackLink from './BackLink';
+import SkeletonCountry from './SkeletonCountry';
 
 const Country = () => {
   const { name } = useParams();
   const [country, setCountry] = useState(null);
-  const [status, setStatus] = useState("idle");
-  let countryObj;
+
+  const FETCH_COUNTRY = 'FETCH_COUNTRY';
+  const FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS';
+  const FETCH_COUNTRY_ERROR = 'FETCH_COUNTRY_ERROR';
+  const FETCH_NEW_COUNTRY = 'FETCH_NEW_COUNTRY';
+
+  const states = {
+    idle: 'idle',
+    isLoading: 'loading',
+    hasLoaded: 'loaded',
+    hasError: 'error',
+  };
+
+  const [currentState, setCurrentState] = useState(states.idle);
+
+  const stateTransitions = {
+    [states.idle]: {
+      [FETCH_COUNTRY]: states.isLoading,
+    },
+    [states.isLoading]: {
+      [FETCH_COUNTRY_SUCCESS]: states.hasLoaded,
+      [FETCH_COUNTRY_ERROR]: states.hasError,
+    },
+    [states.hasLoaded]: {
+      [FETCH_NEW_COUNTRY]: states.idle,
+    },
+    [states.hasError]: {
+      [FETCH_COUNTRY]: states.isLoading,
+    },
+  };
+
+  const transition = (state, action) => {
+    const nextState = stateTransitions[state][action];
+    return nextState || currentState;
+  };
+
+  const updateState = action => {
+    setCurrentState(state => transition(state, action));
+  };
+
+  const compareState = state => currentState === state;
+
+  const generateCountryObj = countryJson => ({
+    flag: countryJson.flag,
+    name: countryJson.name,
+    nativeName: countryJson.nativeName,
+    population: countryJson.population,
+    region: countryJson.region,
+    subregion: countryJson.subregion,
+    capital: countryJson.capital,
+    topLevelDomain: countryJson.topLevelDomain[0],
+    currencies: countryJson.currencies.map(currency => currency.name),
+    languages: countryJson.languages.map(lang => lang.name),
+    borders: countryJson.borders,
+  });
 
   useEffect(() => {
-    setStatus("fetching");
+    updateState(FETCH_COUNTRY);
+    let countryObj;
     fetch(`https://restcountries.eu/rest/v2/name/${name}`)
       .then(res => res.json())
-      .then(json => {
-        countryObj = generateCountryObj(json[0]);
-        const borderCountriesURL = countryObj.borders.join(";");
+      .then(countryJson => {
+        countryObj = generateCountryObj(countryJson[0]);
+        const borderCountriesURL = countryObj.borders.join(';');
         if (countryObj.borders.length !== 0) {
           fetch(`https://restcountries.eu/rest/v2/alpha?codes=${borderCountriesURL}`)
             .then(res => res.json())
-            .then(json => {
-              countryObj.borders = json.status === 400 ? [] : json.map(country => country.name);
+            .then(borderCountriesJson => {
+              countryObj.borders =
+                borderCountriesJson.status === 400 ? [] : borderCountriesJson.map(borderCountry => borderCountry.name);
               setCountry(countryObj);
-              setStatus("finished");
+              updateState(FETCH_COUNTRY_SUCCESS);
             });
         } else {
           setCountry(countryObj);
-          setStatus("finished");
+          updateState(FETCH_COUNTRY_SUCCESS);
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        updateState(FETCH_COUNTRY_ERROR);
+      });
+
+    return () => {
+      updateState(FETCH_NEW_COUNTRY);
+    };
   }, [name]);
 
-  const generateCountryObj = countryJson => {
-    return {
-      flag: countryJson.flag,
-      name: countryJson.name,
-      nativeName: countryJson.nativeName,
-      population: countryJson.population,
-      region: countryJson.region,
-      subregion: countryJson.subregion,
-      capital: countryJson.capital,
-      topLevelDomain: countryJson.topLevelDomain[0],
-      currencies: countryJson.currencies.map(currency => currency.name),
-      languages: countryJson.languages.map(lang => lang.name),
-      borders: countryJson.borders,
-    };
-  };
+  const renderBorderCountries = bCountries =>
+    bCountries.map(bCountry => (
+      <li key={bCountry}>
+        <CountryLink to={`/country/${bCountry}`}>{bCountry}</CountryLink>
+      </li>
+    ));
 
-  const renderBorderCountries = borderCountries => {
-    return borderCountries.map(country => {
-      return (
-        <li key={country}>
-          <CountryLink to={`/country/${country}`}>{country}</CountryLink>
-        </li>
-      );
-    });
-  };
+  const skeletonWrappers = { DataWrapper, TextWrapper, TextCol1, TextCol2 };
 
-  if (status === "finished") {
-    return (
-      <Wrapper>
-        <BackLink />
+  return (
+    <Wrapper>
+      <BackLink />
+      {compareState(states.isLoading) && <SkeletonCountry {...skeletonWrappers} />}
+      {compareState(states.hasLoaded) && (
         <DataWrapper>
           <Flag>
             <img src={country.flag} alt="" />
@@ -75,7 +121,7 @@ const Country = () => {
                 <span>Native name:</span> {country.nativeName}
               </p>
               <p>
-                <span>Population:</span> {country.population.toLocaleString("en-US")}
+                <span>Population:</span> {country.population.toLocaleString()}
               </p>
               <p>
                 <span>Region:</span> {country.region}
@@ -92,10 +138,10 @@ const Country = () => {
                 <span>Top Level Domain:</span> {country.topLevelDomain}
               </p>
               <p>
-                <span>Currencies:</span> {country.currencies.join(", ")}
+                <span>Currencies:</span> {country.currencies.join(', ')}
               </p>
               <p>
-                <span>Languages:</span> {country.languages.join(", ")}
+                <span>Languages:</span> {country.languages.join(', ')}
               </p>
             </TextCol2>
             <BorderCountries>
@@ -104,18 +150,10 @@ const Country = () => {
             </BorderCountries>
           </TextWrapper>
         </DataWrapper>
-      </Wrapper>
-    );
-  } else if (status === "fetching") {
-    return (
-      <>
-        <BackLink />
-        <SkeletonCountry />
-      </>
-    );
-  } else {
-    return <></>;
-  }
+      )}
+      {compareState(states.hasError) && <p>Error...</p>}
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
@@ -130,7 +168,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const DataWrapper = styled.article`
+const DataWrapper = styled.article`
   @media (min-width: 900px) {
     display: flex;
     align-items: center;
@@ -157,7 +195,7 @@ const Flag = styled.div`
   }
 `;
 
-export const TextWrapper = styled.div`
+const TextWrapper = styled.div`
   @media (min-width: 500px) {
     display: flex;
     justify-content: space-between;
@@ -171,14 +209,15 @@ const CountryName = styled.h2`
   flex-basis: 100%;
 `;
 
-export const TextCol1 = styled.div`
+const TextCol1 = styled.div`
   margin-bottom: 40px;
 
   @media (min-width: 600px) {
     margin-right: 40px;
   }
 `;
-export const TextCol2 = styled.div`
+
+const TextCol2 = styled.div`
   margin-bottom: 40px;
 `;
 
