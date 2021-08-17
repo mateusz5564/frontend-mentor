@@ -1,24 +1,22 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const CountryCard = ({ country }) => {
-  return (
-    <Card>
-      <img src={country.flag} alt="" loading="lazy" />
-      <div className="info">
-        <h2>{country.name}</h2>
-        <p>
-          <span>Population:</span> {country.population}
-        </p>
-        <p>
-          <span>Region:</span> {country.region}
-        </p>
-        <p>
-          <span>Capital:</span> {country.capital}
-        </p>
-      </div>
-    </Card>
-  );
-};
+const CountryCard = ({ country }) => (
+  <Card>
+    <img src={country.flag} alt="" loading="lazy" />
+    <div className="info">
+      <h2>{country.name}</h2>
+      <p>
+        <span>Population:</span> {country.population.toLocaleString()}
+      </p>
+      <p>
+        <span>Region:</span> {country.region}
+      </p>
+      <p>
+        <span>Capital:</span> {country.capital}
+      </p>
+    </div>
+  </Card>
+);
 
 const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.element};
