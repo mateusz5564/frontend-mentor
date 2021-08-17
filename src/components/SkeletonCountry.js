@@ -1,43 +1,39 @@
-import SkeletonElement from "./SkeletonElement";
-import styled from "styled-components";
+import styled from 'styled-components';
+import SkeletonElement from './SkeletonElement';
 
-import { DataWrapper, TextWrapper, TextCol1, TextCol2 } from "../components/Country";
+const SkeletonCountry = ({ DataWrapper, TextWrapper, TextCol1, TextCol2 }) => (
+  <>
+    <DataWrapper>
+      <SkeletonImg />
+      <TextWrapper>
+        <SkeletonH2 />
+        <TextCol1>
+          <SkeletonInfo />
+          <SkeletonInfo />
+          <SkeletonInfo />
+          <SkeletonInfo />
+          <SkeletonInfo />
+        </TextCol1>
 
-const SkeletonCountry = () => {
-  return (
-    <>
-      <DataWrapper>
-        <SkeletonImg />
-        <TextWrapper>
-          <SkeletonH2 />
-          <TextCol1>
-            <SkeletonInfo />
-            <SkeletonInfo />
-            <SkeletonInfo />
-            <SkeletonInfo />
-            <SkeletonInfo />
-          </TextCol1>
+        <TextCol2>
+          <SkeletonInfo />
+          <SkeletonInfo />
+          <SkeletonInfo />
+        </TextCol2>
+        <SkeletonH3 />
+        <div>
+          <SkeletonTile />
+          <SkeletonTile />
+          <SkeletonTile />
+        </div>
+      </TextWrapper>
+    </DataWrapper>
+  </>
+);
 
-          <TextCol2>
-            <SkeletonInfo />
-            <SkeletonInfo />
-            <SkeletonInfo />
-          </TextCol2>
-          <SkeletonH3 />
-          <div>
-            <SkeletonTile />
-            <SkeletonTile />
-            <SkeletonTile />
-          </div>
-        </TextWrapper>
-      </DataWrapper>
-    </>
-  );
-};
-
-const SkeletonImg = styled(SkeletonElement).attrs(props => ({
-  margin: "0 0 20px",
-  width: "100%",
+const SkeletonImg = styled(SkeletonElement).attrs(() => ({
+  margin: '0 0 20px',
+  width: '100%',
 }))`
   min-height: 200px;
   aspect-ratio: 3 / 2;
@@ -57,32 +53,32 @@ const SkeletonImg = styled(SkeletonElement).attrs(props => ({
   }
 `;
 
-const SkeletonH2 = styled(SkeletonElement).attrs(props => ({
-  margin: "30px 0 20px",
-  width: "130px",
-  height: "2.5em",
+const SkeletonH2 = styled(SkeletonElement).attrs(() => ({
+  margin: '30px 0 20px',
+  width: '130px',
+  height: '2.5em',
 }))`
   flex-basis: 100%;
 `;
 
-const SkeletonInfo = styled(SkeletonElement).attrs(props => ({
-  margin: "10px 0",
-  width: "200px",
-  height: "1.5em",
+const SkeletonInfo = styled(SkeletonElement).attrs(() => ({
+  margin: '10px 0',
+  width: '200px',
+  height: '1.5em',
 }))``;
 
-const SkeletonH3 = styled(SkeletonElement).attrs(props => ({
-  margin: "10px 0 10px",
-  width: "130px",
-  height: "2.5em",
+const SkeletonH3 = styled(SkeletonElement).attrs(() => ({
+  margin: '10px 0 10px',
+  width: '130px',
+  height: '2.5em',
 }))`
   flex-basis: 100%;
 `;
 
-const SkeletonTile = styled(SkeletonElement).attrs(props => ({
-  margin: "7px 0 0",
-  width: "120px",
-  height: "30px",
+const SkeletonTile = styled(SkeletonElement).attrs(() => ({
+  margin: '7px 0 0',
+  width: '120px',
+  height: '30px',
 }))`
   justify-self: flex-start;
   display: inline-block;
