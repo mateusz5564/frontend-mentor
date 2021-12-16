@@ -4,7 +4,7 @@ const CountryCard = ({ country }) => (
   <Card>
     <img src={country.flag} alt="" loading="lazy" />
     <div className="info">
-      <h2>{country.name}</h2>
+      <h2 data-testid="name">{country.name}</h2>
       <p>
         <span>Population:</span> {country.population.toLocaleString()}
       </p>
