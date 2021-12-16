@@ -31,6 +31,7 @@
     "rules": {
       "no-console": "warn",
       "no-use-before-define": [1, {"functions": false}],
+      "no-unused-expressions": 1,
       "react/jsx-props-no-spreading": [1, {"custom": "ignore"}],
       "react/prop-types": [1],
       "prettier/prettier": [
