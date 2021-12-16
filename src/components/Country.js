@@ -67,21 +67,20 @@ const Country = () => {
   useEffect(() => {
     updateState(FETCH_COUNTRY);
     let countryObj;
-    fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+    fetch(`https://restcountries.com/v2/name/${name}`)
       .then(res => res.json())
       .then(countryJson => {
         countryObj = generateCountryObj(countryJson[0]);
-        const borderCountriesURL = countryObj.borders.join(';');
-        if (countryObj.borders.length !== 0) {
-          fetch(`https://restcountries.eu/rest/v2/alpha?codes=${borderCountriesURL}`)
+        if (countryObj.borders) {
+          fetch(`https://restcountries.com/v2/alpha?codes=${countryObj.borders.join(',')}`)
             .then(res => res.json())
             .then(borderCountriesJson => {
-              countryObj.borders =
-                borderCountriesJson.status === 400 ? [] : borderCountriesJson.map(borderCountry => borderCountry.name);
+              countryObj.borders = borderCountriesJson.map(borderCountry => borderCountry.name);
               setCountry(countryObj);
               updateState(FETCH_COUNTRY_SUCCESS);
             });
         } else {
+          countryObj.borders = null;
           setCountry(countryObj);
           updateState(FETCH_COUNTRY_SUCCESS);
         }
@@ -144,10 +143,12 @@ const Country = () => {
                 <span>Languages:</span> {country.languages.join(', ')}
               </p>
             </TextCol2>
-            <BorderCountries>
-              <h3>Border Countries:</h3>
-              <ul>{renderBorderCountries(country.borders)}</ul>
-            </BorderCountries>
+            {country.borders && (
+              <BorderCountries>
+                <h3>Border Countries:</h3>
+                <ul>{renderBorderCountries(country.borders)}</ul>
+              </BorderCountries>
+            )}
           </TextWrapper>
         </DataWrapper>
       )}

@@ -66,7 +66,7 @@ const Countries = () => {
 
   useEffect(() => {
     updateState(FETCH_COUNTRIES);
-    fetch('https://restcountries.eu/rest/v2/all')
+    fetch('https://restcountries.com/v2/all')
       .then(res => res.json())
       .then(json => {
         allCountries.current = json;
